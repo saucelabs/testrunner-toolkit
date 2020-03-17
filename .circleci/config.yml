@@ -1,0 +1,35 @@
+version: 2.1
+jobs:
+  setup:
+    docker:
+      - image: circleci/node:10.12
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Build Project
+          command: npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+  test:
+    docker:
+      - image: saucelabs/sauce-puppeteer-runner:latest
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Puppeteer Tests
+          command: |
+            saucectl run ./tests/demo.test.js
+workflows:
+  version: 2
+  default_workflow:
+    jobs:
+      - setup
+      - test:
+          requires:
+            - setup
