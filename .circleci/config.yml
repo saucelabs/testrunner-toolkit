@@ -11,11 +11,14 @@ jobs:
           command: npm install
       - run:
           name: Build Project
-          command: npm run build
+          command: |
+            npm run build
+            ls -al
       - persist_to_workspace:
           root: ~/app
           paths:
             - .
+            - ./node_modules
   test:
     working_directory: ~/app
     docker:
