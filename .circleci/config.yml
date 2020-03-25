@@ -24,6 +24,7 @@ jobs:
       - run:
           name: Puppeteer Tests
           command: |
+            /home/testrunner/entry.sh
             saucectl run ./tests/demo.test.js
 workflows:
   version: 2
