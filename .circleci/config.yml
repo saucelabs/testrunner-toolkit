@@ -22,13 +22,9 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: Start Xvfb
-          user: root
-          command: |
-            /home/testrunner/entry.sh
-      - run:
           name: Puppeteer Tests
           command: |
+            /home/testrunner/entry.sh
             saucectl run ./tests/demo.test.js
 workflows:
   version: 2
