@@ -21,10 +21,14 @@ jobs:
     
     steps:
 
-    - uses: actions/checkout@v1
-
-    - run: ls -al
-      working-directory: .
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        path: sauce-test
     
-    - run: sudo chown -R 1000:1000 "/github/home/.npm"
-    - run: npm install
+    - name: Build and Test
+      working-directory: sauce-test
+      run: |
+        ls -al
+        npm install
+
