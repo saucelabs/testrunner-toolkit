@@ -15,8 +15,8 @@ env:
 
 jobs:
   build-and-test:
-    container:
-      image: saucelabs/sauce-puppeteer-runner:latest
+    runs-on: ubuntu-latest
+    container: saucelabs/sauce-puppeteer-runner:latest
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js 10.x
