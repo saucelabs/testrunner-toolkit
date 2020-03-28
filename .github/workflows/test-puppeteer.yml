@@ -14,21 +14,20 @@ env:
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
 
 jobs:
-  build-and-test:
+  testrunner-job:
     runs-on: ubuntu-latest
     
-    container: saucelabs/sauce-puppeteer-runner:latest
-    
+    services:
+      testrunner:
+        image: saucelabs/sauce-puppeteer-runner:latest
+        env:
+          SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
+          SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+         
     steps:
-
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        path: sauce-test
+      - uses: actions/checkout@v2
     
-    - name: Build and Test
-      working-directory: sauce-test
-      run: |
-        ls -al
-        npm install
+      - run: docker cp ./tests/demo.test.js testrunner:/home/testrunner/tests
+      - run: docker exec testrunner saucectl run /home/testrunner/tests
+
 
