@@ -9,11 +9,14 @@ on:
   pull_request:
     branches: [ master ]
 
+env:
+  SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
+  SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+
 jobs:
-  
-  build:
-    runs-on: windows-latest
-    
+  build-and-test:
+    container:
+      image: saucelabs/sauce-puppeteer-runner:latest
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js 10.x
@@ -21,6 +24,5 @@ jobs:
       with:
         node-version: 10.x
     - run: npm install
+    - run: ls -al
     - run: npm test
-      env:
-        CI: true
