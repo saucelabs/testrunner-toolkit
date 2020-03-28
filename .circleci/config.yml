@@ -18,7 +18,6 @@ jobs:
           root: ~/app
           paths:
             - .
-            - ./node_modules
   test:
     working_directory: ~/app
     docker:
@@ -29,8 +28,6 @@ jobs:
       - run:
           name: Puppeteer Tests
           command: |
-            pwd
-            ls -al
             saucectl run ./tests/demo.test.js
 workflows:
   version: 2
