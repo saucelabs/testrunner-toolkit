@@ -17,25 +17,11 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     
-#    container: saucelabs/sauce-puppeteer-runner:latest
+    container: saucelabs/sauce-puppeteer-runner:latest
     
     steps:
-    - name: Trying Ridiculous Action
-      id: hello
-      uses: guinaut/sauce-puppeteer-runner@master
-      with:
-        who-to-greet: 'The Ridiculous Person'
-    - name: Get the time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
-      
-    - name: Checkout code
-      uses: actions/checkout@master
 
-    - name: Use Node.js 10.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 10.x
+    - uses: actions/checkout@v1
 
-    - run: npm install
     - run: ls -al
-    - run: npm test
+      working-directory: .
