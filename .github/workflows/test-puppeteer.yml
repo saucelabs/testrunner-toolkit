@@ -26,7 +26,5 @@ jobs:
     - run: ls -al
       working-directory: .
     
-    - run: |
-      sudo chown -R 1000:1000 "/github/home/.npm"
-      npm install
-      working-directory: .
+    - run: sudo chown -R 1000:1000 "/github/home/.npm"
+    - run: npm install
