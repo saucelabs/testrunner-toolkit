@@ -22,7 +22,7 @@ jobs:
     steps:
     - name: Trying Ridiculous Action
       id: hello
-      uses: guinaut/sauce-puppeteer-runner
+      uses: guinaut/sauce-puppeteer-runner@master
       with:
         who-to-greet: 'The Ridiculous Person'
     - name: Get the time
