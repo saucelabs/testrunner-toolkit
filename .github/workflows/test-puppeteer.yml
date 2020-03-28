@@ -25,3 +25,6 @@ jobs:
 
     - run: ls -al
       working-directory: .
+    
+    - run: npm install
+      working-directory: .
