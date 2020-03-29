@@ -13,7 +13,6 @@ jobs:
           name: Build Project
           command: |
             npm run build
-            ls -al
       - persist_to_workspace:
           root: ~/app
           paths:
