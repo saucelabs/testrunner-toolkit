@@ -18,11 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     container: saucelabs/sauce-puppeteer-runner:latest
          
-    steps:
-#      - uses: actions/checkout@v2    
+    steps:   
       - run: node -v
       - run: npm -v
       - run: ls -al
       - run: pwd
+      - uses: actions/checkout@v2
+      - run: ls -al
 
 
