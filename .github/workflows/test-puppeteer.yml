@@ -1,13 +1,13 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Sauce Pipline Browser Tests
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
-    branches: [ master ]
+  push:
+    branches:
+      - master
 
 env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
@@ -21,14 +21,11 @@ jobs:
     steps:
       # appears that checkout@v2 uses javascript which is not compatible 
       # with the included node version in the container image.
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
       - name: Checkout Code
         uses: actions/checkout@v1
       - name: Run Sauce Pipeline Tests
-        #run: sudo chown -R $USER:$(id -gn $USER) /github/home
+      # workaround to allow npm update after saucectl execution
+        run: sudo chown -R $USER:$(id -gn $USER) /github/home
         run: saucectl run ./tests/demo.test.js
 
 
