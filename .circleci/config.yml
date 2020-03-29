@@ -1,6 +1,7 @@
 version: 2.1
 jobs:
   setup:
+    working_directory: ~/app
     docker:
       - image: circleci/node:10.12
     steps:
@@ -10,17 +11,19 @@ jobs:
           command: npm install
       - run:
           name: Build Project
-          command: npm run build
+          command: |
+            npm run build
       - persist_to_workspace:
-          root: .
+          root: ~/app
           paths:
             - .
   test:
+    working_directory: ~/app
     docker:
       - image: saucelabs/sauce-puppeteer-runner:latest
     steps:
       - attach_workspace:
-          at: .
+          at: ~/app
       - run:
           name: Puppeteer Tests
           command: |
