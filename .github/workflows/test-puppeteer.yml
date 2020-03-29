@@ -21,11 +21,14 @@ jobs:
     steps:
       # appears that checkout@v2 uses javascript which is not compatible 
       # with the included node version in the container image.
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
       - name: Checkout Code
         uses: actions/checkout@v1
-      - run: sudo chown -R $USER:$(id -gn $USER) /github/home
-      - run: ls -al /github/home
       - name: Run Sauce Pipeline Tests
+        #run: sudo chown -R $USER:$(id -gn $USER) /github/home
         run: saucectl run ./tests/demo.test.js
 
 
