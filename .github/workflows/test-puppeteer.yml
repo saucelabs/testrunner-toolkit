@@ -16,16 +16,12 @@ env:
 jobs:
   testrunner-job:
     runs-on: ubuntu-latest
-    
-    services:
-      testrunner:
-        image: saucelabs/sauce-puppeteer-runner:latest
-        options: --name testrunner
+    container: saucelabs/sauce-puppeteer-runner:latest
          
     steps:
-      - uses: actions/checkout@v2
-    
-      - run: docker cp ./tests/demo.test.js testrunner:/home/testrunner/tests
-      - run: docker exec testrunner saucectl run /home/testrunner/tests
+#      - uses: actions/checkout@v2    
+      - run: node -version
+      - run: ls -al
+      - run: pwd
 
 
