@@ -20,7 +20,8 @@ jobs:
          
     steps:
 #      - uses: actions/checkout@v2    
-      - run: node -version
+      - run: node -v
+      - run: npm -v
       - run: ls -al
       - run: pwd
 
