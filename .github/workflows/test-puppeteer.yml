@@ -23,9 +23,11 @@ jobs:
       # with the included node version in the container image.
       - name: Checkout Code
         uses: actions/checkout@v1
-      - name: Run Sauce Pipeline Tests
-      # workaround to allow npm update after saucectl execution
+        
+      - name: Workaround for container permissions
         run: sudo chown -R $USER:$(id -gn $USER) /github/home
+        
+      - name: Run Sauce Pipeline Test
         run: saucectl run ./tests/demo.test.js
 
 
