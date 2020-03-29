@@ -18,12 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     container: saucelabs/sauce-puppeteer-runner:latest
          
-    steps:   
-      - run: node -v
-      - run: npm -v
-      - run: ls -al
-      - run: pwd
+    steps:
+      # appears that checkout@v2 uses javascript which is not compatible 
+      # with the included node version in the container image.
       - uses: actions/checkout@v1
       - run: ls -al
+      - run: saucectl run ./tests/demo.test.js
 
 
