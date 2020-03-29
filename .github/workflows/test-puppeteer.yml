@@ -21,8 +21,8 @@ jobs:
     steps:
       # appears that checkout@v2 uses javascript which is not compatible 
       # with the included node version in the container image.
-      - run: ls -al /
-      - run: sudo chown -R $USER:$(id -gn $USER) /
+      - run: ls -al /github
+      - run: sudo chown -R $USER:$(id -gn $USER) /github
       - uses: actions/checkout@v1
       - run: ls -al
       - run: saucectl run ./tests/demo.test.js
