@@ -1,14 +1,19 @@
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 describe('Test Login Page', () => {
   describe('Login page is constructed correctly', () => {
     let page;
 
     beforeAll( async() => {
+      await sleep(2000);
       page = (await browser.pages())[0];
-      await page.goto('https://the-internet.herokuapp.com/login');
     });
 
-    test('Page is availble', () => {
-      expect(page).toBeDefined();
+    test('Page is availble', async () => {
+      await page.goto('https://the-internet.herokuapp.com/login');
+      expect(await page.url()).toContain('login');
     });
 
     test('Username is available', async () => {
@@ -29,8 +34,8 @@ describe('Test Login Page', () => {
 
 
   describe('Login scenarios', () => {
-
     test('Bad credentials fail', async () => {
+      await sleep(2000);
       const page = (await browser.pages())[0];
       await page.goto('https://the-internet.herokuapp.com/login');
       await page.type('input#username', 'junk');
@@ -39,10 +44,10 @@ describe('Test Login Page', () => {
       const divAlert = await page.$('div#flash');
       const alertText = await page.evaluate(divAlert => divAlert.textContent, divAlert);
       expect(alertText).toContain("Your username is invalid!");
-
     });
 
     test('Good credentials pass', async () => {
+      await sleep(2000);
       const page = (await browser.pages())[0];
       await page.goto('https://the-internet.herokuapp.com/login');
       await page.type('input#username', 'tomsmith');
@@ -51,32 +56,23 @@ describe('Test Login Page', () => {
       const divAlert = await page.$('div#flash');
       expect(await page.url()).toContain('secure');
       expect(divAlert).not.toBeNull();
-
     });
-
   });
 
-
-
   describe('Logout scenario', () => {
-
     test('Can logout successfully', async () => {
+      await sleep(2000);
       const page = (await browser.pages())[0];
       await page.goto('https://the-internet.herokuapp.com/login');
       await page.type('input#username', 'tomsmith');
       await page.type('input#password', 'SuperSecretPassword!');
       await page.click('button[type="submit"]');
-
       await page.click('a[href="/logout"]');
-
       const divAlert = await page.$('div#flash');
       const alertText = await page.evaluate(divAlert => divAlert.textContent, divAlert);
-
       expect(await page.url()).toContain('login');
       expect(alertText).toContain("You logged out of the secure area!");
-
     });
-
   });
 
 
