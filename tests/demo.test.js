@@ -17,7 +17,7 @@ describe('Test Login Page', () => {
     });
 
     test('Username is available', async () => {
-      const usernameElement = await page.$('input#username-garbage');
+      const usernameElement = await page.$('input#username');
       expect(usernameElement).not.toBeNull();
     });
 
