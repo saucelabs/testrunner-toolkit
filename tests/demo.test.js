@@ -35,7 +35,6 @@ describe('Test Login Page', () => {
 
   describe('Login scenarios', () => {
     test('Bad credentials fail', async () => {
-      await sleep(2000);
       const page = (await browser.pages())[0];
       await page.goto('https://the-internet.herokuapp.com/login');
       await page.type('input#username', 'junk');
@@ -47,7 +46,6 @@ describe('Test Login Page', () => {
     });
 
     test('Good credentials pass', async () => {
-      await sleep(2000);
       const page = (await browser.pages())[0];
       await page.goto('https://the-internet.herokuapp.com/login');
       await page.type('input#username', 'tomsmith');
@@ -61,7 +59,6 @@ describe('Test Login Page', () => {
 
   describe('Logout scenario', () => {
     test('Can logout successfully', async () => {
-      await sleep(2000);
       const page = (await browser.pages())[0];
       await page.goto('https://the-internet.herokuapp.com/login');
       await page.type('input#username', 'tomsmith');
