@@ -2,7 +2,7 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-describe('Test Login Page', () => {
+describe('Test Herokuapp Login Page', () => {
   describe('Login page is constructed correctly', () => {
     let page;
 
