@@ -71,6 +71,4 @@ describe('Test Herokuapp Login Page', () => {
       expect(alertText).toContain("You logged out of the secure area!");
     });
   });
-
-
 });

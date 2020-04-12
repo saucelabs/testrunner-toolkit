@@ -25,6 +25,8 @@ capabilities:
 # uploaded to Sauce Labs.
 files:
   - ./tests/demo.test.js
+  - ./tests/sauce-swag-checkout.test.js
+  - ./tests/sauce-swag-login.test.js
   # - ../tests/wdio.conf.js
   # - ./tests/featureXYZ/**
   # - ./tests/pageObjects/**
