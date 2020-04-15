@@ -28,7 +28,7 @@ jobs:
           name: Puppeteer Tests
           command: |
             /home/testrunner/entry.sh
-            saucectl run -c ./.sauce/config.yaml
+            saucectl run -c ../.sauce/config.yaml
 workflows:
   version: 2
   default_workflow:

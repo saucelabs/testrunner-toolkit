@@ -29,6 +29,6 @@ jobs:
         run: sudo chown -R $USER:$(id -gn $USER) /github/home
         
       - name: Run Sauce Pipeline Test
-        run: saucectl run -c ./.sauce/config.yaml
+        run: saucectl run -c ../.sauce/config.yaml
 
 
