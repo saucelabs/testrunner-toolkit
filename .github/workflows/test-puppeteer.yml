@@ -29,10 +29,10 @@ jobs:
         run: sudo chown -R $USER:$(id -gn $USER) /github/home
         
       - name: Run Sauce Pipeline Test
+        uses: GabrielBB/xvfb-action@v1.0
         run: |
-          sudo apt-get install xvfb
           /home/testrunner/entry.sh &
           sleep 2
-          xvfb-run --auto-servernum saucectl run -c ./.sauce/config.yml
+          saucectl run -c ./.sauce/config.yml
 
 
