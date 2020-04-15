@@ -30,8 +30,9 @@ jobs:
         
       - name: Run Sauce Pipeline Test
         run: |
+          sudo apt-get install xvfb
           /home/testrunner/entry.sh &
-          sleep 5
-          saucectl run -c ./.sauce/config.yml
+          sleep 2
+          xvfb-run --auto-servernum saucectl run -c ./.sauce/config.yml
 
 
