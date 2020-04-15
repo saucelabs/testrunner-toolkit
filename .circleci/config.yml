@@ -30,7 +30,7 @@ jobs:
             /home/testrunner/entry.sh
             ls -la ./
             ls -la ../
-            saucectl run -c ../.sauce/config.yaml
+            saucectl run -c ./.sauce/config.yml
 workflows:
   version: 2
   default_workflow:
