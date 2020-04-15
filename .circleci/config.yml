@@ -28,7 +28,7 @@ jobs:
           name: Puppeteer Tests
           command: |
             /home/testrunner/entry.sh &
-            sleep 5
+            sleep 2
             saucectl run -c ./.sauce/config.yml
 workflows:
   version: 2

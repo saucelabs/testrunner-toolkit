@@ -29,11 +29,9 @@ jobs:
         run: sudo chown -R $USER:$(id -gn $USER) /github/home
         
       - name: Run Sauce Pipeline Test
-        uses: GabrielBB/xvfb-action@v1.0
-        with:
-          run: |
-            /home/testrunner/entry.sh &
-            sleep 2
-            saucectl run -c ./.sauce/config.yml
+        run: |
+          /home/testrunner/entry.sh &
+          sleep 2
+          saucectl run -c ./.sauce/config.yml
 
 
