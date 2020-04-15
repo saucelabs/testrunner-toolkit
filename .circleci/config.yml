@@ -26,7 +26,9 @@ jobs:
           at: ~/app
       - run:
           name: Running X virtual framebuffer
-          command: Xvfb -ac :99 -screen 0 1280x1024x16 +extension RANDR > /dev/null 2>&1
+          command: |
+            Xvfb :99 &
+            export DISPLAY=:99
           background: true
       - run:
           name: Puppeteer Tests
