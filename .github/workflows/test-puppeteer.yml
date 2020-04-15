@@ -30,9 +30,10 @@ jobs:
         
       - name: Run Sauce Pipeline Test
         uses: GabrielBB/xvfb-action@v1.0
-        run: |
-          /home/testrunner/entry.sh &
-          sleep 2
-          saucectl run -c ./.sauce/config.yml
+        with:
+          run: |
+            /home/testrunner/entry.sh &
+            sleep 2
+            saucectl run -c ./.sauce/config.yml
 
 
