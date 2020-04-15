@@ -25,16 +25,10 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
-          name: Running X virtual framebuffer
-          command: |
-            Xvfb :99 &
-            export DISPLAY=:99
-          background: true
-      - run:
           name: Puppeteer Tests
           command: |
-            /home/testrunner/entry.sh &
-            sleep 2
+            /home/testrunner/entry.sh
+            sleep 5
             saucectl run -c ./.sauce/config.yml
 workflows:
   version: 2
