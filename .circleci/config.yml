@@ -25,6 +25,10 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
+          name: Running X virtual framebuffer
+          command: Xvfb -ac :99 -screen 0 1280x1024x16 +extension RANDR > /dev/null 2>&1
+          background: true
+      - run:
           name: Puppeteer Tests
           command: |
             /home/testrunner/entry.sh &
