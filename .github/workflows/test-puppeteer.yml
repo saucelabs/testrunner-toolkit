@@ -30,8 +30,6 @@ jobs:
         
       - name: Run Sauce Pipeline Test
         run: |
-          /home/testrunner/entry.sh &
-          sleep 2
-          saucectl run -c ./.sauce/config.yml
+          sudo saucectl run -c ./.sauce/config.yml
 
 
