@@ -17,7 +17,7 @@ jobs:
           root: ~/app
           paths:
             - .
-  test:
+  test-puppeteer:
     working_directory: ~/app
     docker:
       - image: saucelabs/sauce-puppeteer-runner:latest
@@ -27,12 +27,26 @@ jobs:
       - run:
           name: Puppeteer Tests
           command: |
-            saucectl run -c ./.sauce/config.yml
+            saucectl run -c ./.sauce/puppeteer.yml
+  test-playwright:
+    working_directory: ~/app
+    docker:
+      - image: saucelabs/sauce-playwright-runner:latest
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Playwright Tests
+          command: |
+            saucectl run -c ./.sauce/playwright.yml
 workflows:
   version: 2
   default_workflow:
     jobs:
       - setup
-      - test:
+      - test-puppeteer:
+          requires:
+            - setup
+      - test-playwright:
           requires:
             - setup

@@ -24,9 +24,7 @@ capabilities:
 # Every file defined in this list will be bundled into a zip and
 # uploaded to Sauce Labs.
 files:
-  - ./tests/demo.test.js
-  - ./tests/sauce-swag-checkout.test.js
-  - ./tests/sauce-swag-login.test.js
+  - ./tests/playwright/demo.test.js
   # - ../tests/wdio.conf.js
   # - ./tests/featureXYZ/**
   # - ./tests/pageObjects/**
@@ -36,7 +34,7 @@ files:
 # build their own images as well
 image:
   # while a set of properties are defined by our Yaml format
-  base: saucelabs/sauce-puppeteer-runner
+  base: saucelabs/sauce-playwright-runner
   version: latest
   exec: wdio ./tests/wdio.conf.js
   # there can be a set of arbitrary options specific to the given image
