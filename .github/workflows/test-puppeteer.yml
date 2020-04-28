@@ -14,7 +14,7 @@ env:
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
 
 jobs:
-  testrunner-job:
+  puppeteer:
     runs-on: ubuntu-latest
     container:
       image: saucelabs/sauce-puppeteer-runner:latest
@@ -30,6 +30,6 @@ jobs:
         
       - name: Run Sauce Pipeline Test
         run: |
-          saucectl run -c ./.sauce/config.yml
+          saucectl run -c ./.sauce/puppeteer.yml
 
 
