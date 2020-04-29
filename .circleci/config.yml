@@ -17,6 +17,8 @@ jobs:
           root: ~/app
           paths:
             - .
+  
+  # Puppeteer Example
   test-puppeteer:
     working_directory: ~/app
     docker:
@@ -28,6 +30,8 @@ jobs:
           name: Puppeteer Tests
           command: |
             saucectl run -c ./.sauce/puppeteer.yml
+  
+  # Playwright Example
   test-playwright:
     working_directory: ~/app
     docker:
@@ -39,6 +43,7 @@ jobs:
           name: Playwright Tests
           command: |
             saucectl run -c ./.sauce/playwright.yml
+
 workflows:
   version: 2
   default_workflow:
