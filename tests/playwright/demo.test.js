@@ -2,7 +2,7 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-describe('Test  FOOOOABRHerokuapp Login Page', () => {
+describe('Herokuapp Login Page', () => {
   describe('Login page is constructed correctly', () => {
     test('Page is availble', async () => {
       await page.goto('https://the-internet.herokuapp.com/login');
@@ -30,7 +30,7 @@ describe('Test  FOOOOABRHerokuapp Login Page', () => {
   });
 
 
-  describe('Login scenarios', () => {
+  describe.skip('Login scenarios', () => {
     test('Bad credentials fail', async () => {
       await page.goto('https://the-internet.herokuapp.com/login');
       await page.type('input#username', 'junk');
@@ -54,7 +54,7 @@ describe('Test  FOOOOABRHerokuapp Login Page', () => {
     });
   });
 
-  describe('Logout scenario', () => {
+  describe.skip('Logout scenario', () => {
     test('Can logout successfully', async () => {
       await page.goto('https://the-internet.herokuapp.com/login');
       await page.type('input#username', 'tomsmith');
