@@ -1,9 +1,8 @@
 # BETA: Sauce Labs Pipeline Testing Examples
 
 <!-- [START badges] -->
-![Sauce Pipeline Browser Tests](https://github.com/guinaut/testrunner-demo/workflows/Sauce%20Pipeline%20Browser%20Tests/badge.svg)
-[![Guinaut](https://circleci.com/gh/guinaut/testrunner-demo.svg?style=svg)](https://app.circleci.com/pipelines/github/guinaut/testrunner-demo)
-
+![Sauce Pipeline Browser Tests](https://github.com/saucelabs/saucectl/workflows/Sauce%20Pipeline%20Browser%20Tests/badge.svg)
+[![Guinaut](https://circleci.com/gh/saucelabs/saucectl.svg?style=svg)](https://app.circleci.com/pipelines/github/saucelabs/saucectl)
 <!-- [END badges] -->
 
 
