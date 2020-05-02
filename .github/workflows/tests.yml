@@ -48,5 +48,3 @@ jobs:
       - name: Run Sauce Pipeline Test
         run: |
           saucectl run -c ./.sauce/playwright.yml
-
-

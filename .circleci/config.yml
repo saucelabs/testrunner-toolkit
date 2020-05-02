@@ -30,7 +30,7 @@ jobs:
           name: Puppeteer Tests
           command: |
             saucectl run -c ./.sauce/puppeteer.yml
-  
+
   # Playwright Example
   test-playwright:
     working_directory: ~/app
