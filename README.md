@@ -13,33 +13,33 @@ testing in CI with Sauce Labs.
 <!-- [START gettingstarted] -->
 
 ## Install
-```
+```shell script
 $ curl -L https://git.io/Jf3xX | bash
 ```
 If you want to get the install script and get the binary manually, you can use the following instead
-```
+```shell script
 $ curl -fsSL -o get_saucectl.sh https://git.io/Jf3xX
 $ chmod 700 get_saucectl.sh
 $ ./get_saucectl.sh
 ```
 
 ## Getting Started
-The saucectl comes with a handy command to get up and running quickly.
+The saucectl comes with a handy command to get up and running quickly.  The `--new` command will create a config.yml and an example test that you can start working from.
+```shell script
+$ saucectl --new
 ```
-$ saucectl -new
-```
-This command will create a config.yml and an example test that you can start working from.
+
 
 ### Connecting to Sauce Labs
-The Sauce Testrunner Toolkit requires your Sauce Labs credentials to connect and post test results.  If you are
+The Sauce Testrunner Toolkit requires your Sauce Labs user name and access key to connect to and post test results.  If you are
 using a cloud CI/CD tool, we strongly suggest you secure these secrets using secrets or context variables.  You
-can get your SAUCE_ACCESS_KEY from Account > User Settings in Sauce Labs.  If you don't have an account, you can
+can get your `SAUCE_ACCESS_KEY` from Account > User Settings in Sauce Labs.  If you don't have an account, you can
 start a [free trial](https://saucelabs.com/sign-up)
 - SAUCE_USERNAME
 - SAUCE_ACCESS_KEY
  
 ### config.yml
-The config.yml contains information about the framework you want
+The `config.yml` contains information about the framework you want
  to use, the tests you want to run, where you want to run your tests, and how you want to run them.
 ```yaml
 apiVersion: v1
@@ -54,10 +54,19 @@ capabilities:
 files:
   - ./tests/**
 ```
+
+### Run a Test
+Running your tests is as simple as `saucectl run`.  You can pass unique configuration to the saucectl to execute
+subsets of tests through `saucectl run -c ./path/to/config.yml`.  By default it is assumed that config.yml is
+located in a hidden folder called `.sauce`.
+```shell script
+$ saucectl run
+```
+
 <!-- [END gettingstarted] -->
 
 <!-- [START abouttherepo] -->
-## Examples?
+## Examples
 
 The examples here show how Pipeline testing can be used. Give it a try and find your own use cases.
 <br />
@@ -85,7 +94,7 @@ describe('Herokuapp login page is constructed correctly', () => {
 
 
 <!-- [START about] -->
-## More about the Sauce Labs Testrunner Toolkit Beta?
+## More About the Sauce Labs Testrunner Toolkit Beta
 
 Native javascript testing is achieved through combination of Sauce Labs, Jest, and the javascript framework of
  your choice.  In the current beta, the toolkit supports Puppeteer and Playwright.  This approach gives you
@@ -99,7 +108,6 @@ Native javascript testing is achieved through combination of Sauce Labs, Jest, a
 * To learn more about Jest, visit https://jestjs.io/
 * To learn more about the Google Puppeteer project, visit https://developers.google.com/web/tools/puppeteer
 * To learn more about the Microsoft Playwright project, visit https://github.com/microsoft/playwright
-* This repo includes examples of CI/CD in GitHub Actions Workflows and CircleCI Pipelines.  Although the two 
+* This repo includes examples of CI/CD in [GitHub Actions Workflows](https://help.github.com/en/actions) and [CircleCI Pipelines](https://circleci.com/docs/2.0/configuration-reference/).  Although the two 
   CI examples are included, the mechanism works with any CI/CD provider that supports containers.
-test platform
 <!-- [END about] -->
