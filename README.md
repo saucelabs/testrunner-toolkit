@@ -1,45 +1,107 @@
-# BETA: Sauce Labs Pipeline Testing Examples
+
+#Sauce Labs  Testrunner Toolkit (Beta!)
 
 <!-- [START badges] -->
-![Sauce Pipeline Browser Tests](https://github.com/saucelabs/saucectl/workflows/Sauce%20Pipeline%20Browser%20Tests/badge.svg)
-[![Guinaut](https://circleci.com/gh/saucelabs/saucectl.svg?style=svg)](https://app.circleci.com/pipelines/github/saucelabs/saucectl)
+![GitHub Actions Status](https://github.com/saucelabs/saucectl/workflows/Sauce%20Pipeline%20Browser%20Tests/badge.svg)
+[![CircleCI Status](https://circleci.com/gh/saucelabs/saucectl.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/saucelabs/saucectl)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://saucelabs.com/how-to-contribute.html#your-first-pull-request)
+[![Chromium version](https://img.shields.io/badge/chromium-84.0.4131.0-blue.svg?logo=google-chrome)](https://www.chromium.org/Home)
 <!-- [END badges] -->
 
+Sauce Labs  Testrunner Toolkit is a javascript native approach to performing headed and headless browser 
+testing in CI with Sauce Labs.
 
-> Sauce Labs Pipeline Testing is a javascript native approach to performing headed and headless browser testing with Sauce Labs.
+<!-- [START gettingstarted] -->
 
-<!-- [START usecases] -->
-###### How does this work?
-
-Native javascript testing is achieved through Jest + Puppeteer + Sauce Labs.  You get the power and expressiveness of Jest, the control of Puppeteer, and the integrated test platform of Sauce Labs.
-
-* To learn more about Jest, visit https://jestjs.io/
-* To learn more about the Google project Puppeteer, visit https://developers.google.com/web/tools/puppeteer
-
-###### What is in this example?
-
-The examples here show how Pipeline testing can be used. Give it a try and find your own use cases.
-
-* Included are instructions for setting up CI/CD using either GitHub Actions or CircleCI Workflows.  This mechanism works with any CI/CD provider that supports containers.
-* Set of example browser tests that demonstrate how you could use Pipeline Testing for browser validation
-* Mechanism to populate Sauce Labs and leverage the reporting, failure analysis and other tools of a unified test platform
-<!-- [END usecases] -->
-
-<!-- [START installing] -->
-## Installing `saucectl` From Script
-
-`saucectl` has an installer script that will automatically grab the latest version of `saucectl` and install it locally.
-
-You can fetch that script, and then execute it locally. It's well documented so that you can read through it and understand what it is doing before you run it.
-
-```sh
+## Install
+```
+$ curl -L https://git.io/Jf3xX | bash
+```
+If you want to get the install script and get the binary manually, you can use the following instead
+```
 $ curl -fsSL -o get_saucectl.sh https://git.io/Jf3xX
 $ chmod 700 get_saucectl.sh
 $ ./get_saucectl.sh
 ```
 
-Yes, you can `curl -L https://git.io/Jf3xX | bash` that if you want to live on the edge.
-<!-- [END installing] -->
+## Getting Started
+The saucectl comes with a handy command to get up and running quickly.
+```
+$ saucectl -new
+```
+This command will create a config.yml and an example test that you can start working from.  More about the
+ saucectl config file can be found here.  The config.yml contains information about the framework you want
+ to use, the tests you want to run, where you want to run your tests, and how you want to run them.  To just
+ get started, all you need is the following:
 
-<!-- [START getstarted] -->
-<!-- [END getstarted] -->
+### Connecting to Sauce Labs
+The Sauce Testrunner Toolkit requires your Sauce Labs credentials to connect and post test results.  If you are
+using a cloud CI/CD tool, we strongly suggest you secure these secrets using secrets or context variables.  You
+can get your SAUCE_ACCESS_KEY from Account > User Settings in Sauce Labs.  If you don't have an account, you can
+start a [free trial](https://saucelabs.com/sign-up)
+- SAUCE_USERNAME
+- SAUCE_ACCESS_KEY
+ 
+### config.yml
+```
+apiVersion: v1
+kind: Test
+metadata:
+  name: Example Test
+  build: $GITHUB_RUN_ID
+capabilities:
+  - browserName: Chrome
+    platformName: Windows 10
+    browserVersion: latest
+files:
+  - ./tests/**
+```
+<!-- [END gettingstarted] -->
+
+<!-- [START abouttherepo] -->
+## Examples?
+
+The examples here show how Pipeline testing can be used. Give it a try and find your own use cases.
+<br />
+####Puppeteer Snippet:
+```js
+describe('Herokuapp login page is constructed correctly', () => {
+    page = (await browser.pages())[0]
+    test('Page is availble', async () => {
+      await page.goto('https://the-internet.herokuapp.com/login');
+      expect(await page.url()).toContain('login');
+    });
+});
+```
+
+####Playwright Snippet:
+```js
+  describe('Herokuapp login page is constructed correctly', () => {
+    test('Page is availble', async () => {
+      await page.goto('https://the-internet.herokuapp.com/login');
+      expect(await page.url()).toContain('login');
+    });
+  });
+```
+<!-- [END abouttherepo] -->
+
+
+<!-- [START about] -->
+## More about the Sauce Labs Testrunner Toolkit Beta?
+
+Native javascript testing is achieved through combination of Sauce Labs, Jest, and the javascript framework of
+ your choice.  In the current beta, the toolkit supports Puppeteer and Playwright.  This approach gives you
+ the power and expressiveness of Jest with the dashboards, infrastructure, and analytics of Sauce Labs.  The
+ specific framework you want to use to perform the tests should be based on the types of tests you need to run
+ and the environment in which you are running them.  In this beta, we are starting with an experiment to enable
+ you to run tests with low latency in your existing CI pipeline.  By including the Sauce Labs credentials, we
+ will automatically scoop up the logs, results, and videos from the test and post them to Sauce Labs.  You can
+ then review, share, and compare those results just as you would from any other test on Sauce Labs.
+
+* To learn more about Jest, visit https://jestjs.io/
+* To learn more about the Google Puppeteer project, visit https://developers.google.com/web/tools/puppeteer
+* To learn more about the Microsoft Playwright project, visit https://github.com/microsoft/playwright
+* This repo includes examples of CI/CD in GitHub Actions Workflows and CircleCI Pipelines.  Although the two 
+  CI examples are included, the mechanism works with any CI/CD provider that supports containers.
+test platform
+<!-- [END about] -->
