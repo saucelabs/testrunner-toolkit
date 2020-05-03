@@ -28,10 +28,7 @@ The saucectl comes with a handy command to get up and running quickly.
 ```
 $ saucectl -new
 ```
-This command will create a config.yml and an example test that you can start working from.  More about the
- saucectl config file can be found here.  The config.yml contains information about the framework you want
- to use, the tests you want to run, where you want to run your tests, and how you want to run them.  To just
- get started, all you need is the following:
+This command will create a config.yml and an example test that you can start working from.
 
 ### Connecting to Sauce Labs
 The Sauce Testrunner Toolkit requires your Sauce Labs credentials to connect and post test results.  If you are
@@ -42,6 +39,8 @@ start a [free trial](https://saucelabs.com/sign-up)
 - SAUCE_ACCESS_KEY
  
 ### config.yml
+The config.yml contains information about the framework you want
+ to use, the tests you want to run, where you want to run your tests, and how you want to run them.
 ```
 apiVersion: v1
 kind: Test
