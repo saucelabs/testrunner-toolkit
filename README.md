@@ -61,7 +61,7 @@ files:
 
 The examples here show how Pipeline testing can be used. Give it a try and find your own use cases.
 <br />
-####Puppeteer Snippet:
+#### Puppeteer Snippet:
 ```js
 describe('Herokuapp login page is constructed correctly', () => {
     page = (await browser.pages())[0]
@@ -72,7 +72,7 @@ describe('Herokuapp login page is constructed correctly', () => {
 });
 ```
 
-####Playwright Snippet:
+#### Playwright Snippet:
 ```js
   describe('Herokuapp login page is constructed correctly', () => {
     test('Page is availble', async () => {
