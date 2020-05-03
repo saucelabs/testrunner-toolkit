@@ -130,7 +130,7 @@ There is a lot we can imagine doing next.  It starts with hearing from you.
 The Sauce Labs Test Runner is part of our commitment to a world of digital confidence where each of our digital
  lives and experiences are magical.  If you are thinking about getting involved, please do.  This repo is focused
  on helping people learn how to test their user experience.  More is welcome. 
- * Contribution guidelines
- * Code of conduct
+ * [Contribution guidelines](https://github.com/saucelabs/saucectl/blob/master/CONTRIBUTING.md)
+ * [Code of conduct](https://github.com/saucelabs/saucectl/blob/master/CODE_OF_CONDUCT.md)
  
 <!-- [END contribution] -->
