@@ -41,7 +41,7 @@ start a [free trial](https://saucelabs.com/sign-up)
 ### config.yml
 The config.yml contains information about the framework you want
  to use, the tests you want to run, where you want to run your tests, and how you want to run them.
-```
+```yaml
 apiVersion: v1
 kind: Test
 metadata:
