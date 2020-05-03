@@ -1,5 +1,4 @@
-
-#Sauce Labs  Testrunner Toolkit (Beta!)
+# Sauce Labs  Testrunner Toolkit (Beta!)
 
 <!-- [START badges] -->
 ![GitHub Actions Status](https://github.com/saucelabs/saucectl/workflows/Sauce%20Pipeline%20Browser%20Tests/badge.svg)
