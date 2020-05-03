@@ -33,12 +33,12 @@ The examples here show how Pipeline testing can be used. Give it a try and find 
 You can fetch that script, and then execute it locally. It's well documented so that you can read through it and understand what it is doing before you run it.
 
 ```sh
-$ curl -fsSL -o get_saucectl.sh https://git.io/Jf3oj
+$ curl -fsSL -o get_saucectl.sh https://git.io/Jf3xX
 $ chmod 700 get_saucectl.sh
 $ ./get_saucectl.sh
 ```
 
-Yes, you can `curl -L https://git.io/Jf3oj | bash` that if you want to live on the edge.
+Yes, you can `curl -L https://git.io/Jf3xX | bash` that if you want to live on the edge.
 <!-- [END installing] -->
 
 <!-- [START getstarted] -->
