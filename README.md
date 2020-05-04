@@ -78,7 +78,7 @@ The examples here show how Pipeline testing can be used. Give it a try and find 
 ```js
 describe('Herokuapp login page is constructed correctly', () => {
     test('Page is available', async () => {
-      page = (await browser.pages())[0]
+      const page = (await browser.pages())[0]
       await page.goto('https://the-internet.herokuapp.com/login');
       expect(await page.url()).toContain('login');
     });
