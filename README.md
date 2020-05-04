@@ -64,7 +64,7 @@ image:
 ### Run a Test
 Running your tests is as simple as `saucectl run` if you are using the `./sauce/config.yml` convention.  Otherwise, You
  can pass unique configuration to the saucectl to execute subsets of tests through `saucectl run -c ./path/to/config.yml`.
-```shell script
+```sh
 $ saucectl run
 ```
 <!-- [END gettingstarted] -->
@@ -73,12 +73,12 @@ $ saucectl run
 ## Examples
 
 The examples here show how Pipeline testing can be used. Give it a try and find your own use cases.
-<br />
+
 #### Puppeteer Snippet:
 ```js
 describe('Herokuapp login page is constructed correctly', () => {
-    page = (await browser.pages())[0]
     test('Page is available', async () => {
+      page = (await browser.pages())[0]
       await page.goto('https://the-internet.herokuapp.com/login');
       expect(await page.url()).toContain('login');
     });
