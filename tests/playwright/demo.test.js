@@ -4,7 +4,7 @@ function sleep(ms) {
 
 describe('Herokuapp Login Page', () => {
   describe('Login page is constructed correctly', () => {
-    test('Page is availble', async () => {
+    test('Page is available', async () => {
       await page.goto('https://the-internet.herokuapp.com/login');
       expect(await page.url()).toContain('login');
       await sleep(2000)

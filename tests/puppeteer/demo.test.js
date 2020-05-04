@@ -11,7 +11,7 @@ describe('Test Herokuapp Login Page', () => {
       page = (await browser.pages())[0];
     });
 
-    test('Page is availble', async () => {
+    test('Page is available', async () => {
       await page.goto('https://the-internet.herokuapp.com/login');
       expect(await page.url()).toContain('login');
     });
