@@ -31,10 +31,10 @@ $ ./get_saucectl.sh
 ```
 
 ## Getting Started
-The saucectl comes with a handy command to get up and running quickly. The `--new` command will create a config.yml and an example test that you can start working from.
+The saucectl comes with a handy command to get up and running quickly. The `new` command will create a config.yml and an example test that you can start working from.
 
 ```sh
-$ saucectl --new
+$ saucectl new
 ```
 
 ### Connecting to Sauce Labs
@@ -45,7 +45,7 @@ To authenticate yourself the following environment variables need to be set:
 - SAUCE_USERNAME
 - SAUCE_ACCESS_KEY
 
-You export them as follows:
+You can export them as follows:
 
 ```sh
 $ export SAUCE_USERNAME=<your-username>
