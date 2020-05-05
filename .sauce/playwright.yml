@@ -10,17 +10,6 @@ metadata:
     - release team
     - other tag
   build: Release $CI_COMMIT_SHORT_SHA
-# define capabilities as part of the yaml to allow auto sharding
-capabilities:
-  - browserName: Chrome
-    platformName: Windows 10
-    browserVersion: latest
-  - browserName: Safari
-    platformName: iOS
-    platformVersion: 13
-    browserVersion: latest
-    appiumVersion: 1.19.*
-  - ...
 # Every file defined in this list will be bundled into a zip and
 # uploaded to Sauce Labs.
 files:

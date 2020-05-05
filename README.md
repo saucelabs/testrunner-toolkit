@@ -16,6 +16,7 @@ testing in a CI with Sauce Labs.
 
 - [Docker](https://docs.docker.com/get-docker/) installed
 - Make sure the Docker daemon is running (e.g. `docker info` works in your terminal)
+- A [Sauce Labs](https://saucelabs.com/) account, if you don't have one, start a [free trial](https://saucelabs.com/sign-up)
 
 
 ## Install
@@ -32,8 +33,8 @@ or via our one line installer:
 curl -L https://git.io/Jf3xX | bash
 ```
 
-Would you like to inspect our one line installer contents?
-Download it and have a look:
+Would you like to inspect the content of our one line installer?
+Download it, have a look and execute it:
 
 ```sh
 curl -fsSL -o get_saucectl.sh https://git.io/Jf3xX
@@ -41,44 +42,63 @@ chmod 700 get_saucectl.sh
 ./get_saucectl.sh
 ```
 
-## Getting Started
+## Connect to Sauce Labs
+
+A Sauce Labs user name and access key are needed to post the test results. 
+
+To authenticate yourself, the following environment variables need to be set:
+
+- `SAUCE_USERNAME`
+- `SAUCE_ACCESS_KEY`
+
+You can export them as follows:
+
+```sh
+export SAUCE_USERNAME=<your-username>
+export SAUCE_ACCESS_KEY=<your-access-key>
+```
+
+If you are using a cloud CI/CD tool, we strongly suggest to protect these values
+through secrets or context variables. You can get your `SAUCE_ACCESS_KEY` from
+Account > User Settings in [Sauce Labs](https://saucelabs.com/).
+
+
+## Getting started
 
 ```sh
 saucectl new
 ```
 
-This will create a `config.yml` under the `.sauce` directory and an example
-test under the `tests` directory, where you can start working from.
+This command will ask you to choose a framework between 
+[Puppeteer](https://github.com/puppeteer/puppeteer) and
+[Playwright](https://github.com/microsoft/playwright). 
 
-### Connecting to Sauce Labs
-The Sauce Testrunner Toolkit requires your Sauce Labs user name and access key to connect to and post test results. If you are using a cloud CI/CD tool, we strongly suggest you secure these secrets using secrets or context variables. You can get your `SAUCE_ACCESS_KEY` from Account > User Settings in Sauce Labs. If you don't have an account, you can start a [free trial](https://saucelabs.com/sign-up).
+After that, a `./sauce/config.yml` file and an example test under
+the `tests` directory will be created, where you can start working from.
 
-To authenticate yourself the following environment variables need to be set:
-
-- SAUCE_USERNAME
-- SAUCE_ACCESS_KEY
-
-You can export them as follows:
+### Run your first test
 
 ```sh
-$ export SAUCE_USERNAME=<your-username>
-$ export SAUCE_ACCESS_KEY=<your-access-key>
+saucectl run
 ```
 
-### Configuration
-The saucectl requires a configuration file to know how to run and what framework to use. By convention saucectl will look for your configuration at `.sauce/config.yml`. If you are using more than one framework or want to uniquely configure subsets of tests, you can use any name for the configuration file. For example, this repo has two configs. One called `puppeteer.yml` and the other `playwright.yml`.
+This command will run the example test based on the `./sauce/config.yml` file.
+
+## Configuration
+`saucectl` requires a configuration file to know what tests to run and what
+framework to use. By default, `.sauce/config.yml` will be the place where
+`saucectl` will look for its configuration.
 
 ```yaml
 # Simple puppeteer example config
 apiVersion: v1
-kind: Test
 metadata:
-  name: Example Test
-  build: $GITHUB_RUN_ID
-capabilities:
-  - browserName: Chrome
-    platformName: Windows 10
-    browserVersion: latest
+  name: Feature XYZ
+  tags:
+    - e2e
+    - release team
+    - other tag
+  build: Release $CI_COMMIT_SHORT_SHA
 files:
   - ./tests/**
 image:
@@ -86,51 +106,72 @@ image:
   version: latest
 ```
 
-### Run a Test
-Running your tests is as simple as `saucectl run` if you are using the `./sauce/config.yml` convention. Otherwise, You can pass unique configuration to the saucectl to execute subsets of tests through `saucectl run -c ./path/to/config.yml`.
+If you wish to use more than one framework, or to configure different sets of
+tests separately, you could use any name for the configuration file, and
+specify it through `saucectl run -c ./path/to/config.yml`.
 
-```sh
-$ saucectl run
-```
+As an example, this repository uses two configurations for its pipeline. One
+for [Puppeteer](./.sauce/puppeteer.yml), and one for [Playwright](./.sauce/playwright.yml).
+
 <!-- [END gettingstarted] -->
 
 <!-- [START examples] -->
 ## Examples
 
-The examples here show how Pipeline testing can be used. Give it a try and find your own use cases.
+The examples here show how Pipeline testing can be used. Try them and find your own use cases.
 
 #### Puppeteer Snippet:
 ```js
-describe('Herokuapp login page is constructed correctly', () => {
-  test('Page is available', async () => {
-    const page = (await browser.pages())[0]
-    await page.goto('https://the-internet.herokuapp.com/login');
-    expect(await page.url()).toContain('login');
-  });
+describe('saucectl demo test', () => {
+	test('should verify title of the page', async () => {
+		const page = (await browser.pages())[0]
+		await page.goto('https://www.saucedemo.com/');
+		expect(await page.title()).toBe('Swag Labs');
+	});
 });
 ```
 
 #### Playwright Snippet:
 ```js
-describe('Herokuapp login page is constructed correctly', () => {
-  test('Page is available', async () => {
-    await page.goto('https://the-internet.herokuapp.com/login');
-    expect(await page.url()).toContain('login');
-  });
+describe('saucectl demo test', () => {
+	test('should verify title of the page', async () => {
+		await page.goto('https://www.saucedemo.com/');
+		expect(await page.title()).toBe('Swag Labs');
+	});
 });
 ```
 <!-- [END examples] -->
 
 
 <!-- [START about] -->
-## More About the Sauce Labs Testrunner Toolkit Beta
+## More about the Sauce Labs Testrunner Toolkit ![BETA](https://img.shields.io/badge/beta!-blue?style=for-the-badge)
 
-Native javascript testing is achieved through combination of Sauce Labs, Jest, and the javascript framework of your choice. In the current beta, the toolkit supports Puppeteer and Playwright. This approach gives you the power and expressiveness of Jest with the dashboards, infrastructure, and analytics of Sauce Labs. The specific framework you want to use to perform the tests should be based on the types of tests you need to run and the environment in which you are running them. In this beta, we are starting with an experiment to enable you to run tests with low latency in your existing CI pipeline. By including the Sauce Labs credentials, we will automatically scoop up the logs, results, and videos from the test and post them to Sauce Labs. You can then review, share, and compare those results just as you would from any other test on Sauce Labs.
+Native JavaScript testing is achieved through the combination of Sauce Labs, Jest, and the
+JavaScript framework of your choice. In the current beta, the toolkit supports 
+[Puppeteer](https://github.com/puppeteer/puppeteer) and 
+[Playwright](https://github.com/microsoft/playwright). This approach gives you the power and expressiveness of Jest with the dashboards, infrastructure, and analytics of 
+[Sauce Labs](https://saucelabs.com/). 
 
-* To learn more about Jest, visit https://jestjs.io/
-* To learn more about the Google Puppeteer project, visit https://developers.google.com/web/tools/puppeteer
-* To learn more about the Microsoft Playwright project, visit https://github.com/microsoft/playwright
-* This repo includes examples of CI/CD in [GitHub Actions Workflows](https://help.github.com/en/actions) and [CircleCI Pipelines](https://circleci.com/docs/2.0/configuration-reference/). Although the two CI examples are included, the mechanism works with any CI/CD provider that supports containers.
+The specific framework you want to use to for testing should be based on the types of tests you
+need to run and the environment in which you are running them. In this beta you will be able to
+run tests in your existing CI pipeline and benefit from the low latency. 
+
+When tests are completed, logs, results, and videos will be uploaded to Sauce Labs with your
+credentials. After that, you can review, share, and analyse those results just as you would from any other test executed on Sauce Labs.
+
+To learn more about:
+* Jest, visit https://jestjs.io/
+* The Google Puppeteer project, visit https://developers.google.com/web/tools/puppeteer
+* The Microsoft Playwright project, visit https://github.com/microsoft/playwright
+
+### Using `saucectl` in your CI/CD pipeline
+
+This repository includes examples of CI/CD in 
+[GitHub Actions Workflows](https://help.github.com/en/actions) and 
+[CircleCI Pipelines](https://circleci.com/docs/2.0/configuration-reference/). Although the 
+[GitHub Actions](./.github/workflows/tests.yml) and [CircleCI](./.circleci/config.yml) 
+examples are included, the mechanism works with any CI/CD provider that supports containers.
+
 <!-- [END about] -->
 
 <!-- [START collaboration] -->
