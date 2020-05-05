@@ -18,6 +18,14 @@ The Sauce Labs Testrunner Toolkit requires [Docker](https://www.docker.com/) to 
 
 ## Install
 
+Using NPM:
+
+```sh
+$ npm i -g saucectl
+```
+
+or via curl:
+
 ```sh
 $ curl -L https://git.io/Jf3xX | bash
 ```
