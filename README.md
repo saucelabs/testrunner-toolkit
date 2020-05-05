@@ -1,4 +1,4 @@
-# Sauce Labs  Testrunner Toolkit (Beta!)
+# Sauce Labs  Testrunner Toolkit ![BETA](https://img.shields.io/badge/beta!-blue?style=for-the-badge)
 
 <!-- [START badges] -->
 ![GitHub Actions Status](https://github.com/saucelabs/saucectl/workflows/Sauce%20Pipeline%20Browser%20Tests/badge.svg)
@@ -7,43 +7,48 @@
 [![Chromium version](https://img.shields.io/badge/chromium-84.0.4131.0-blue.svg?logo=google-chrome)](https://www.chromium.org/Home)
 <!-- [END badges] -->
 
-Sauce Labs Testrunner Toolkit is a javascript native approach to performing headed and headless browser 
-testing in CI with Sauce Labs.
+Sauce Labs Testrunner Toolkit is a JavaScript native approach to perform browser 
+testing in a CI with Sauce Labs.
 
 <!-- [START gettingstarted] -->
 
 ## Requirements
 
-The Sauce Labs Testrunner Toolkit requires [Docker](https://www.docker.com/) to be installed on your system. For more information on how to install Docker visit the [Docker Documentation](https://docs.docker.com/get-docker/) pages.
+- [Docker](https://docs.docker.com/get-docker/) installed
+- Make sure the Docker daemon is running (e.g. `docker info` works in your terminal)
+
 
 ## Install
 
 Using NPM:
 
 ```sh
-$ npm i -g saucectl
+npm i -g saucectl
 ```
 
-or via curl:
+or via our one line installer:
 
 ```sh
-$ curl -L https://git.io/Jf3xX | bash
+curl -L https://git.io/Jf3xX | bash
 ```
 
-If you want to get the install script and get the binary manually, you can use the following instead
+Would you like to inspect our one line installer contents?
+Download it and have a look:
 
 ```sh
-$ curl -fsSL -o get_saucectl.sh https://git.io/Jf3xX
-$ chmod 700 get_saucectl.sh
-$ ./get_saucectl.sh
+curl -fsSL -o get_saucectl.sh https://git.io/Jf3xX
+chmod 700 get_saucectl.sh
+./get_saucectl.sh
 ```
 
 ## Getting Started
-The saucectl comes with a handy command to get up and running quickly. The `new` command will create a config.yml and an example test that you can start working from.
 
 ```sh
-$ saucectl new
+saucectl new
 ```
+
+This will create a `config.yml` under the `.sauce` directory and an example
+test under the `tests` directory, where you can start working from.
 
 ### Connecting to Sauce Labs
 The Sauce Testrunner Toolkit requires your Sauce Labs user name and access key to connect to and post test results. If you are using a cloud CI/CD tool, we strongly suggest you secure these secrets using secrets or context variables. You can get your `SAUCE_ACCESS_KEY` from Account > User Settings in Sauce Labs. If you don't have an account, you can start a [free trial](https://saucelabs.com/sign-up).
