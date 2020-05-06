@@ -9,7 +9,7 @@ metadata:
     - e2e
     - release team
     - other tag
-  build: Build \#$BUILD_ID in $BUILD_ENV
+  build: "Build #$BUILD_ID in $BUILD_ENV"
 # Every file defined in this list will be bundled into a zip and
 # uploaded to Sauce Labs.
 files:
