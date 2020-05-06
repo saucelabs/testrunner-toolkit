@@ -9,14 +9,11 @@ metadata:
     - e2e
     - release team
     - other tag
-  build: Release $CI_COMMIT_SHORT_SHA
+  build: Build \#$BUILD_ID in $BUILD_ENV
 # Every file defined in this list will be bundled into a zip and
 # uploaded to Sauce Labs.
 files:
   - ./tests/playwright/demo.test.js
-  # - ../tests/wdio.conf.js
-  # - ./tests/featureXYZ/**
-  # - ./tests/pageObjects/**
 # Define a test runner image (e.g. an image to run WebdriverIO tests)
 # Like in Docker, these images can be developed as Open Source projects
 # and maintained by our teams, while at the same time, customers can
@@ -25,18 +22,3 @@ image:
   # while a set of properties are defined by our Yaml format
   base: saucelabs/sauce-playwright-runner
   version: latest
-  exec: wdio ./tests/wdio.conf.js
-  # there can be a set of arbitrary options specific to the given image
-  options:
-    # WebdriverIO related options
-    services:
-      - devtools
-      - screener
-    reporters:
-      - spec
-# run arbitrary code in Docker container
-preExec: |
-  cd $PROJECT_DIR
-  mkdir ./newFolder
-  curl ...
-  ...

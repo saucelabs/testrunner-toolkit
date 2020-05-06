@@ -31,6 +31,9 @@ jobs:
       - name: Run Sauce Pipeline Test
         run: |
           saucectl run -c ./.sauce/puppeteer.yml
+        env:
+          BUILD_ID: $GITHUB_RUN_NUMBER
+          BUILD_ENV: GitHub Actions
   playwright:
     runs-on: ubuntu-latest
     container:
@@ -48,3 +51,6 @@ jobs:
       - name: Run Sauce Pipeline Test
         run: |
           saucectl run -c ./.sauce/playwright.yml
+        env:
+          BUILD_ID: $GITHUB_RUN_NUMBER
+          BUILD_ENV: GitHub Actions

@@ -30,6 +30,9 @@ jobs:
           name: Puppeteer Tests
           command: |
             saucectl run -c ./.sauce/puppeteer.yml
+          environment:
+            BUILD_ID: $CIRCLE_BUILD_NUM
+            BUILD_ENV: CircleCI
 
   # Playwright Example
   test-playwright:
@@ -43,6 +46,9 @@ jobs:
           name: Playwright Tests
           command: |
             saucectl run -c ./.sauce/playwright.yml
+          environment:
+            BUILD_ID: $CIRCLE_BUILD_NUM
+            BUILD_ENV: CircleCI
 
 workflows:
   version: 2
