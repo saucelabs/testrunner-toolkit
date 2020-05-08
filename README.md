@@ -1,13 +1,13 @@
-# Sauce Labs  Testrunner Toolkit ![BETA](https://img.shields.io/badge/beta!-blue?style=for-the-badge)
+# Sauce Labs  Test Runner Toolkit ![BETA](https://img.shields.io/badge/beta!-blue?style=for-the-badge)
 
 <!-- [START badges] -->
 ![GitHub Actions Status](https://github.com/saucelabs/saucectl/workflows/Sauce%20Pipeline%20Browser%20Tests/badge.svg)
 [![CircleCI Status](https://circleci.com/gh/saucelabs/saucectl.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/saucelabs/saucectl)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://saucelabs.com/how-to-contribute.html#your-first-pull-request)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
 [![Chromium version](https://img.shields.io/badge/chromium-84.0.4131.0-blue.svg?logo=google-chrome)](https://www.chromium.org/Home)
 <!-- [END badges] -->
 
-Sauce Labs Testrunner Toolkit is a JavaScript native approach to perform browser 
+Sauce Labs Test Runner Toolkit is a JavaScript native approach to perform browser 
 testing in a CI with Sauce Labs.
 
 <!-- [START gettingstarted] -->
@@ -144,7 +144,7 @@ describe('saucectl demo test', () => {
 
 
 <!-- [START about] -->
-## More about the Sauce Labs Testrunner Toolkit ![BETA](https://img.shields.io/badge/beta!-blue?style=for-the-badge)
+## More about the Sauce Labs Test Runner Toolkit ![BETA](https://img.shields.io/badge/beta!-blue?style=for-the-badge)
 
 Native JavaScript testing is achieved through the combination of Sauce Labs, Jest, and the
 JavaScript framework of your choice. In the current beta, the toolkit supports 
@@ -177,14 +177,15 @@ examples are included, the mechanism works with any CI/CD provider that supports
 <!-- [START collaboration] -->
 ## Collaboration
 There is a lot we can imagine doing next. It starts with hearing from you.
-* Get involved, ask questions, and post problems into our open Slack channel
-* Submit issues and features here - everything helps
+Submit issues and features [here](https://github.com/saucelabs/saucectl/issues/new/chooses) - everything helps!
 <!-- [END collaboration] -->
 
 <!-- [START contribution] -->
 ## Contribution
-The Sauce Labs Test Runner is part of our commitment to a world of digital confidence where each of our digital lives and experiences are magical. If you are thinking about getting involved, please do. This repo is focused on helping people learn how to test their user experience. More is welcome. 
- * [Contribution guidelines](https://github.com/saucelabs/saucectl/blob/master/CONTRIBUTING.md)
- * [Code of conduct](https://github.com/saucelabs/saucectl/blob/master/CODE_OF_CONDUCT.md)
+The Sauce Labs Test Runner is part of our commitment to a world of digital confidence where each of our 
+digital lives and experiences are magical. If you are thinking about getting involved, please do. This
+repository is focused on helping people learn how to test their user experience. More is welcome.
+ * [Contribution guidelines](./CONTRIBUTING.md)
+ * [Code of conduct](./CODE_OF_CONDUCT.md)
  
 <!-- [END contribution] -->
