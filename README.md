@@ -60,7 +60,7 @@ export SAUCE_ACCESS_KEY=<your-access-key>
 
 If you are using a cloud CI/CD tool, we strongly suggest to protect these values
 through secrets or context variables. You can get your `SAUCE_ACCESS_KEY` from
-Account > User Settings in [Sauce Labs](https://accounts.saucelabs.com/).
+Account > User Settings in [Sauce Labs](https://app.saucelabs.com/).
 
 
 ## Getting started
