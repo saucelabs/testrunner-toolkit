@@ -60,7 +60,7 @@ export SAUCE_ACCESS_KEY=<your-access-key>
 
 If you are using a cloud CI/CD tool, we strongly suggest to protect these values
 through secrets or context variables. You can get your `SAUCE_ACCESS_KEY` from
-Account > User Settings in [Sauce Labs](https://saucelabs.com/).
+Account > User Settings in [Sauce Labs](https://accounts.saucelabs.com/).
 
 
 ## Getting started
@@ -177,7 +177,7 @@ examples are included, the mechanism works with any CI/CD provider that supports
 <!-- [START collaboration] -->
 ## Collaboration
 There is a lot we can imagine doing next. It starts with hearing from you.
-Submit issues and features [here](https://github.com/saucelabs/saucectl/issues/new/chooses) - everything helps!
+Submit issues and features [here](https://github.com/saucelabs/saucectl/issues/new/choose) - everything helps!
 <!-- [END collaboration] -->
 
 <!-- [START contribution] -->
