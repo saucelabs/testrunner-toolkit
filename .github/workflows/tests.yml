@@ -17,8 +17,8 @@ jobs:
   puppeteer:
     runs-on: ubuntu-latest
     container:
-      image: saucelabs/sauce-puppeteer-runner:latest
-         
+      image: saucelabs/sauce-puppeteer:3.0.4-saucectl0.4.2
+     
     steps:
       # appears that checkout@v2 uses javascript which is not compatible 
       # with the included node version in the container image.
@@ -27,7 +27,7 @@ jobs:
         
       - name: Workaround for container permissions
         run: sudo chown -R $USER:$(id -gn $USER) /github/home
-        
+
       - name: Run Sauce Pipeline Test
         run: |
           saucectl run -c ./.sauce/puppeteer.yml
@@ -37,8 +37,8 @@ jobs:
   playwright:
     runs-on: ubuntu-latest
     container:
-      image: saucelabs/sauce-playwright-runner:latest
-         
+      image: saucelabs/sauce-playwright:1.0.0-saucectl0.4.2
+
     steps:
       # appears that checkout@v2 uses javascript which is not compatible 
       # with the included node version in the container image.
@@ -47,7 +47,10 @@ jobs:
         
       - name: Workaround for container permissions
         run: sudo chown -R $USER:$(id -gn $USER) /github/home
-        
+      
+      - name: Workaround for container folder
+        run: sudo ln -s /home/seluser/.cache /github/home/.cache
+
       - name: Run Sauce Pipeline Test
         run: |
           saucectl run -c ./.sauce/playwright.yml
