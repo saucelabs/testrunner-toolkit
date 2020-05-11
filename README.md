@@ -116,6 +116,18 @@ for [Puppeteer](./.sauce/puppeteer.yml), and one for [Playwright](./.sauce/playw
 <!-- [END gettingstarted] -->
 
 <!-- [START examples] -->
+
+## Images
+
+All images are hosted on Docker Hub. 
+
+[Base image](https://hub.docker.com/r/saucelabs/testrunner-image/tags) is called `testrunner`. It contains the tooling necessary to record videos, VNC etc. Plus Chrome, and a Firefox version. 
+
+[Base image + Playwright](https://hub.docker.com/r/saucelabs/sauce-playwright/tags) contains saucectl with different versions of Playwright.
+
+[Base image + Puppeteer](https://hub.docker.com/r/saucelabs/sauce-puppeteer/tags) contains saucectl with different versions of Puppeteer.
+
+
 ## Examples
 
 The examples here show how Pipeline testing can be used. Try them and find your own use cases.
