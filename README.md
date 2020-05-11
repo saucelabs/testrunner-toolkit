@@ -82,7 +82,7 @@ the `tests` directory will be created, where you can start working from.
 saucectl run
 ```
 
-This command will run the example test based on the `./sauce/config.yml` file.
+This command will run the example test based on the `./.sauce/config.yml` file.
 
 ## Configuration
 `saucectl` requires a configuration file to know what tests to run and what
