@@ -84,6 +84,10 @@ saucectl run
 
 This command will run the example test based on the `./.sauce/config.yml` file.
 
+### Quick demo
+
+![Demo](https://gist.githubusercontent.com/diemol/f24bb230a0e3b41a052a1d9c1ff41f9e/raw/a325b6c1da77d4d4a804842da7307b055e7b50d2/saucectl-demo.gif)
+
 ## Configuration
 `saucectl` requires a configuration file to know what tests to run and what
 framework to use. By default, `.sauce/config.yml` will be the place where
