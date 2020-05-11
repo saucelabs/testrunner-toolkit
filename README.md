@@ -1,4 +1,4 @@
-# Sauce Labs  Test Runner Toolkit ![BETA](https://img.shields.io/badge/beta!-blue?style=for-the-badge)
+# Sauce Labs Testrunner Toolkit ![BETA](https://img.shields.io/badge/beta!-blue?style=for-the-badge)
 
 <!-- [START badges] -->
 ![GitHub Actions Status](https://github.com/saucelabs/saucectl/workflows/Sauce%20Pipeline%20Browser%20Tests/badge.svg)
@@ -7,8 +7,7 @@
 [![Chromium version](https://img.shields.io/badge/chromium-84.0.4131.0-blue.svg?logo=google-chrome)](https://www.chromium.org/Home)
 <!-- [END badges] -->
 
-Sauce Labs Test Runner Toolkit is a JavaScript native approach to perform browser 
-testing in a CI with Sauce Labs.
+Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like Puppeteer and Playwright for running end-to-end web tests with Sauce Labs.
 
 <!-- [START gettingstarted] -->
 
@@ -162,7 +161,7 @@ describe('saucectl demo test', () => {
 
 
 <!-- [START about] -->
-## More about the Sauce Labs Test Runner Toolkit ![BETA](https://img.shields.io/badge/beta!-blue?style=for-the-badge)
+## More about the Sauce Labs Testrunner Toolkit ![BETA](https://img.shields.io/badge/beta!-blue?style=for-the-badge)
 
 Native JavaScript testing is achieved through the combination of Sauce Labs, Jest, and the
 JavaScript framework of your choice. In the current beta, the toolkit supports 
@@ -200,7 +199,7 @@ Submit issues and features [here](https://github.com/saucelabs/saucectl/issues/n
 
 <!-- [START contribution] -->
 ## Contribution
-The Sauce Labs Test Runner is part of our commitment to a world of digital confidence where each of our 
+The Sauce Labs Testrunner Toolkit is part of our commitment to a world of digital confidence where each of our 
 digital lives and experiences are magical. If you are thinking about getting involved, please do. This
 repository is focused on helping people learn how to test their user experience. More is welcome.
  * [Contribution guidelines](./CONTRIBUTING.md)
