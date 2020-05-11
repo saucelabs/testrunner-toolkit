@@ -16,7 +16,7 @@ We are a community of testers.  Let's not be the cobblers kids. Please be clear,
  of the problems you are seeing.  The problem will be resolved a lot faster if you do.
 
 # Features
-We have a lot of ideas and I'm sure you do too.  Please use our [issues list](https://github.com/mozilla/MozDef/issues)
+We have a lot of ideas and I'm sure you do too.  Please use our [ideas list](https://saucelabs.ideas.aha.io/)
  to suggest new features that you would like to see added.  Once again, detail wins.  Be clear and outcome oriented in
  your requests - it just makes it easier for us to evaluate and prioritize.
 
