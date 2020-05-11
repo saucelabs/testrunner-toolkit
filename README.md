@@ -30,14 +30,14 @@ npm i -g saucectl
 or via our one line installer:
 
 ```sh
-curl -L https://git.io/Jf3xX | bash
+curl -L https://saucelabs.github.io/saucectl/install | bash
 ```
 
 Would you like to inspect the content of our one line installer?
 Download it, have a look and execute it:
 
 ```sh
-curl -fsSL -o get_saucectl.sh https://git.io/Jf3xX
+curl -fsSL -o get_saucectl.sh https://saucelabs.github.io/saucectl/install
 chmod 700 get_saucectl.sh
 ./get_saucectl.sh
 ```
