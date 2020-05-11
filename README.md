@@ -100,7 +100,7 @@ metadata:
     - other tag
   build: Release $CI_COMMIT_SHORT_SHA
 files:
-  - ./tests/**
+  - ./tests/**/*.js
 image:
   base: saucelabs/sauce-puppeteer-runner
   version: latest
@@ -112,6 +112,8 @@ specify it through `saucectl run -c ./path/to/config.yml`.
 
 As an example, this repository uses two configurations for its pipeline. One
 for [Puppeteer](./.sauce/puppeteer.yml), and one for [Playwright](./.sauce/playwright.yml).
+
+> **NOTE:** Test files need to match `(spec|test)` in their file name so they will be automatically detected as testfiles.
 
 <!-- [END gettingstarted] -->
 
