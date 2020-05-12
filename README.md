@@ -15,7 +15,7 @@ Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifie
 
 - [Docker](https://docs.docker.com/get-docker/) installed
 - Make sure the Docker daemon is running (e.g. `docker info` works in your terminal)
-- A [Sauce Labs](https://saucelabs.com/) account, if you don't have one, start a [free trial](https://saucelabs.com/sign-up)
+- A [Sauce Labs](https://saucelabs.com/) account; if you don't have one, start a [free trial](https://saucelabs.com/sign-up)
 
 
 ## Install
@@ -43,7 +43,8 @@ chmod 700 get_saucectl.sh
 
 ## Connect to Sauce Labs
 
-A Sauce Labs user name and access key are needed to post the test results. 
+A Sauce Labs user name and access key are needed to post the test results. You can get your `SAUCE_ACCESS_KEY` from
+Account > User Settings in [Sauce Labs](https://app.saucelabs.com/).
 
 To authenticate yourself, the following environment variables need to be set:
 
@@ -58,9 +59,7 @@ export SAUCE_ACCESS_KEY=<your-access-key>
 ```
 
 If you are using a cloud CI/CD tool, we strongly suggest to protect these values
-through secrets or context variables. You can get your `SAUCE_ACCESS_KEY` from
-Account > User Settings in [Sauce Labs](https://app.saucelabs.com/).
-
+through secrets or context variables. 
 
 ## Getting started
 
@@ -173,8 +172,7 @@ The specific framework you want to use to for testing should be based on the typ
 need to run and the environment in which you are running them. In this beta you will be able to
 run tests in your existing CI pipeline and benefit from the low latency. 
 
-When tests are completed, logs, results, and videos will be uploaded to Sauce Labs with your
-credentials. After that, you can review, share, and analyse those results just as you would from any other test executed on Sauce Labs.
+When tests are completed, logs, results, and videos will be uploaded to Sauce Labs to your account. After that, you can review, share, and analyze those results just as you would from any other test executed on Sauce Labs.
 
 To learn more about:
 * Jest, visit https://jestjs.io/
