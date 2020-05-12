@@ -135,7 +135,7 @@ All images are hosted on Docker Hub.
 
 ## Examples
 
-The examples here show how Pipeline testing can be used. Try them and find your own use cases.
+The examples here show how Pipeline testing can be used. Try them and find your own use cases. Every testrunner image comes with a preconfigured setup that allows you to focus on writing tests instead of tweaking with the configurations. Our initial testrunner flavors come either with Puppeteer or Playwright as an automation framework. They will start the browser for you and expose the `browser` object ([Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v3.0.3&show=api-class-browser) / [Playwright](https://playwright.dev/#version=v1.0.1&path=docs%2Fcore-concepts.md&q=browser)) to the global scope for you to be accessible in the test:
 
 #### Puppeteer Snippet:
 ```js
