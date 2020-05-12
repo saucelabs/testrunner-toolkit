@@ -105,8 +105,8 @@ metadata:
 files:
   - ./tests/**/*.js
 image:
-  base: saucelabs/sauce-puppeteer-runner
-  version: latest
+  base: saucelabs/sauce-puppeteer
+  version: 3.0.4
 ```
 
 If you wish to use more than one framework, or to configure different sets of

@@ -22,5 +22,5 @@ files:
 # build their own images as well
 image:
   # while a set of properties are defined by our Yaml format
-  base: saucelabs/sauce-puppeteer-runner
-  version: latest
+  base: saucelabs/sauce-puppeteer
+  version: 3.0.4

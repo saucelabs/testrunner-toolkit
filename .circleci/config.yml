@@ -22,7 +22,7 @@ jobs:
   test-puppeteer:
     working_directory: ~/app
     docker:
-      - image: saucelabs/sauce-puppeteer-runner:latest
+      - image: saucelabs/sauce-puppeteer:3.0.4-saucectl0.4.2
     steps:
       - attach_workspace:
           at: ~/app
@@ -38,7 +38,7 @@ jobs:
   test-playwright:
     working_directory: ~/app
     docker:
-      - image: saucelabs/sauce-playwright-runner:latest
+      - image: saucelabs/sauce-playwright:1.0.0-saucectl0.4.2
     steps:
       - attach_workspace:
           at: ~/app
