@@ -21,4 +21,4 @@ files:
 image:
   # while a set of properties are defined by our Yaml format
   base: saucelabs/sauce-playwright
-  version: 1.0.0
+  version: 1.0.0-saucectl0.5.0
