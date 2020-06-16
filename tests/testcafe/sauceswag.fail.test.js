@@ -19,7 +19,7 @@ class Login {
 
 const login = new Login()
 
-test('SwagLabs locked user login should fail', async t => {
+test.skip('SwagLabs locked user login should fail', async t => {
   await t
     .typeText(login.usernameEl, Users.locked)
     .typeText(login.passwordEl, Users.password)
