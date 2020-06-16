@@ -50,6 +50,22 @@ jobs:
             BUILD_ID: $CIRCLE_BUILD_NUM
             BUILD_ENV: CircleCI
 
+  # Testcafe Example
+  test-testcafe:
+    working_directory: ~/app
+    docker:
+      - image: saucelabs/sauce-testcafe:1.8.5-saucectl0.6.3
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Testcafe Tests
+          command: |
+            saucectl run -c ./.sauce/testcafe.yml
+          environment:
+            BUILD_ID: $CIRCLE_BUILD_NUM
+            BUILD_ENV: CircleCI
+
 workflows:
   version: 2
   default_workflow:
@@ -59,5 +75,8 @@ workflows:
           requires:
             - setup
       - test-playwright:
+          requires:
+            - setup
+      - test-testcafe:
           requires:
             - setup
