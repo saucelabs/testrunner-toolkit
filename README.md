@@ -170,9 +170,10 @@ describe('saucectl demo test', () => {
 
 Native JavaScript testing is achieved through the combination of Sauce Labs, Jest, and the
 JavaScript framework of your choice. In the current beta, the toolkit supports 
-[Puppeteer](https://github.com/puppeteer/puppeteer) and 
-[Playwright](https://github.com/microsoft/playwright). This approach gives you the power and expressiveness of Jest with the dashboards, infrastructure, and analytics of 
-[Sauce Labs](https://saucelabs.com/). 
+[Puppeteer](https://github.com/puppeteer/puppeteer),
+[Playwright](https://github.com/microsoft/playwright)and
+[Testcafe](https://github.com/DevExpress/testcafe). 
+This approach gives you the power and expressiveness of different test frameworks with the dashboards, infrastructure, and analytics of [Sauce Labs](https://saucelabs.com/). 
 
 The specific framework you want to use to for testing should be based on the types of tests you
 need to run and the environment in which you are running them. In this beta you will be able to
@@ -184,6 +185,7 @@ To learn more about:
 * Jest, visit https://jestjs.io/
 * The Google Puppeteer project, visit https://developers.google.com/web/tools/puppeteer
 * The Microsoft Playwright project, visit https://github.com/microsoft/playwright
+* Tescafe, visit https://devexpress.github.io/testcafe/
 
 ### Using `saucectl` in your CI/CD pipeline
 
