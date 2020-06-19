@@ -87,7 +87,7 @@ This command will run the example test based on the `./.sauce/config.yml` file.
 
 * Test timeout
 ```sh
-saucectl run --timeout 120
+saucectl run --timeout <seconds>
 ```
 using the --timeout flag will set the test timeout for the test runner framework. 
 
