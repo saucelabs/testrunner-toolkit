@@ -82,6 +82,16 @@ saucectl run
 
 This command will run the example test based on the `./.sauce/config.yml` file.
 
+
+### Using saucectl flags
+
+* Test timeout
+```sh
+saucectl run --timeout 120
+```
+using the --timeout flag will set the test timeout for the test runner framework. 
+
+
 ### Quick demo
 
 ![Demo](https://gist.githubusercontent.com/diemol/f24bb230a0e3b41a052a1d9c1ff41f9e/raw/a325b6c1da77d4d4a804842da7307b055e7b50d2/saucectl-demo.gif)
