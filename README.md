@@ -85,7 +85,7 @@ This command will run the example test based on the `./.sauce/config.yml` file.
 
 ### Using saucectl flags
 
-* Test timeout
+#### Test Timeout
 ```sh
 saucectl run --timeout <seconds>
 ```
