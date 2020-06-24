@@ -198,7 +198,7 @@ To learn more about:
 * Jest, visit https://jestjs.io/
 * The Google Puppeteer project, visit https://developers.google.com/web/tools/puppeteer
 * The Microsoft Playwright project, visit https://github.com/microsoft/playwright
-* Tescafe, visit https://devexpress.github.io/testcafe/
+* TestCafe, visit https://devexpress.github.io/testcafe/
 
 ### Using `saucectl` in your CI/CD pipeline
 
