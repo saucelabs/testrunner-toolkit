@@ -58,7 +58,7 @@ export SAUCE_USERNAME=<your-username>
 export SAUCE_ACCESS_KEY=<your-access-key>
 ```
 
-If you are using a cloud CI/CD tool, we strongly suggest to protect these values
+If you are using a cloud CI/CD tool, we strongly suggest protecting these values
 through secrets or context variables. 
 
 ## Getting started
@@ -67,9 +67,10 @@ through secrets or context variables.
 saucectl new
 ```
 
-This command will ask you to choose a framework between 
-[Puppeteer](https://github.com/puppeteer/puppeteer) and
-[Playwright](https://github.com/microsoft/playwright). 
+This command will ask you to choose one of the frameworks: 
+- [Puppeteer](https://github.com/puppeteer/puppeteer)
+- [Playwright](https://github.com/microsoft/playwright)
+- [TestCafe](https://github.com/DevExpress/testcafe) 
 
 After that, a `./sauce/config.yml` file and an example test under
 the `tests` directory will be created, where you can start working from.
@@ -89,8 +90,16 @@ This command will run the example test based on the `./.sauce/config.yml` file.
 ```sh
 saucectl run --timeout <seconds>
 ```
-using the --timeout flag will set the test timeout for the test runner framework. 
+Using the `--timeout` flag will set the test timeout for the test runner framework. 
 
+
+#### Sauce Labs Region
+```sh
+saucectl run --region <region>
+```
+Using the `--region` flag will set the Sauce Labs region for the test execution.
+The region corresponds to the available regions at saucelabs.com and affects
+where your job information and assets are going to be stored.
 
 ### Quick demo
 
@@ -114,8 +123,10 @@ metadata:
 files:
   - ./tests/**/*.js
 image:
-  base: saucelabs/sauce-puppeteer
-  version: 3.0.4
+  base: saucelabs/sauce-puppeteer-jest-node
+  version: v0.1.0
+sauce:
+  region: us-west-1
 ```
 
 If you wish to use more than one framework, or to configure different sets of
@@ -135,12 +146,17 @@ for [Puppeteer](./.sauce/puppeteer.yml), and one for [Playwright](./.sauce/playw
 
 All images are hosted on Docker Hub. 
 
-[Base image](https://hub.docker.com/r/saucelabs/testrunner-image/tags) is called `testrunner`. It contains the tooling necessary to record videos, VNC etc. Plus Chrome, and a Firefox version. 
+[Base image](https://hub.docker.com/r/saucelabs/testrunner-image/tags)
+is called `testrunner`. It contains the tooling necessary to record videos, VNC etc. Plus Chrome, and a Firefox version. 
 
-[Base image + Playwright](https://hub.docker.com/r/saucelabs/sauce-playwright/tags) contains saucectl with different versions of Playwright.
+[Base image + Playwright](https://hub.docker.com/r/saucelabs/stt-playwright-jest-node/tags)
+contains saucectl with different versions of Playwright.
 
-[Base image + Puppeteer](https://hub.docker.com/r/saucelabs/sauce-puppeteer/tags) contains saucectl with different versions of Puppeteer.
+[Base image + Puppeteer](https://hub.docker.com/r/saucelabs/stt-puppeteer-jest-node/tags)
+contains saucectl with different versions of Puppeteer.
 
+[Base image + TestCafe](https://hub.docker.com/r/saucelabs/stt-testcafe-node/tags)
+contains saucectl with different versions of TestCafe.
 
 ## Examples
 
@@ -162,7 +178,7 @@ describe('saucectl demo test', () => {
 
 #### Playwright Snippet:
 
-The Playwright testrunner image also exposes a global `browser` variable that represents Playwrights [`Browser class`](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=browser). In addition to that you also have access to a pre-generated [browser context](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=browser-contexts) via `context` as well as to a [page frame](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=pages-and-frames) via `page`.
+The Playwright testrunner image also exposes a global `browser` variable that represents Playwright's [`Browser class`](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=browser). In addition to that you also have access to a pre-generated [browser context](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=browser-contexts) via `context` as well as to a [page frame](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=pages-and-frames) via `page`.
 
 ```js
 describe('saucectl demo test', () => {
@@ -181,8 +197,8 @@ describe('saucectl demo test', () => {
 Native JavaScript testing is achieved through the combination of Sauce Labs, Jest, and the
 JavaScript framework of your choice. In the current beta, the toolkit supports 
 [Puppeteer](https://github.com/puppeteer/puppeteer),
-[Playwright](https://github.com/microsoft/playwright)and
-[Testcafe](https://github.com/DevExpress/testcafe). 
+[Playwright](https://github.com/microsoft/playwright) and
+[TestCafe](https://github.com/DevExpress/testcafe).
 This approach gives you the power and expressiveness of different test frameworks with the dashboards, infrastructure, and analytics of [Sauce Labs](https://saucelabs.com/). 
 
 The specific framework you want to use to for testing should be based on the types of tests you
