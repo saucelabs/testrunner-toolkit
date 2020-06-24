@@ -84,22 +84,9 @@ saucectl run
 This command will run the example test based on the `./.sauce/config.yml` file.
 
 
-### Using saucectl flags
-
-#### Test Timeout
-```sh
-saucectl run --timeout <seconds>
-```
-Using the `--timeout` flag will set the test timeout for the test runner framework. 
-
-
-#### Sauce Labs Region
-```sh
-saucectl run --region <region>
-```
-Using the `--region` flag will set the Sauce Labs region for the test execution.
-The region corresponds to the available regions at saucelabs.com and affects
-where your job information and assets are going to be stored.
+### Using saucectl
+To learn more about `saucectl` and its commands and flags,
+please visit the [saucectl repository](https://github.com/saucelabs/saucectl).
 
 ### Quick demo
 
