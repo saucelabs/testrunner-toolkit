@@ -1,9 +1,9 @@
-<!---
-id: configuration
+---
+id: configuration-examples
 title: Configuring the Testrunner Toolkit
-sidebar_label: Configuration
---->
-# Configuring the Testrunner Toolkit
+sidebar_label: Configuration Examples
+---
+<!--# Configuring the Testrunner Toolkit-->
 The Testrunner Toolkit (`saucectl`) requires a configuration file to know which tests to run along with which framework to use.
 
 ## Basic Configuration
@@ -36,8 +36,8 @@ If you wish to use more than one framework, or to configure different sets of te
 saucectl run -c ./path/to/config.yml
 ```
 
-## Framework Examples
-Below are frameworks examples that exist in the [Testrunner Toolkit repository](https://github.com/saucelabs/testrunner-toolkit/tree/master/.sauce). The repository uses these configurations for its pipeline:
+## Configuration Examples
+Below are framework-specific configuration examples that exist in the [Testrunner Toolkit repository](https://github.com/saucelabs/testrunner-toolkit/tree/master/.sauce). The repository uses these configurations for its pipeline:
 
 >
 > **NOTE:** The test files need to match `(spec|test)` in their file name so they are automatically detected as `testfiles`.
@@ -134,8 +134,8 @@ image:
 <br />
 
 ## What's Next
-* [Testrunner Toolkit Framework Examples](FRAMEWORK_EXAMPLES.md)
-* [Testrunner Toolkit FAQS](TESTRUNNER_TOOLKIT_FAQS.md)
+* [Testrunner Toolkit Framework Examples](FRAMEWORK-EXAMPLES.md)
+* [Testrunner Toolkit FAQS](TESTRUNNER-TOOLKIT-FAQS.md)
 
 <br />
 

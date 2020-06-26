@@ -1,20 +1,19 @@
-<!---
+---
 id: faqs
 title: Testrunner Toolkit FAQs
 sidebar_label: Testrunner Toolkit FAQs
---->
-# Testrunner Toolkit FAQs
+---
+<!--# Testrunner Toolkit FAQs-->
 Below are list of frequently asked questions regarding some of the business and technical use cases surrounding the Testrunner Toolkit.
 
-__Table of Contents__
+<!--__Table of Contents__
 * [Why Testrunner Toolkit?](#why-testrunner-toolkit?)
 * [Where are the Docker Images and Can I Inspect Them?](#where-are-the-docker-images-and-can-i-inspect-them?)
 * [Are There any Framework Test Code Samples?](#are-there-any-framework-test-code-samples?)
 * [How Do I Use This in my Pipeline?](#how-do-i-use-this-in-my-pipeline?)
+-->
 
-<br />
-
-## Why Testrunner Toolkit?
+## How Does Testrunner Toolkit Work?
 Native JavaScript testing is achieved through the combination of Sauce Labs, Jest, and the
 JavaScript framework of your choice. In the current beta, the toolkit supports 
 [Puppeteer](https://github.com/puppeteer/puppeteer),
@@ -51,7 +50,7 @@ contains saucectl with different versions of Puppeteer.
 contains saucectl with different versions of TestCafe.
 
 ## Are There any Framework Test Code Samples? 
-Yes! You can find them by visiting the [Testrunner Toolkit Framework Examples](FRAMEWORK_EXAMPLES.md) page.
+Yes! You can find them by visiting the [Testrunner Toolkit Framework Examples](FRAMEWORK-EXAMPLES.md) page.
 
 ## How Do I Use This in my Pipeline?
 The GitHub repository includes CI/CD examples of `saucectl` using:

@@ -1,11 +1,9 @@
-<!---
+---
 id: framework-examples
 title: Testrunner Toolkit Framework Examples
 sidebar_label: Framework Examples
---->
-
-# Testrunner Toolkit Framework Examples
-
+---
+<!--# Testrunner Toolkit Framework Examples-->
 The examples here show how Pipeline testing can be used. Try them and find your own use cases. 
 
 Every __testrunner__ image comes with a preconfigured setup that allows you to focus on writing tests instead of tweaking with the configurations. Our initial `testrunner` flavors come either with Puppeteer, Playwright, or TestCafe as an automation framework. 
@@ -60,6 +58,6 @@ Coming Soon!
 <br />
 
 ## What's Next
-* [Testrunner Toolkit FAQs](TESTRUNNER_TOOLKIT_FAQS.md)
+* [Testrunner Toolkit FAQs](TESTRUNNER-TOOLKIT-FAQS.md)
 
 <!---___--->

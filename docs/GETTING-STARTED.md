@@ -1,9 +1,9 @@
-<!---
+---
 id: getting-started
 title: Getting Started with Testrunner Toolkit
 sidebar_label: Getting Started
---->
-# Getting Started with Testrunner Toolkit
+---
+<!--# Getting Started with Testrunner Toolkit-->
 Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like [Puppeteer](https://developers.google.com/web/tools/puppeteer), [Playwright](https://playwright.dev/), and [TestCafe](https://devexpress.github.io/testcafe/) for running end-to-end web tests with [Sauce Labs](https://saucelabs.com/).
 
 ## What You'll Need
@@ -83,15 +83,16 @@ saucectl run
 ```
 Testrunner Toolkit will execute the test based on the information in `config.yml`. To learn more about how to configure `saucectl`, please visit the [Configuration]() section of the docs. 
 
-### Quick demo
+## Quick demo
 
 <!--![Demo](https://gist.githubusercontent.com/diemol/f24bb230a0e3b41a052a1d9c1ff41f9e/raw/a325b6c1da77d4d4a804842da7307b055e7b50d2/saucectl-demo.gif)-->
+
 ![Demo](assets/saucectl-demo.gif)
 
 
 ## What's Next
-* [Configuring the Testrunner Toolkit](CONFIGURATION.md)
-* [Testrunner Toolkit Framework Examples](FRAMEWORK_EXAMPLES.md)
+* [Configuring the Testrunner Toolkit](CONFIGURATION-EXAMPLES.md)
+* [Testrunner Toolkit Framework Examples](FRAMEWORK-EXAMPLES.md)
 
 <br />
 
