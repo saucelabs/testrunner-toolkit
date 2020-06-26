@@ -16,7 +16,7 @@ Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifie
 
 1. [Install Testrunner Toolkit](#install-testrunner-toolkit) 
 2. [Connect to Sauce Labs](#connect-to-sauce-labs)
-3. [Setup Testrunner Toolkit](#configure-testrunner-toolkit)
+3. [Setup Testrunner Toolkit](#setup-testrunner-toolkit)
 4. [Run Your First Test](#run-your-first-test)
 
 ### Install Testrunner Toolkit
@@ -90,8 +90,8 @@ Testrunner Toolkit will execute the test based on the information in `config.yml
 
 
 ## What's Next
-* [Configuring the Testrunner Toolkit](CONFIGURATION.md)
-* [Testrunner Toolkit Framework Examples](FRAMEWORK_EXAMPLES.md)
+* [Configuring the Testrunner Toolkit](CONFIGURATION-EXAMPLES.md)
+* [Testrunner Toolkit Framework Examples](FRAMEWORK-EXAMPLES.md)
 
 <br />
 
