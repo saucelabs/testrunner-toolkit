@@ -110,8 +110,8 @@ metadata:
 files:
   - ./tests/**/*.js
 image:
-  base: saucelabs/sauce-puppeteer-jest-node
-  version: v0.1.0
+  base: saucelabs/stt-puppeteer-jest-node
+  version: v0.1.1
 sauce:
   region: us-west-1
 ```
