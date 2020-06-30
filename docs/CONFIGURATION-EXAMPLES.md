@@ -42,7 +42,6 @@ Below are framework-specific configuration examples that exist in the [Testrunne
 >
 > **NOTE:** The test files need to match `(spec|test)` in their file name so they are automatically detected as `testfiles`.
 >
-<!--DOCUSAURUS_CODE_TABS-->
 <!--Puppeteer-->
 <br />
 
@@ -56,9 +55,7 @@ kind: Test
 metadata:
   name: Feature XYZ
   tags:
-    - e2e
-    - release team
-    - other tag
+    - example tag
   build: "Build #$BUILD_ID in $BUILD_ENV"
 # Every file defined in this list will be bundled into a zip and
 # uploaded to Sauce Labs.
@@ -129,8 +126,6 @@ image:
   version: 1.8.5-saucectl0.6.3
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 <br />
 
 ## What's Next
@@ -139,4 +134,3 @@ image:
 
 <br />
 
-<!---___--->

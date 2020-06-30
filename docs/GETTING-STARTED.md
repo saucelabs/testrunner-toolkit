@@ -94,5 +94,3 @@ Testrunner Toolkit will execute the test based on the information in `config.yml
 * [Testrunner Toolkit Framework Examples](FRAMEWORK-EXAMPLES.md)
 
 <br />
-
-<!---___--->

@@ -11,9 +11,12 @@ The examples here show how Pipeline testing can be used. Try them and find your 
 Every __testrunner__ image comes with a preconfigured setup that allows you to focus on writing tests instead of tweaking with the configurations. Our initial `testrunner` flavors come either with Puppeteer, Playwright, or TestCafe as an automation framework. 
 
 ## Example Snippets
-Each example will start the browser for you and expose the `browser` object ([Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v3.0.3&show=api-class-browser) / [Playwright](https://playwright.dev/#version=v1.0.1&path=docs%2Fcore-concepts.md&q=browser) / [TestCafe](https://devexpress.github.io/testcafe/documentation/reference/test-api/testcontroller/browser.html)) to the global scope for you to be accessible in the test:
+Below are example snippets in the following frameworks: 
+* [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v3.0.3&show=api-class-browser)
+* [Playwright](https://playwright.dev/#version=v1.0.1&path=docs%2Fcore-concepts.md&q=browser)
+* [TestCafe](https://devexpress.github.io/testcafe/documentation/reference/test-api/testcontroller/browser.html)
 
-<!--DOCUSAURUS_CODE_TABS-->
+
 <!--Puppeteer-->
 <br />
 
@@ -49,17 +52,24 @@ describe('saucectl demo test', () => {
 <br />
 
 ### TestCafe Snippet:
-Coming Soon!
-
+Our TestCafe testrunner image exposes the `page` test fixture, which runs a [URL-rewrite proxy](https://github.com/DevExpress/testcafe-hammerhead) against the page under test. This allows you to inspect and interact with any element by invoking the proxied page's/browser's DevTools. 
 ```js
+import { Selector } from 'testcafe';
+fixture `Getting Started`
+	.page `http://devexpress.github.io/testcafe/example`
 
+const testName = 'testcafe test'
+test(testName, async t => {
+	await t
+		.typeText('#developer-name', 'devx')
+		.click('#submit-button')
+		.expect(Selector('#article-header').innerText).eql('Thank you, devx!');
+});
 ```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 <br />
 
 ## What's Next
 * [Testrunner Toolkit FAQs](TESTRUNNER-TOOLKIT-FAQS.md)
 
-<!---___--->
+<br />

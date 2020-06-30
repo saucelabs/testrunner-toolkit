@@ -61,4 +61,4 @@ The GitHub repository includes CI/CD examples of `saucectl` using:
 Although the [GitHub Actions](./.github/workflows/tests.yml) and [CircleCI](./.circleci/config.yml) 
 examples are included, the mechanism works with any CI/CD provider that supports containers.
 
-<!---___--->
+<br />
