@@ -5,17 +5,17 @@
     "previous": "Previous",
     "tagline": "Testing at the Speed of Awesome!",
     "docs": {
-      "configuration-examples": {
+      "configuration": {
         "title": "Configuring the Testrunner Toolkit",
-        "sidebar_label": "Configuration Examples"
+        "sidebar_label": "Configuration"
       },
-      "framework-examples": {
-        "title": "Testrunner Toolkit Framework Examples",
-        "sidebar_label": "Framework Examples"
+      "installation": {
+        "title": "Installation",
+        "sidebar_label": "Installation"
       },
-      "getting-started": {
-        "title": "Getting Started with Testrunner Toolkit",
-        "sidebar_label": "Getting Started"
+      "test-preparation": {
+        "title": "Preparing to Run Testrunner Toolkit",
+        "sidebar_label": "Test Preparation"
       },
       "faqs": {
         "title": "Testrunner Toolkit FAQs",
@@ -23,11 +23,13 @@
       }
     },
     "links": {
-      "Try Sauce Labs": "Try Sauce Labs",
-      "Sign in to Sauce Labs": "Sign in to Sauce Labs"
+      "Docs": "Docs",
+      "Blog": "Blog",
+      "Try Sauce Labs": "Try Sauce Labs"
     },
     "categories": {
-      "Home": "Home"
+      "Getting Started": "Getting Started",
+      "Support": "Support"
     }
   },
   "pages-strings": {

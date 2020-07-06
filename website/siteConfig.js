@@ -21,14 +21,14 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'Testrunner Toolkit Docs', // Title for your website.
+  title: 'Testrunner Toolkit', // Title for your website.
   tagline: 'Testing at the Speed of Awesome!',
   url: 'https://www.saucelabs.com', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
-
+  disableHeaderTitle: true,
   // Used for publishing and more
   projectName: 'saucectl-docs',
   organizationName: 'saucelabs',
@@ -44,11 +44,10 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
+    {doc: "installation", label: 'Docs'},
+    {blog: true, label: 'Blog'},
     {href: "https://saucelabs.com/sign-up", label: "Try Sauce Labs", external: true },
-    {href: "https://app.saucelabs.com/login", label: "Sign in to Sauce Labs", external: true },
-    // {blog: true, label: 'Blog'},
-    // {page: 'help', label: 'Support'},
-    {search: true }
+    //{page: 'help', label: 'Support'},
   ],
 
   // If you have users set above, you add it here:

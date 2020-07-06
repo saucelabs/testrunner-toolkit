@@ -1,21 +1,55 @@
 ---
-id: framework-examples
-title: Testrunner Toolkit Framework Examples
-sidebar_label: Framework Examples
+id: test-preparation
+title: Preparing to Run Testrunner Toolkit
+sidebar_label: Test Preparation
 ---
-<!--# Testrunner Toolkit Framework Examples-->
+
+Before you begin testing, you must choose an automation framework.
+
+## Choose an Automation Framework
+1. Run the following command:
+    ```bash
+    saucectl new
+    ```
+2. Choose the desired framework following the prompt:
+    * [Puppeteer](https://github.com/puppeteer/puppeteer)
+    * [Playwright](https://github.com/microsoft/playwright)
+    * [TestCafe](https://devexpress.github.io/testcafe) 
+    
+    Next, the Toolkit will automatically generate: 
+    * a config file (`./sauce/config.yml`)
+    * the `tests` directory
+    * an example test (`tests/example.test.js`)
+
+## Run Your First Test
+
+Run the following command to execute you first test and to ensure Testrunner works properly:
+```bash
+saucectl run
+```
+Testrunner Toolkit will then execute the test based on the information in `config.yml`. 
+
+To learn more about how to configure `saucectl`, please visit the [Configuration](configuring-testrunner-toolkit.md) section of the docs. 
+
+### Quick demo
+
+<!--![Demo](https://gist.githubusercontent.com/diemol/f24bb230a0e3b41a052a1d9c1ff41f9e/raw/a325b6c1da77d4d4a804842da7307b055e7b50d2/saucectl-demo.gif)-->
+
+![Demo](assets/saucectl-demo.gif)
+
+## Automation Framework Examples
 The examples here show how Pipeline testing can be used. Try them and find your own use cases. 
 
 Every __testrunner__ image comes with a preconfigured setup that allows you to focus on writing tests instead of tweaking with the configurations. Our initial `testrunner` flavors come either with Puppeteer, Playwright, or TestCafe as an automation framework. 
 
-## Example Snippets
-Each example will start the browser for you and expose the `browser` object ([Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v3.0.3&show=api-class-browser) / [Playwright](https://playwright.dev/#version=v1.0.1&path=docs%2Fcore-concepts.md&q=browser) / [TestCafe](https://devexpress.github.io/testcafe/documentation/reference/test-api/testcontroller/browser.html)) to the global scope for you to be accessible in the test:
+
+Below are example snippets in the following frameworks: [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v3.0.3&show=api-class-browser), [Playwright](https://playwright.dev/#version=v1.0.1&path=docs%2Fcore-concepts.md&q=browser), and [TestCafe](https://devexpress.github.io/testcafe/documentation/reference/test-api/testcontroller/browser.html)
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Puppeteer-->
 <br />
 
-### Puppeteer Snippet:
+### Puppeteer Snippet
 Our Puppeteer testrunner image exposes `browser` into the global scope which represents an instance of its [`Browser class`](https://pptr.dev/#?product=Puppeteer&version=v3.0.4&show=api-class-browser). The browser will be initiated and shutdown by the testrunner setup.
 
 ```js
@@ -31,7 +65,7 @@ describe('saucectl demo test', () => {
 <!--Playwright-->
 <br />
 
-### Playwright Snippet:
+### Playwright Snippet
 The Playwright testrunner image also exposes a global `browser` variable that represents Playwright's [`Browser class`](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=browser). In addition to that you also have access to a pre-generated [browser context](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=browser-contexts) via `context` as well as to a [page frame](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=pages-and-frames) via `page`.
 
 ```js
@@ -46,7 +80,7 @@ describe('saucectl demo test', () => {
 <!--TestCafe-->
 <br />
 
-### TestCafe Snippet:
+### TestCafe Snippet
 
 ```js
 import { Selector } from 'testcafe';
@@ -66,7 +100,4 @@ test(testName, async t => {
 
 <br />
 
-## What's Next
-* [Testrunner Toolkit FAQs](TESTRUNNER-TOOLKIT-FAQS.md)
-
-<!---___--->
+___

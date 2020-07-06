@@ -1,18 +1,18 @@
 ---
-id: configuration-examples
+id: configuration
 title: Configuring the Testrunner Toolkit
-sidebar_label: Configuration Examples
+sidebar_label: Configuration
 ---
 <!--# Configuring the Testrunner Toolkit-->
-The Testrunner Toolkit (`saucectl`) requires a configuration file to know which tests to run along with which framework to use.
+
+The Testrunner Toolkit (`saucectl`) requires a configuration file to know which tests to run, along with which framework to use.
 
 ## Basic Configuration
 
 By default, `config.yml` is the file `saucectl` looks to for its configuration.
 
-__Simple `config.yml` using `puppeteer`__
-
 ```yaml
+#Simple config.yml using puppeteer
 apiVersion: v1
 metadata:
   name: Feature XYZ
@@ -133,10 +133,4 @@ image:
 
 <br />
 
-## What's Next
-* [Testrunner Toolkit Framework Examples](FRAMEWORK-EXAMPLES.md)
-* [Testrunner Toolkit FAQS](TESTRUNNER-TOOLKIT-FAQS.md)
-
-<br />
-
-<!---___--->
+___

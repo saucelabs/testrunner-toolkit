@@ -4,6 +4,7 @@ title: Testrunner Toolkit FAQs
 sidebar_label: Testrunner Toolkit FAQs
 ---
 <!--# Testrunner Toolkit FAQs-->
+
 Below are list of frequently asked questions regarding some of the business and technical use cases surrounding the Testrunner Toolkit.
 
 <!--__Table of Contents__
@@ -49,8 +50,8 @@ contains saucectl with different versions of Puppeteer.
 * [Base image + TestCafe](https://hub.docker.com/r/saucelabs/stt-testcafe-node/tags)
 contains saucectl with different versions of TestCafe.
 
-## Are There any Framework Test Code Samples? 
-Yes! You can find them by visiting the [Testrunner Toolkit Framework Examples](FRAMEWORK-EXAMPLES.md) page.
+## Are There any Test Code Samples? 
+Yes! You can find them here: [Automation Framework Examples](test-preparation.md#automation-framework-examples).
 
 ## How Do I Use This in my Pipeline?
 The GitHub repository includes CI/CD examples of `saucectl` using:
@@ -60,4 +61,4 @@ The GitHub repository includes CI/CD examples of `saucectl` using:
 Although the [GitHub Actions](./.github/workflows/tests.yml) and [CircleCI](./.circleci/config.yml) 
 examples are included, the mechanism works with any CI/CD provider that supports containers.
 
-<!---___--->
+___

@@ -1,5 +1,6 @@
 {
   "docs": {
-    "Home": ["getting-started", "configuration-examples", "framework-examples", "faqs"]
+    "Getting Started": ["installation", "test-preparation", "configuration"],
+    "Support": ["faqs"]
   }
 }
