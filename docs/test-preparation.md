@@ -14,7 +14,8 @@ Before you begin testing, you must choose an automation framework.
 2. Choose the desired framework following the prompt:
     * [Puppeteer](https://github.com/puppeteer/puppeteer)
     * [Playwright](https://github.com/microsoft/playwright)
-    * [TestCafe](https://devexpress.github.io/testcafe) 
+    * [TestCafe](https://devexpress.github.io/testcafe)
+    * [Cypress](https://github.com/cypress-io/cypress)
     
     Next, the Toolkit will automatically generate: 
     * a config file (`./sauce/config.yml`)
@@ -43,7 +44,7 @@ The examples here show how Pipeline testing can be used. Try them and find your 
 Every __testrunner__ image comes with a preconfigured setup that allows you to focus on writing tests instead of tweaking with the configurations. Our initial `testrunner` flavors come either with Puppeteer, Playwright, or TestCafe as an automation framework. 
 
 
-Below are example snippets in the following frameworks: [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v3.0.3&show=api-class-browser), [Playwright](https://playwright.dev/#version=v1.0.1&path=docs%2Fcore-concepts.md&q=browser), and [TestCafe](https://devexpress.github.io/testcafe/documentation/reference/test-api/testcontroller/browser.html)
+Below are example snippets in the following frameworks: [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v3.0.3&show=api-class-browser), [Playwright](https://playwright.dev/#version=v1.0.1&path=docs%2Fcore-concepts.md&q=browser), [TestCafe](https://devexpress.github.io/testcafe/documentation/reference/test-api/testcontroller/browser.html), and [Cypress](https://github.com/cypress-io/cypress).
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Puppeteer-->
@@ -94,6 +95,24 @@ test(testName, async t => {
 		.click('#submit-button')
 		.expect(Selector('#article-header').innerText).eql('Thank you, devx!');
 });
+```
+
+<!--Cypress-->
+<br />
+
+### Cypress Snippet
+
+```js
+context('Actions', () => {
+	beforeEach(() => {
+		cy.visit('https://example.cypress.io/commands/actions')
+	})
+	it('.type() - type into a DOM element', () => {
+		// https://on.cypress.io/type
+		cy.get('.action-email')
+			.type('fake@email.com').should('have.value', 'fake@email.com')
+	})
+})
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->

@@ -16,10 +16,13 @@ Below are list of frequently asked questions regarding some of the business and 
 
 ## How Does Testrunner Toolkit Work?
 Native JavaScript testing is achieved through the combination of Sauce Labs, Jest, and the
-JavaScript framework of your choice. In the current beta, the toolkit supports 
-[Puppeteer](https://github.com/puppeteer/puppeteer),
-[Playwright](https://github.com/microsoft/playwright) and
-[TestCafe](https://github.com/DevExpress/testcafe).
+JavaScript framework of your choice. In the current beta, the toolkit supports:
+ 
+* [Puppeteer](https://github.com/puppeteer/puppeteer)
+* [Playwright](https://github.com/microsoft/playwright)
+* [TestCafe](https://github.com/DevExpress/testcafe)
+* [Cypress](https://github.com/cypress-io/cypress)
+
 This approach gives you the power and expressiveness of different test frameworks with the dashboards, infrastructure, and analytics of [Sauce Labs](https://saucelabs.com/). 
 
 The specific framework you want to use to for testing should be based on the types of tests you
@@ -29,10 +32,12 @@ run tests in your existing CI pipeline and benefit from the low latency.
 When tests are completed, logs, results, and videos will be uploaded to Sauce Labs to your account. After that, you can review, share, and analyze those results just as you would from any other test executed on Sauce Labs.
 
 To learn more about:
+
 * Jest, visit [https://jestjs.io/](https://jestjs.io/)
 * The Google Puppeteer project, visit [https://developers.google.com/web/tools/puppeteer](https://developers.google.com/web/tools/puppeteer)
 * The Microsoft Playwright project, visit [https://github.com/microsoft/playwright](https://github.com/microsoft/playwright)
 * TestCafe, visit [https://devexpress.github.io/testcafe/](https://devexpress.github.io/testcafe/)
+* Cypress, visit [https://github.com/cypress-io/cypress](https://github.com/cypress-io/cypress)
 
 ## Where are the Docker Images and Can I Inspect Them?
 
@@ -49,6 +54,8 @@ contains saucectl with different versions of Puppeteer.
 
 * [Base image + TestCafe](https://hub.docker.com/r/saucelabs/stt-testcafe-node/tags)
 contains saucectl with different versions of TestCafe.
+
+* [Base image + Cypress](https://hub.docker.com/r/saucelabs/stt-cypress-mocha-node/tags) contains saucectl with different versions of Cypress.
 
 ## Are There any Test Code Samples? 
 Yes! You can find them here: [Automation Framework Examples](test-preparation.md#automation-framework-examples).
