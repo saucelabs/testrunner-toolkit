@@ -26,7 +26,7 @@ In this beta, you will be able to run tests in your existing CI pipeline and ben
 
 When tests complete, the test assets (logs, test results, and test videos) are uploaded to your [Sauce Labs account](https://app.saucelabs.com). From Sauce Labs you can review, share, and analyze the test results just as you would with any other test framework executed on Sauce Labs.
 
-## Tools
+## Resources
 
 To learn more about the tools associated with this project please see the links below:
 

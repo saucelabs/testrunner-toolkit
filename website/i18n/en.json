@@ -25,6 +25,10 @@
         "title": "Sauce Labs Testrunner Toolkit",
         "sidebar_label": "Introduction"
       },
+      "saucectl": {
+        "title": "saucectl",
+        "sidebar_label": "saucectl"
+      },
       "test-preparation": {
         "title": "Preparing to Run Testrunner Toolkit",
         "sidebar_label": "Test Preparation"

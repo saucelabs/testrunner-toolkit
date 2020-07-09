@@ -1,7 +1,7 @@
 {
   "docs": {
     "Overview": ["introduction"],
-    "Getting Started": ["installation", "test-preparation", "configuration", "faqs"],
-    "Support": ["contributing", "code-of-conduct"]
+    "Getting Started": ["installation", "test-preparation", "configuration", "saucectl"],
+    "Support": ["contributing", "code-of-conduct", "faqs"]
   }
 }

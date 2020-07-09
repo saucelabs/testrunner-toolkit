@@ -13,7 +13,7 @@ Contribution can come in many forms; writing examples, making suggestions, point
 or updating documents. Most important is your patience and engagement. We are starting a
 significant journey in the open instead of behind closed doors. Join us to make something great.
  
-# Reporting Bugs
+## Reporting Bugs
 
 Reporting bugs is one of the best ways to contribute. Before creating a bug report, please check that an issue reporting the same problem does not already exist. If there is an such an issue, you may add your information as a comment.
 
@@ -21,7 +21,7 @@ Feel free to start [here](https://github.com/saucelabs/saucectl/issues). Please 
 required information, be clear, specific, and add working examples of the problems you are
 seeing. The problem will be resolved a lot faster if you do
 
-# Features
+## Features
 
 We have a lot of ideas and I'm sure you do too. Please use our 
 [issues list](https://github.com/saucelabs/saucectl/issues) to suggest new features 
@@ -30,7 +30,7 @@ that you would like to see added.
 Once again, detail wins. Be clear and outcome oriented in your requests - it just makes
 it easier for us to evaluate and prioritize.
 
-# Contribute Code
+## Contribute Code
 
 If you would like to contribute either by fixing a bug or adding a feature, please make sure it
 the code change is attached to a prior (or new) issue in the 
