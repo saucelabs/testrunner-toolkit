@@ -44,7 +44,7 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    {doc: "installation", label: 'Docs'},
+    {doc: "introduction", label: 'Docs'},
     {blog: true, label: 'Blog'},
     {href: "https://saucelabs.com/sign-up", label: "Try Sauce Labs", external: true },
     //{page: 'help', label: 'Support'},

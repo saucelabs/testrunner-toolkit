@@ -5,13 +5,25 @@
     "previous": "Previous",
     "tagline": "Testing at the Speed of Awesome!",
     "docs": {
+      "code-of-conduct": {
+        "title": "Contributor Covenant Code of Conduct",
+        "sidebar_label": "Code of Conduct"
+      },
       "configuration": {
         "title": "Configuring the Testrunner Toolkit",
         "sidebar_label": "Configuration"
       },
+      "contributing": {
+        "title": "Contributing",
+        "sidebar_label": "Contributing"
+      },
       "installation": {
         "title": "Installation",
         "sidebar_label": "Installation"
+      },
+      "introduction": {
+        "title": "Sauce Labs Testrunner Toolkit",
+        "sidebar_label": "Introduction"
       },
       "test-preparation": {
         "title": "Preparing to Run Testrunner Toolkit",
@@ -28,6 +40,7 @@
       "Try Sauce Labs": "Try Sauce Labs"
     },
     "categories": {
+      "Overview": "Overview",
       "Getting Started": "Getting Started",
       "Support": "Support"
     }

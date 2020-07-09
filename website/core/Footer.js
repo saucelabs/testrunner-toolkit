@@ -36,20 +36,20 @@ class Footer extends React.Component {
                     <div className="wrapper">
                         <div>
                             <h5>Docs</h5>
-                            <a href={this.docUrl('getting-started.html', this.props.language)}>
-                                Getting Started
+                            <a href={this.docUrl('installation')}>
+                                Installation
                             </a>
-                            <a href={this.docUrl('doc2.html', this.props.language)}>
-                                Live Testing
+                            <a href={this.docUrl('test-preparation')}>
+                                Test Preparation
                             </a>
-                            <a href={this.docUrl('doc3.html', this.props.language)}>
-                                Automated Testing
+                            <a href={this.docUrl('configuration')}>
+                                Configuration
                             </a>
                         </div>
                         <div>
                             <h5>Community</h5>
                             <a
-                                href="https://stackoverflow.com/questions/tagged/saucebindings"
+                                href="https://stackoverflow.com/questions/tagged/testrunner-toolkit"
                                 target="_blank"
                                 rel="noreferrer noopener">
                                 Stack Overflow
