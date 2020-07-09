@@ -21,7 +21,7 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'Testrunner Toolkit', // Title for your website.
+  title: 'Testrunner Toolkit Documentation', // Title for your website.
   tagline: 'Testing at the Speed of Awesome!',
   url: 'https://www.saucelabs.com', // Your website URL
   baseUrl: '/', // Base URL for your project */
@@ -30,7 +30,7 @@ const siteConfig = {
   //   baseUrl: '/test-site/',
   disableHeaderTitle: true,
   // Used for publishing and more
-  projectName: 'saucectl-docs',
+  projectName: 'testrunner-toolkit-docs',
   organizationName: 'saucelabs',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
