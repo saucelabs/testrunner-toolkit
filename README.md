@@ -71,6 +71,7 @@ This command will ask you to choose one of the frameworks:
 - [Puppeteer](https://github.com/puppeteer/puppeteer)
 - [Playwright](https://github.com/microsoft/playwright)
 - [TestCafe](https://github.com/DevExpress/testcafe) 
+- [Cypress](https://github.com/cypress-io/cypress) 
 
 After that, a `./sauce/config.yml` file and an example test under
 the `tests` directory will be created, where you can start working from.
@@ -145,6 +146,9 @@ contains saucectl with different versions of Puppeteer.
 [Base image + TestCafe](https://hub.docker.com/r/saucelabs/stt-testcafe-node/tags)
 contains saucectl with different versions of TestCafe.
 
+[Base image + Cypress](https://hub.docker.com/r/saucelabs/stt-cypress-mocha-node/tags)
+contains saucectl with different versions of Cypress.
+
 ## Examples
 
 The examples here show how Pipeline testing can be used. Try them and find your own use cases. Every testrunner image comes with a preconfigured setup that allows you to focus on writing tests instead of tweaking with the configurations. Our initial testrunner flavors come either with Puppeteer or Playwright as an automation framework. They will start the browser for you and expose the `browser` object ([Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v3.0.3&show=api-class-browser) / [Playwright](https://playwright.dev/#version=v1.0.1&path=docs%2Fcore-concepts.md&q=browser)) to the global scope for you to be accessible in the test:
@@ -175,6 +179,35 @@ describe('saucectl demo test', () => {
 	});
 });
 ```
+
+#### Testcafe Snippet
+```js
+import { Selector } from 'testcafe';
+fixture `Getting Started`
+	.page `http://devexpress.github.io/testcafe/example`
+
+const testName = 'testcafe test'
+test(testName, async t => {
+	await t
+		.typeText('#developer-name', 'devx')
+		.click('#submit-button')
+		.expect(Selector('#article-header').innerText).eql('Thank you, devx!');
+});
+```
+
+#### Cypress Snippet
+```js
+context('Actions', () => {
+	beforeEach(() => {
+		cy.visit('https://example.cypress.io/commands/actions')
+	})
+	it('.type() - type into a DOM element', () => {
+		// https://on.cypress.io/type
+		cy.get('.action-email')
+			.type('fake@email.com').should('have.value', 'fake@email.com')
+	})
+})
+```
 <!-- [END examples] -->
 
 
@@ -186,6 +219,7 @@ JavaScript framework of your choice. In the current beta, the toolkit supports
 [Puppeteer](https://github.com/puppeteer/puppeteer),
 [Playwright](https://github.com/microsoft/playwright) and
 [TestCafe](https://github.com/DevExpress/testcafe).
+[Cypress](https://github.com/cypress-io/cypress).
 This approach gives you the power and expressiveness of different test frameworks with the dashboards, infrastructure, and analytics of [Sauce Labs](https://saucelabs.com/). 
 
 The specific framework you want to use to for testing should be based on the types of tests you
@@ -199,6 +233,7 @@ To learn more about:
 * The Google Puppeteer project, visit https://developers.google.com/web/tools/puppeteer
 * The Microsoft Playwright project, visit https://github.com/microsoft/playwright
 * TestCafe, visit https://devexpress.github.io/testcafe/
+* Cypress, visit https://github.com/cypress-io/cypress
 
 ### Using `saucectl` in your CI/CD pipeline
 
