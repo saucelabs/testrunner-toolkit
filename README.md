@@ -111,7 +111,7 @@ files:
   - ./tests/**/*.js
 image:
   base: saucelabs/stt-puppeteer-jest-node
-  version: v0.1.1
+  version: latest
 sauce:
   region: us-west-1
 ```
