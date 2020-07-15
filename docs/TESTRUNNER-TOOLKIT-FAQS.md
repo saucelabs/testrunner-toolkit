@@ -15,7 +15,7 @@ Below are list of frequently asked questions regarding some of the business and 
 -->
 
 ## How Does Testrunner Toolkit Work?
-Native JavaScript testing is achieved through the combination of Sauce Labs, Jest, and the
+Native JavaScript testing is achieved through the combination of Sauce Labs and the
 JavaScript framework of your choice. In the current beta, the toolkit supports:
  
 * [Puppeteer](https://github.com/puppeteer/puppeteer)

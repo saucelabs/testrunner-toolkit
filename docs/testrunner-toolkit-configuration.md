@@ -24,7 +24,7 @@ files:
   - ./tests/**/*.js
 image:
   base: saucelabs/sauce-puppeteer-jest-node
-  version: v0.1.0
+  version: v0.1.2
 sauce:
   region: us-west-1
 ```
@@ -72,7 +72,7 @@ files:
 image:
   # while a set of properties are defined by our Yaml format
   base: saucelabs/sauce-puppeteer
-  version: 1.0.0-saucectl0.5.0
+  version: 3.0.4-saucectl0.6.2
 ```
 
 <!--Playwright-->
@@ -103,7 +103,7 @@ files:
 image:
   # while a set of properties are defined by our Yaml format
   base: saucelabs/sauce-playwright
-  version: 1.0.0-saucectl0.5.0
+  version: 1.0.0-saucectl0.6.2
 ```
 
 <!--TestCafe-->
@@ -126,6 +126,25 @@ capabilities:
 image:
   base: saucelabs/sauce-testcafe
   version: 1.8.5-saucectl0.6.3
+```
+
+<!-Cypress-->
+<br />
+
+[__`cypress.yml`__](https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml)
+```yaml
+apiVersion: v1
+metadata:
+  name: Feature XYZ
+  tags:
+    - e2e
+    - release team
+    - other tag
+files:
+  - ./tests/cypress/example.test.js
+image:
+  base: saucelabs/stt-cypress-mocha-node
+  version: v0.1.3
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->

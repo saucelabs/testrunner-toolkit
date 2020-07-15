@@ -47,7 +47,7 @@ const siteConfig = {
     {doc: "testrunner-toolkit-overview", label: 'Docs'},
     //{blog: true, label: 'Blog'},
     {href: "https://saucelabs.com/sign-up", label: "Try Sauce Labs", external: true },
-    //{page: 'help', label: 'Support'},
+    {href: "https://app.saucelabs.com/", label: "Sign in to Sauce Labs", external: true },
   ],
 
   // If you have users set above, you add it here:
