@@ -1,7 +1,7 @@
 ---
-id: introduction
+id: testrunner-toolkit-overview
 title: Sauce Labs Testrunner Toolkit                                  
-sidebar_label: Introduction
+sidebar_label: Overview
 ---
 <img src="https://img.shields.io/badge/beta!-blue?style=for-the-badge" align="left" title="Beta!">
 <br />

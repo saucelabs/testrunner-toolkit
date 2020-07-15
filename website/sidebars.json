@@ -1,7 +1,17 @@
 {
   "docs": {
-    "Overview": ["introduction"],
-    "Getting Started": ["installation", "test-preparation", "configuration", "saucectl"],
-    "Support": ["contributing", "code-of-conduct", "faqs"]
+    "Overview": [
+      "testrunner-toolkit-overview"
+    ],
+    "Getting Started": [
+      "testrunner-toolkit-installation",
+      "testrunner-toolkit-test-preparation",
+      "testrunner-toolkit-configuration",
+      "testrunner-toolkit-cli-reference"
+    ],
+    "Support": [
+      "contributing",
+      "code-of-conduct",
+      "faqs"]
   }
 }

@@ -36,16 +36,16 @@ const siteConfig = {
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
 
-  algolia: {
-    apiKey: 'my-api-key',
-    indexName: 'my-index-name',
-    algoliaOptions: {} // Optional, if provided by Algolia
-  },
+  // algolia: {
+  //   apiKey: 'my-api-key',
+  //   indexName: 'my-index-name',
+  //   algoliaOptions: {} // Optional, if provided by Algolia
+  // },
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    {doc: "introduction", label: 'Docs'},
-    {blog: true, label: 'Blog'},
+    {doc: "testrunner-toolkit-overview", label: 'Docs'},
+    //{blog: true, label: 'Blog'},
     {href: "https://saucelabs.com/sign-up", label: "Try Sauce Labs", external: true },
     //{page: 'help', label: 'Support'},
   ],

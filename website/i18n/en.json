@@ -9,38 +9,37 @@
         "title": "Contributor Covenant Code of Conduct",
         "sidebar_label": "Code of Conduct"
       },
-      "configuration": {
-        "title": "Configuring the Testrunner Toolkit",
-        "sidebar_label": "Configuration"
-      },
       "contributing": {
         "title": "Contributing",
         "sidebar_label": "Contributing"
       },
-      "installation": {
-        "title": "Installation",
-        "sidebar_label": "Installation"
+      "testrunner-toolkit-cli-reference": {
+        "title": "Testrunner Toolkit CLI Reference",
+        "sidebar_label": "CLI Reference"
       },
-      "introduction": {
-        "title": "Sauce Labs Testrunner Toolkit",
-        "sidebar_label": "Introduction"
-      },
-      "saucectl": {
-        "title": "saucectl",
-        "sidebar_label": "saucectl"
-      },
-      "test-preparation": {
-        "title": "Preparing to Run Testrunner Toolkit",
-        "sidebar_label": "Test Preparation"
+      "testrunner-toolkit-configuration": {
+        "title": "Configuring the Testrunner Toolkit",
+        "sidebar_label": "Configuration"
       },
       "faqs": {
         "title": "Testrunner Toolkit FAQs",
         "sidebar_label": "Testrunner Toolkit FAQs"
+      },
+      "testrunner-toolkit-installation": {
+        "title": "Installation",
+        "sidebar_label": "Installation"
+      },
+      "testrunner-toolkit-overview": {
+        "title": "Sauce Labs Testrunner Toolkit",
+        "sidebar_label": "Overview"
+      },
+      "testrunner-toolkit-test-preparation": {
+        "title": "Testrunner Toolkit Test Preparation",
+        "sidebar_label": "Test Preparation"
       }
     },
     "links": {
       "Docs": "Docs",
-      "Blog": "Blog",
       "Try Sauce Labs": "Try Sauce Labs"
     },
     "categories": {

@@ -1,9 +1,8 @@
 ---
-id: configuration
+id: testrunner-toolkit-configuration
 title: Configuring the Testrunner Toolkit
 sidebar_label: Configuration
 ---
-<!--# Configuring the Testrunner Toolkit-->
 
 The Testrunner Toolkit requires a configuration file to know which tests to run, along with which framework to use.
 

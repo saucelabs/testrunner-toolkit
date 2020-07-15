@@ -1,6 +1,6 @@
 ---
-id: test-preparation
-title: Preparing to Run Testrunner Toolkit
+id: testrunner-toolkit-test-preparation
+title: Testrunner Toolkit Test Preparation
 sidebar_label: Test Preparation
 ---
 
@@ -30,7 +30,7 @@ saucectl run
 ```
 Testrunner Toolkit will then execute the test based on the information in `config.yml`. 
 
-To learn more about how to configure `saucectl`, please visit the [Configuration](configuring-testrunner-toolkit.md) section of the docs. 
+To learn more about how to configure `saucectl`, please visit the [Configuration](testrunner-toolkit-configuration.md) section of the docs. 
 
 ### Quick demo
 
