@@ -161,21 +161,21 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 @media only screen and (min-width: 1024px) {
-    .fixedHeaderContainer {
-        height: 100px;
-        padding: 0;
-        margin-bottom: 1rem;
-    }
-    .navPusher {
-        padding-top: 120px;
-        min-height: calc(100vh - 120px);
-    }
-    .onPageNav {
-        max-height: calc(100vh - 110px);
-        top: 110px;
-    }
+    /*.fixedHeaderContainer {*/
+    /*    height: 80px;*/
+    /*    padding: 0;*/
+    /*    margin-bottom: 1rem;*/
+    /*}*/
+    /*.navPusher {*/
+    /*    padding-top: 120px;*/
+    /*    min-height: calc(100vh - 120px);*/
+    /*}*/
+    /*.onPageNav {*/
+    /*    max-height: calc(100vh - 110px);*/
+    /*    top: 110px;*/
+    /*}*/
     .fixedHeaderContainer .headerWrapper {
-        padding: 30px 20px;
+        padding: 10px 5px;
     }
     .navigationSlider .slidingNav ul li a {
         color: $textColor;
