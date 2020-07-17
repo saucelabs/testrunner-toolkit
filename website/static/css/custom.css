@@ -179,7 +179,7 @@ h1,h2,h3,h4,h5,h6 {
     }
     .navigationSlider .slidingNav ul li a {
         color: $textColor;
-        font-size: 14px;
+        font-size: 16px;
         margin: 0 15px;
         padding: 20px 0;
     }
@@ -224,7 +224,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .navGroupCategoryTitle {
-    font-size: 22px !important;
+    font-size: 18px !important;
     padding-bottom: 10px;
 }
 
