@@ -57,7 +57,7 @@ h1,h2,h3,h4,h5,h6 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    border-radius: 290486px;
+    border-radius: 25px;
     padding: 10px 30px;
 }
 
