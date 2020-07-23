@@ -1,13 +1,13 @@
 {
   "docs": {
     "Overview": [
-      "testrunner-toolkit-overview"
+      "overview"
     ],
     "Getting Started": [
-      "testrunner-toolkit-installation",
-      "testrunner-toolkit-test-preparation",
-      "testrunner-toolkit-configuration",
-      "testrunner-toolkit-cli-reference"
+      "installation",
+      "test-preparation",
+      "configuration",
+      "cli-reference"
     ],
     "Support": [
       "contributing",

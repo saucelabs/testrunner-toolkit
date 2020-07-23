@@ -1,12 +1,12 @@
 ---
-id: testrunner-toolkit-cli-reference
+id: cli-reference
 title: Testrunner Toolkit CLI Reference
 sidebar_label: CLI Reference
 ---
 
 ## `saucectl`
 
-`saucectl` is a command line interface for the Sauce Labs Testrunner Toolkit. This repository contains the Go binary that you use to kick off tests. If you look for more documentation on it, please have a look into our [example repo](https://github.com/saucelabs/testrunner-toolkit).
+`saucectl` is a command line interface for the Sauce Labs Testrunner Toolkit. [This repository](https://github.com/saucelabs/testrunner-toolkit) contains the Go binary that you use to kick off tests.
 
 ### Development Requirements
  * [Go](https://golang.org/) (v1.14 or higher)
@@ -91,7 +91,7 @@ Using the --region flag will set the Sauce Labs region for the test execution. T
 saucectl run --timeout <seconds>
 ```
 
-Using the `--timeout` flag will set the test timeout for the [Testrunner framework](testrunner-toolkit-test-preparation.md#automation-framework-examples).
+Using the `--timeout` flag will set the test timeout for the [Testrunner framework](test-preparation.md#automation-framework-examples).
 
 ## Licensing
 

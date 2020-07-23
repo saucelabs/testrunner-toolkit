@@ -22,20 +22,13 @@ const users = [
 
 const siteConfig = {
   title: 'Testrunner Toolkit Documentation', // Title for your website.
-  tagline: 'Testing at the Speed of Awesome!',
-  url: 'https://www.saucelabs.com', // Your website URL
-  baseUrl: '/', // Base URL for your project */
-  // For github.io type URLs, you would set the url and baseUrl like:
-  //   url: 'https://facebook.github.io',
-  //   baseUrl: '/test-site/',
-  disableHeaderTitle: true,
-  // Used for publishing and more
-  projectName: 'testrunner-toolkit-docs',
+  url: 'https://saucelabs.github.io', // Your website URL
+  baseUrl: '/testrunner-toolkit/', // Base URL for your project */
+  projectName: 'testrunner-toolkit',
   organizationName: 'saucelabs',
-  // For top-level user or org sites, the organization is still the same.
-  // e.g., for the https://JoelMarcey.github.io site, it would be set like...
-  //   organizationName: 'JoelMarcey'
+  disableHeaderTitle: true,
 
+  // Used for search
   // algolia: {
   //   apiKey: 'my-api-key',
   //   indexName: 'my-index-name',
@@ -44,10 +37,10 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    {doc: "testrunner-toolkit-overview", label: 'Docs'},
+    //{doc: "overview", label: 'Docs'},
     //{blog: true, label: 'Blog'},
     {href: "https://saucelabs.com/sign-up", label: "Try Sauce Labs", external: true },
-    {href: "https://app.saucelabs.com/", label: "Sign in to Sauce Labs", external: true },
+    {href: "https://app.saucelabs.com/", label: "Sign in", external: true },
   ],
 
   // If you have users set above, you add it here:
@@ -108,10 +101,10 @@ const siteConfig = {
   docsSideNavCollapsible: true,
 
   // Show documentation's last contributor's name.
-  // enableUpdateBy: true,
+  enableUpdateBy: true,
 
   // Show documentation's last update time.
-  // enableUpdateTime: true,
+  enableUpdateTime: true,
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...

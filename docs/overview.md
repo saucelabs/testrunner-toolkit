@@ -1,5 +1,5 @@
 ---
-id: testrunner-toolkit-overview
+id: overview
 title: Sauce Labs Testrunner Toolkit                                  
 sidebar_label: Overview
 ---
