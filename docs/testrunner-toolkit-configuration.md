@@ -43,7 +43,6 @@ Below are framework-specific configuration examples that exist in the [Testrunne
 >
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Puppeteer-->
-<br />
 
 [__`puppeteer.yml`__](https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/puppeteer.yml)
 ```yaml
@@ -76,7 +75,6 @@ image:
 ```
 
 <!--Playwright-->
-<br />
 
 [__`playwright.yml`__](https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/playwright.yml)
 ```yaml
@@ -107,7 +105,6 @@ image:
 ```
 
 <!--TestCafe-->
-<br />
 
 [__`testcafe.yml`__](https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/testcafe.yml)
 ```yaml
@@ -129,7 +126,6 @@ image:
 ```
 
 <!-Cypress-->
-<br />
 
 [__`cypress.yml`__](https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml)
 ```yaml
@@ -148,7 +144,5 @@ image:
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
-
-<br />
 
 ___
