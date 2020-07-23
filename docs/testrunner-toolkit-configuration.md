@@ -41,6 +41,7 @@ Below are framework-specific configuration examples that exist in the [Testrunne
 >
 > **NOTE:** The test files need to match `(spec|test)` in their file name so they are automatically detected as `testfiles`.
 >
+
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Puppeteer-->
 
@@ -125,7 +126,7 @@ image:
   version: 1.8.5-saucectl0.6.3
 ```
 
-<!-Cypress-->
+<!--Cypress-->
 
 [__`cypress.yml`__](https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml)
 ```yaml
