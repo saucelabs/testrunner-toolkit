@@ -1,4 +1,3 @@
-
 # Contributing
 
 Thank you for your interest in making this project even better and more awesome. Your contributions are highly welcomed.

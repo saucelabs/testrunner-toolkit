@@ -1,0 +1,17 @@
+{
+  "docs": {
+    "Overview": [
+      "overview"
+    ],
+    "Getting Started": [
+      "installation",
+      "test-preparation",
+      "configuration",
+      "cli-reference"
+    ],
+    "Support": [
+      "contributing",
+      "code-of-conduct",
+      "faqs"]
+  }
+}
