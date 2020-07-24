@@ -190,7 +190,7 @@ h1,h2,h3,h4,h5,h6 {
         background: none;
     }
     .navigationSlider .slidingNav ul li:nth-last-child(2) a {
-        background: $primaryColor;
+        background: #d92519;
         background: -webkit-gradient(linear,right top,left top,from(#ee4439),to(#d92519));
         background: linear-gradient(270deg,#ee4439,#d92519);
         box-shadow: -3px 0 16px -11px #000;
