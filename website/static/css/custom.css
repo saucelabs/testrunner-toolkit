@@ -186,7 +186,7 @@ h1,h2,h3,h4,h5,h6 {
     .navigationSlider .slidingNav ul li a:hover,
     .navigationSlider .slidingNav ul li.siteNavItemActive a,
     .navigationSlider .slidingNav ul li.siteNavGroupActive a {
-        color: $primaryColor;
+        color: #d92519;
         background: none;
     }
     .navigationSlider .slidingNav ul li:nth-last-child(2) a {
