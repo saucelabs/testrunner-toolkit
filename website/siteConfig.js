@@ -28,6 +28,9 @@ const siteConfig = {
   organizationName: 'saucelabs',
   disableHeaderTitle: true,
 
+  //gaGtag: true,
+  gaTrackingId: 'UA-6735579-1',
+
   // Used for search
   // algolia: {
   //   apiKey: 'my-api-key',
