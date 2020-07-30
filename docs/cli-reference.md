@@ -4,9 +4,11 @@ title: Testrunner Toolkit CLI Reference
 sidebar_label: CLI Reference
 ---
 
+This page provides information for `saucectl`, the command line interface of the Sauce Labs Testrunner Toolkit.
+
 ## `saucectl`
 
-`saucectl` is a command line interface for the Sauce Labs Testrunner Toolkit. [This repository](https://github.com/saucelabs/testrunner-toolkit) contains the Go binary that you use to kick off tests.
+[This repository](https://github.com/saucelabs/saucectl) contains the Go binary that you use to kick off tests.
 
 ### Development Requirements
  * [Go](https://golang.org/) (v1.14 or higher)
