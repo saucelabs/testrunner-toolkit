@@ -10,7 +10,7 @@ The Sauce Labs `saucectl` repo is an Open Source project. We are excited to enga
 and the community. 
 
 Contribution can come in many forms; writing examples, making suggestions, pointing out bugs,
-or updating documents. Most important is your patience and engagement. We are starting a
+or updating documentation. Most important is your patience and engagement. We are starting a
 significant journey in the open instead of behind closed doors. Join us to make something great.
  
 ## Reporting Bugs
