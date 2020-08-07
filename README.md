@@ -130,6 +130,27 @@ for [Puppeteer](./.sauce/puppeteer.yml), and one for [Playwright](./.sauce/playw
 
 <!-- [START examples] -->
 
+### Run a single file
+
+```yaml
+files:
+  - ./tests/file.spec.js
+```
+
+### Run multiple files
+
+```yaml
+files:
+  - ./tests/*.spec.js
+```
+
+### Run an entire directory
+
+```yaml
+files:
+  - ./tests/cypress/
+```
+
 ## Images
 
 All images are hosted on Docker Hub. 
