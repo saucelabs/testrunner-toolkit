@@ -26,6 +26,12 @@ Using NPM:
 npm i -g saucectl
 ```
 
+Using brew:
+```sh
+brew tap saucelabs/saucectl
+brew install saucectl
+```
+
 or via our one line installer:
 
 ```sh
