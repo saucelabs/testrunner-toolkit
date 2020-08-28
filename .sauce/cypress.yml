@@ -10,4 +10,4 @@ files:
   - ./tests/cypress/example.test.js
 image:
   base: saucelabs/stt-cypress-mocha-node
-  version: v0.1.3
+  version: latest

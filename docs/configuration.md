@@ -23,7 +23,7 @@ metadata:
 files:
   - ./tests/**/*.js
 image:
-  base: saucelabs/sauce-puppeteer-jest-node
+  base: saucelabs/stt-puppeteer-jest-node
   version: v0.1.2
 sauce:
   region: us-west-1

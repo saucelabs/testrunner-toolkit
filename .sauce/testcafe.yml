@@ -12,5 +12,5 @@ files:
 capabilities:
   - browserName: Chrome
 image:
-  base: saucelabs/sauce-testcafe
-  version: 1.8.5-saucectl0.6.3
+  base: saucelabs/stt-testcafe-node
+  version: latest
