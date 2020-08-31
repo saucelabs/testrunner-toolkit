@@ -22,5 +22,5 @@ files:
 # build their own images as well
 image:
   # while a set of properties are defined by our Yaml format
-  base: saucelabs/sauce-puppeteer
-  version: 1.0.0-saucectl0.5.0
+  base: saucelabs/stt-puppeteer-jest-node
+  version: latest
