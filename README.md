@@ -9,6 +9,16 @@
 
 Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like Puppeteer and Playwright for running end-to-end web tests with Sauce Labs.
 
+__Table of Contents__
+* [Requirements](#requirements)
+* [Install](#install)
+* [Connect to Sauce Labs](#connect-to-sauce-labs)
+* [Getting Started](#getting-started)
+* [Collaboration](#collaboration)
+* [Contribution](#contribution)
+
+__Full Documentation__: [https://opensource.saucelabs.com/testrunner-toolkit/](https://opensource.saucelabs.com/testrunner-toolkit/)
+
 <!-- [START gettingstarted] -->
 
 ## Requirements
@@ -82,195 +92,7 @@ This command will ask you to choose one of the frameworks:
 After that, a `./sauce/config.yml` file and an example test under
 the `tests` directory will be created, where you can start working from.
 
-### Run your first test
-
-```sh
-saucectl run
-```
-
-This command will run the example test based on the `./.sauce/config.yml` file.
-
-
-### Using saucectl
-To learn more about `saucectl` and its commands and flags,
-please visit the [saucectl repository](https://github.com/saucelabs/saucectl).
-
-### Quick demo
-
-![Demo](https://github.com/saucelabs/testrunner-toolkit/blob/master/docs/assets/saucectl-demo.gif?raw=true)
-
-## Configuration
-`saucectl` requires a configuration file to know what tests to run and what
-framework to use. By default, `.sauce/config.yml` will be the place where
-`saucectl` will look for its configuration.
-
-```yaml
-# Simple puppeteer example config
-apiVersion: v1
-metadata:
-  name: Feature XYZ
-  tags:
-    - e2e
-    - release team
-    - other tag
-  build: Release $CI_COMMIT_SHORT_SHA
-files:
-  - ./tests/**/*.js
-image:
-  base: saucelabs/stt-puppeteer-jest-node
-  version: latest
-sauce:
-  region: us-west-1
-```
-
-If you wish to use more than one framework, or to configure different sets of
-tests separately, you could use any name for the configuration file, and
-specify it through `saucectl run -c ./path/to/config.yml`.
-
-As an example, this repository uses two configurations for its pipeline. One
-for [Puppeteer](./.sauce/puppeteer.yml), and one for [Playwright](./.sauce/playwright.yml).
-
-> **NOTE:** Test files need to match `(spec|test)` in their file name so they will be automatically detected as testfiles.
-
-<!-- [END gettingstarted] -->
-
-<!-- [START examples] -->
-
-### Run a single file
-
-```yaml
-files:
-  - ./tests/file.spec.js
-```
-
-### Run multiple files
-
-```yaml
-files:
-  - ./tests/*.spec.js
-```
-
-### Run an entire directory
-
-```yaml
-files:
-  - ./tests/cypress/
-```
-
-## Images
-
-All images are hosted on Docker Hub. 
-
-[Base image](https://hub.docker.com/r/saucelabs/testrunner-image/tags)
-is called `testrunner`. It contains the tooling necessary to record videos, VNC etc. Plus Chrome, and a Firefox version. 
-
-[Base image + Playwright](https://hub.docker.com/r/saucelabs/stt-playwright-jest-node/tags)
-contains saucectl with different versions of Playwright.
-
-[Base image + Puppeteer](https://hub.docker.com/r/saucelabs/stt-puppeteer-jest-node/tags)
-contains saucectl with different versions of Puppeteer.
-
-[Base image + TestCafe](https://hub.docker.com/r/saucelabs/stt-testcafe-node/tags)
-contains saucectl with different versions of TestCafe.
-
-[Base image + Cypress](https://hub.docker.com/r/saucelabs/stt-cypress-mocha-node/tags)
-contains saucectl with different versions of Cypress.
-
-## Examples
-
-The examples here show how Pipeline testing can be used. Try them and find your own use cases. Every testrunner image comes with a preconfigured setup that allows you to focus on writing tests instead of tweaking with the configurations. Our initial testrunner flavors come either with Puppeteer or Playwright as an automation framework. They will start the browser for you and expose the `browser` object ([Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v3.0.3&show=api-class-browser) / [Playwright](https://playwright.dev/#version=v1.0.1&path=docs%2Fcore-concepts.md&q=browser)) to the global scope for you to be accessible in the test:
-
-#### Puppeteer Snippet:
-
-Our Puppeteer testrunner image exposes `browser` into the global scope which represents an instance of its [`Browser class`](https://pptr.dev/#?product=Puppeteer&version=v3.0.4&show=api-class-browser). The browser will be initiated and shutdown by the testrunner setup.
-
-```js
-describe('saucectl demo test', () => {
-	test('should verify title of the page', async () => {
-		const page = (await browser.pages())[0]
-		await page.goto('https://www.saucedemo.com/');
-		expect(await page.title()).toBe('Swag Labs');
-	});
-});
-```
-
-#### Playwright Snippet:
-
-The Playwright testrunner image also exposes a global `browser` variable that represents Playwright's [`Browser class`](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=browser). In addition to that you also have access to a pre-generated [browser context](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=browser-contexts) via `context` as well as to a [page frame](https://playwright.dev/#version=v1.0.2&path=docs%2Fcore-concepts.md&q=pages-and-frames) via `page`.
-
-```js
-describe('saucectl demo test', () => {
-	test('should verify title of the page', async () => {
-		await page.goto('https://www.saucedemo.com/');
-		expect(await page.title()).toBe('Swag Labs');
-	});
-});
-```
-
-#### Testcafe Snippet
-```js
-import { Selector } from 'testcafe';
-fixture `Getting Started`
-	.page `http://devexpress.github.io/testcafe/example`
-
-const testName = 'testcafe test'
-test(testName, async t => {
-	await t
-		.typeText('#developer-name', 'devx')
-		.click('#submit-button')
-		.expect(Selector('#article-header').innerText).eql('Thank you, devx!');
-});
-```
-
-#### Cypress Snippet
-```js
-context('Actions', () => {
-	beforeEach(() => {
-		cy.visit('https://example.cypress.io/commands/actions')
-	})
-	it('.type() - type into a DOM element', () => {
-		// https://on.cypress.io/type
-		cy.get('.action-email')
-			.type('fake@email.com').should('have.value', 'fake@email.com')
-	})
-})
-```
-<!-- [END examples] -->
-
-
-<!-- [START about] -->
-## More about the Sauce Labs Testrunner Toolkit ![BETA](https://img.shields.io/badge/beta!-blue?style=for-the-badge)
-
-Native JavaScript testing is achieved through the combination of Sauce Labs, Jest, and the
-JavaScript framework of your choice. In the current beta, the toolkit supports 
-[Puppeteer](https://github.com/puppeteer/puppeteer),
-[Playwright](https://github.com/microsoft/playwright) and
-[TestCafe](https://github.com/DevExpress/testcafe).
-[Cypress](https://github.com/cypress-io/cypress).
-This approach gives you the power and expressiveness of different test frameworks with the dashboards, infrastructure, and analytics of [Sauce Labs](https://saucelabs.com/). 
-
-The specific framework you want to use to for testing should be based on the types of tests you
-need to run and the environment in which you are running them. In this beta you will be able to
-run tests in your existing CI pipeline and benefit from the low latency. 
-
-When tests are completed, logs, results, and videos will be uploaded to Sauce Labs to your account. After that, you can review, share, and analyze those results just as you would from any other test executed on Sauce Labs.
-
-To learn more about:
-* Jest, visit https://jestjs.io/
-* The Google Puppeteer project, visit https://developers.google.com/web/tools/puppeteer
-* The Microsoft Playwright project, visit https://github.com/microsoft/playwright
-* TestCafe, visit https://devexpress.github.io/testcafe/
-* Cypress, visit https://github.com/cypress-io/cypress
-
-### Using `saucectl` in your CI/CD pipeline
-
-This repository includes examples of CI/CD in 
-[GitHub Actions Workflows](https://help.github.com/en/actions) and 
-[CircleCI Pipelines](https://circleci.com/docs/2.0/configuration-reference/). Although the 
-[GitHub Actions](./.github/workflows/tests.yml) and [CircleCI](./.circleci/config.yml) 
-examples are included, the mechanism works with any CI/CD provider that supports containers.
-
-<!-- [END about] -->
+For more Information on running your first test visit the [documentation](https://opensource.saucelabs.com/testrunner-toolkit/docs/test-preparation#run-your-first-test).
 
 <!-- [START collaboration] -->
 ## Collaboration
