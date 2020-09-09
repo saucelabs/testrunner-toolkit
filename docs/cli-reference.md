@@ -52,6 +52,7 @@ This command will ask you to choose one of the frameworks:
 * [Playwright](https://github.com/microsoft/playwright)
 * [TestCafe](https://github.com/DevExpress/testcafe)
 * [Cypress](https://github.com/cypress-io/cypress)
+* [WebdriverIO](https://github.com/webdriverio/webdriverio)
 
 After which, a `./sauce/config.yml` file and an example test under the tests directory will be created.
 

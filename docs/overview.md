@@ -16,6 +16,7 @@ JavaScript framework of your choice. In the current beta, the toolkit supports:
 * [Playwright](https://github.com/microsoft/playwright)
 * [TestCafe](https://github.com/DevExpress/testcafe)
 * [Cypress](https://github.com/cypress-io/cypress)
+* [WebdriverIO](https://github.com/webdriverio/webdriverio)
 
 This approach gives you the power and expressiveness of different test frameworks with the dashboards, infrastructure, and analytics of [Sauce Labs](https://saucelabs.com/). 
 
@@ -35,3 +36,4 @@ To learn more about the tools associated with this project please see the links 
 * The Microsoft Playwright project: [https://github.com/microsoft/playwright](https://github.com/microsoft/playwright)
 * TestCafe: [https://devexpress.github.io/testcafe/](https://devexpress.github.io/testcafe/)
 * Cypress: [https://github.com/cypress-io/cypress](https://github.com/cypress-io/cypress)
+* WebdriverIO: [https://webdriver.io](https://webdriver.io)

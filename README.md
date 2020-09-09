@@ -78,6 +78,7 @@ This command will ask you to choose one of the frameworks:
 - [Playwright](https://github.com/microsoft/playwright)
 - [TestCafe](https://github.com/DevExpress/testcafe) 
 - [Cypress](https://github.com/cypress-io/cypress) 
+- [WebdriverIO](https://github.com/webdriverio/webdriverio) 
 
 After that, a `./sauce/config.yml` file and an example test under
 the `tests` directory will be created, where you can start working from.
@@ -244,9 +245,10 @@ context('Actions', () => {
 Native JavaScript testing is achieved through the combination of Sauce Labs, Jest, and the
 JavaScript framework of your choice. In the current beta, the toolkit supports 
 [Puppeteer](https://github.com/puppeteer/puppeteer),
-[Playwright](https://github.com/microsoft/playwright) and
-[TestCafe](https://github.com/DevExpress/testcafe).
-[Cypress](https://github.com/cypress-io/cypress).
+[Playwright](https://github.com/microsoft/playwright),
+[TestCafe](https://github.com/DevExpress/testcafe),
+[Cypress](https://github.com/cypress-io/cypress) and
+[WebdriverIO](https://github.com/webdriverio/webdriverio).
 This approach gives you the power and expressiveness of different test frameworks with the dashboards, infrastructure, and analytics of [Sauce Labs](https://saucelabs.com/). 
 
 The specific framework you want to use to for testing should be based on the types of tests you
@@ -261,6 +263,7 @@ To learn more about:
 * The Microsoft Playwright project, visit https://github.com/microsoft/playwright
 * TestCafe, visit https://devexpress.github.io/testcafe/
 * Cypress, visit https://github.com/cypress-io/cypress
+* WebdriverIO, visit https://webdriver.io
 
 ### Using `saucectl` in your CI/CD pipeline
 

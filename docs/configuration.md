@@ -144,6 +144,24 @@ image:
   version: v0.1.3
 ```
 
+<!--WebdriverIO-->
+
+[__`webdriverio.yml`__](https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml)
+```yaml
+apiVersion: v1
+metadata:
+  name: Feature XYZ
+  tags:
+    - e2e
+    - release team
+    - other tag
+files:
+  - ./tests/webdriverio/example.test.js
+image:
+  base: saucelabs/stt-webdriverio-node
+  version: latest
+```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ___
