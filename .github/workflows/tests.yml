@@ -20,7 +20,7 @@ jobs:
   puppeteer:
     runs-on: ubuntu-latest
     container:
-      image: saucelabs/sauce-puppeteer:3.0.4-saucectl0.4.2
+      image: saucelabs/stt-puppeteer-jest-node:latest
      
     steps:
       # appears that checkout@v2 uses javascript which is not compatible 
@@ -40,7 +40,7 @@ jobs:
   playwright:
     runs-on: ubuntu-latest
     container:
-      image: saucelabs/sauce-playwright:1.0.0-saucectl0.4.2
+      image: saucelabs/stt-playwright-jest-node:latest
 
     steps:
       # appears that checkout@v2 uses javascript which is not compatible 
@@ -64,7 +64,7 @@ jobs:
   testcafe:
     runs-on: ubuntu-latest
     container:
-      image: saucelabs/sauce-testcafe:1.8.5-saucectl0.6.3
+      image: saucelabs/stt-testcafe-node:latest
 
     steps:
       # appears that checkout@v2 uses javascript which is not compatible 
