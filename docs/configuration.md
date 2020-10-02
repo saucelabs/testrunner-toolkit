@@ -148,7 +148,8 @@ image:
 
 ## Parallelization
 
-Saucectl is capable of running tests in parallel by utilizing multiple CI machines.
+Saucectl is capable of running tests in parallel by utilizing multiple CI machines. _This feature requires a Sauce Labs account_, so don't forget to set the environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`!
+
 Parallelization can be turned on either via the config
 ```yaml
 parallel: true
