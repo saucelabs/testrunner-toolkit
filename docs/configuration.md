@@ -119,7 +119,7 @@ metadata:
   build: Release $CI_COMMIT_SHORT_SHA
 files:
   - ./tests/testcafe/*.js
-capabilities:
+settings:
   - browserName: Chrome
 image:
   base: saucelabs/sauce-testcafe
