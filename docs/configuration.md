@@ -144,6 +144,15 @@ image:
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+## Prepare your environment
+
+Saucectl offers the possibility to setup your tests environment before executing any of your suites using `beforeExec`: 
+
+```yaml
+beforeExec:
+  - npm install --save chai
+```
+
 ## Parallelization
 
 Saucectl is capable of running tests in parallel by utilizing multiple CI machines. _This feature requires a Sauce Labs account_, so don't forget to set the environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`!
