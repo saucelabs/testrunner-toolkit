@@ -119,8 +119,6 @@ metadata:
   build: Release $CI_COMMIT_SHORT_SHA
 files:
   - ./tests/testcafe/*.js
-capabilities:
-  - browserName: Chrome
 image:
   base: saucelabs/sauce-testcafe
   version: 1.8.5-saucectl0.6.3
@@ -171,6 +169,5 @@ saucectl run --parallel
 
 The concrete setup of the pipeline will depend on your CI provider however. [Here's an example](https://github.com/saucelabs/saucectl/blob/master/.github/workflows/test.yml#L94-L145) how to set it up for GitHub Actions.
 
-Please visit [here](cli-reference.md#parallel) for more infos about the parallelization feature and its limitations.
-
+Please visit [here](cli-reference.md#parallel) for more information about the parallelization feature and its limitations.
 ___

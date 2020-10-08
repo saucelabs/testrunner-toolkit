@@ -4,7 +4,7 @@ feature or fixing a bug, and this needs more documentation, please add it to you
 **Thanks for contributing to the `saucectl` project!**
 **A PR well described will help maintainers to quickly review and merge it**
 
-Before submitting your PR, please check our [contributing](https://github.com/saucelabs/saucectl/blob/master/CONTRIBUTING.mds)
+Before submitting your PR, please check our [contributing](https://github.com/saucelabs/saucectl/blob/master/CONTRIBUTING.md)
 guidelines, applied for this repository. Avoid large PRs, help reviewers by making them as simple 
 and short as possible.
 

@@ -70,7 +70,7 @@ jobs:
   test-cypress:
     working_directory: ~/app
     docker:
-      - image: saucelabs/stt-cypress-node:latest
+      - image: saucelabs/stt-cypress-mocha-node:latest
     steps:
       - attach_workspace:
           at: ~/app
