@@ -9,6 +9,11 @@
       "configuration",
       "cli-reference"
     ],
+    "Integrations": [
+      "jenkins",
+      "github-actions",
+      "circleci"
+    ],
     "Support": [
       "contributing",
       "code-of-conduct",
