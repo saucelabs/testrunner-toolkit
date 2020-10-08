@@ -80,7 +80,7 @@ saucectl run --env <key>=value1> --env <key2>=<value2> ...
 
 Using the `--env` flag will define environment variables that are then available for use by the test framework.
 
-#### `parallel`
+### `parallel`
 
 ```sh
 saucectl run --parallel=<true|false>
@@ -108,7 +108,7 @@ with certain CI providers.
 If your CI provider is not listed here, you will have to specify your own `build ID`.
 Please consult the [`ci-build-id`](#ci-build-id) flag for this option.
 
-#### `ci-build-id`
+### `ci-build-id`
 
 ```sh
 saucectl run --ci-build-id <value>
