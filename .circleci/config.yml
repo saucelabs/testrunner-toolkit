@@ -31,6 +31,8 @@ jobs:
           command: |
             saucectl run -c ./.sauce/puppeteer.yml
           environment:
+            SAUCE_USERNAME: $SAUCE_USERNAME
+            SAUCE_ACCESS_KEY: $SAUCE_ACCESS_KEY
             BUILD_ID: $CIRCLE_BUILD_NUM
             BUILD_ENV: CircleCI
 
@@ -49,6 +51,9 @@ jobs:
           environment:
             BUILD_ID: $CIRCLE_BUILD_NUM
             BUILD_ENV: CircleCI
+            SAUCE_USERNAME: $SAUCE_USERNAME
+            SAUCE_ACCESS_KEY: $SAUCE_ACCESS_KEY
+
 
   # Testcafe Example
   test-testcafe:
@@ -65,6 +70,9 @@ jobs:
           environment:
             BUILD_ID: $CIRCLE_BUILD_NUM
             BUILD_ENV: CircleCI
+            SAUCE_USERNAME: $SAUCE_USERNAME
+            SAUCE_ACCESS_KEY: $SAUCE_ACCESS_KEY
+
 
   # Cypress Example
   test-cypress:
@@ -81,6 +89,9 @@ jobs:
           environment:
             BUILD_ID: $CIRCLE_BUILD_NUM
             BUILD_ENV: CircleCI
+            SAUCE_USERNAME: $SAUCE_USERNAME
+            SAUCE_ACCESS_KEY: $SAUCE_ACCESS_KEY
+
 
 workflows:
   version: 2
