@@ -4,78 +4,178 @@ title: Testrunner Toolkit with Jenkins
 sidebar_label: Jenkins
 ---
 
-The [`Jenkinsfile` examples](#jenkins-pipeline-examples) on this page can be applied to an existing Jenkins node, or you can opt to follow our example setup using Docker.
+The examples on this page can be applied to virtually any Jenkins deployment provided that you already have some existing automated tests, have access to the Jenkins instance, and are either the maintainer or an admin of the target repository. 
+
+Your permissions must include:
+
+ * ability to create and manage Jenkins credentials.
+ * ability to create and manage new pipelines.
 
 ## What You'll Need
+
 * [Jenkins Server](https://www.jenkins.io/doc/book/installing/)
 * [Sauce Labs Account](https://saucelabs.com/sign-up)
-* [Docker](https://docs.docker.com/get-docker/) (optional)
 
-## Jenkins Setup with Docker
+## Configure Jenkins Credentials
 
->
-> DISCLAIMER: This Jenkins setup is for demonstration purposes only! It is NOT recommended for deployment in a production environment.
->
+The first step of the integration is to ensure you've added your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as a secret file/text in your Jenkins server (Not sure where to find these? They're [here](https://app.saucelabs.com/user-settings)). 
 
-### Create Volume
-Before starting Jenkins, create a volume to store the Testrunner Toolkit configurations and data.
+The easiest way to add credentials to Jenkins is with the UI:
 
-```sh
-docker volume create jenkins-data
-```
+* Log in to Jenkins
+* Go to __Manage Jenkins > Manage Credentials__
+* Next to (Global), select __Add credentials__
 
-### Start Jenkins
+    ![Add Credentials](assets/add_credentials.png)
+    
+* For __Kind__, select __Secret Text__
+* Enter the following information:
+    * Scope: Global
+    * Secret: 'your-sauce-username'
+    * ID: 'sauce-username'
+    * Description: Sauce Labs Username
+* Repeat the above steps for your Sauce Labs Access Key
 
-The below `docker` command does the following:
-* sets to run as the `root` user, but this is highly __insecure!__ Contact your administrator to [properly configure users and groups](https://www.jenkins.io/doc/book/system-administration/security/#access-control)!
-* deploys the container in [detached mode](https://docs.docker.com/engine/reference/run/#detached--d) so that it may run as a background process.
-* names the running container "blue-ocean", to indicate the use of the Jenkins [Blue Ocean](https://plugins.jenkins.io/blueocean/) plugin.
-* maps the container port `8080` to the Jenkins UI port `8080`.
-* maps the `volumes` for our Jenkins data, NPM, and test framework caches.
-* binds the Unix socket that the Docker daemon listens on (`-v /var/run/docker.sock`), which allows `docker` to communicate with Jenkins in order to start worker containers.
-* downloads and deploys the latest [BlueOcean Docker image](https://hub.docker.com/r/jenkinsci/blueocean/).
+    ![Secrets](assets/secrets.png)
 
-```sh
-docker run \
-   -u root \
-   -d \
-   --name blue-ocean \
-   -p 8080:8080 \
-   -v jenkins-data:/var/jenkins_home \
-   -v /var/run/docker.sock:/var/run/docker.sock \
-   jenkinsci/blueocean:latest
-```
+    > For further information on how to store your Sauce Labs credentials in Jenkins, visit [the Jenkinsfile documentation](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials).
 
-## Jenkins Pipeline Examples
-Below are some examples that utilize Testrunner Toolkit within a Jenkinsfile.
-> If you're using the example Jenkins setup, these files should be stored in the volumes you created earlier. 
+## Create the `saucectl` Configuration
+
+Create the `.sauce` directory at the root of your project and add a `config.yaml` file that points to your existing `tests` directory. 
+
+With the `suites` field you can specify a group of tests as well as the browser `settings` you wish to use.
+
+Below are some examples:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--puppeteer-->
 
-Source file: [Jenkinsfile.puppeteer](https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.puppeteer)
+```sh
+apiVersion: v1alpha
+metadata:
+  name: Testing Puppeteer Support
+  tags:
+    - e2e
+    - release team
+    - other tag
+  build: Release $CI_COMMIT_SHORT_SHA
+files:
+  - ./tests
+suites:
+  - name: "chrome"
+    match: ".*.(spec|test).js$"
+    settings:
+      browserName: "chrome"
+image:
+  base: saucelabs/stt-puppeteer-jest-node
+  version: v0.1.8
+sauce:
+  region: us-west-1
+```
+
+<!--playwright-->
+
+```sh
+apiVersion: v1alpha
+metadata:
+  name: Testing Playwright Support
+  tags:
+    - e2e
+    - release team
+    - other tag
+  build: Release $CI_COMMIT_SHORT_SHA
+files:
+  - ./tests
+suites:
+  - name: "chrome"
+    match: ".*.(spec|test).js$"
+    settings:
+      browserName: "chrome"
+image:
+  base: saucelabs/stt-playwright-jest-node
+  version: v0.1.9
+sauce:
+  region: us-west-1
+```
+
+<!--testcafe-->
+
+```sh
+apiVersion: v1alpha
+metadata:
+  name: Testing TestCafe Support
+  tags:
+    - e2e
+    - release team
+    - other tag
+  build: Release $CI_COMMIT_SHORT_SHA
+files:
+  - ./tests
+suites:
+  - name: "chrome"
+    match: ".*.(spec|test).js$"
+    settings:
+      browserName: "chrome"
+image:
+  base: saucelabs/stt-testcafe-node
+  version: v0.1.7
+sauce:
+  region: us-west-1
+```
+
+<!--cypress-->
+
+```sh
+apiVersion: v1alpha
+metadata:
+  name: Testing Cypress Support
+  tags:
+    - e2e
+    - release team
+    - other tag
+  build: Release $CI_COMMIT_SHORT_SHA
+files:
+  - ./tests
+suites:
+  - name: "chrome"
+    match: ".*.(spec|test).js$"
+    settings:
+      browserName: "chrome"
+image:
+  base: saucelabs/stt-cypress-mocha-node
+  version: v0.1.11
+sauce:
+  region: us-west-1
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+## Configure the Jenkins Pipeline
+
+Add the `Jenkinsfile` at the root of your project directory so that Jenkins can detect changes and run `saucectl` accordingly.
+In the examples below we've set our `environment` variables to the secrets that we configured in Jenkins:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--puppeteer-->
 
 ```sh
 pipeline {
   agent {
-     docker {
-       image 'saucelabs/stt-puppeteer-jest-node:latest'
-     }
-  }
-
-  stages {
-    environment {
-      // it can load the record key variable from credentials store
-      // see https://jenkins.io/doc/book/using/using-credentials/
-      // https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials
-      SAUCE_USERNAME = credentials('sauce-username')
-      SAUCE_ACCESS_KEY = credentials('sauce-access-key')
+    docker {
+        image 'saucelabs/stt-puppeteer-jest-node:v0.1.8'
     }
-
+  }
+  environment {
+    SAUCE_USERNAME = credentials('sauce-username')
+    SAUCE_ACCESS_KEY = credentials('sauce-access-key')
+    CI = true
+  }
+  stages {
     stage('run') {
       steps {
-        // This step trigger the test 
-        sh 'cd ~/app && saucectl run -c ./.sauce/puppeteer.yml'
+        // This step trigger the tests
+        sh 'saucectl run -c ./.sauce/config.yml --verbose'
       }
     }
   }
@@ -84,29 +184,23 @@ pipeline {
 
 <!--playwright-->
 
-Source file: [Jenkinsfile.playwright](https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.playwright)
-
 ```sh
 pipeline {
   agent {
-     docker {
-       image 'saucelabs/stt-playwright-jest-node:latest'
-     }
-  }
-
-  stages {
-    environment {
-      // it can load the record key variable from credentials store
-      // see https://jenkins.io/doc/book/using/using-credentials/
-      // https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials
-      SAUCE_USERNAME = credentials('sauce-username')
-      SAUCE_ACCESS_KEY = credentials('sauce-access-key')
+    docker {
+        image 'saucelabs/stt-playwright-jest-node:v0.1.9'
     }
-
+  }
+  environment {
+    SAUCE_USERNAME = credentials('sauce-username')
+    SAUCE_ACCESS_KEY = credentials('sauce-access-key')
+    CI = true
+  }
+  stages {
     stage('run') {
       steps {
-        // This step trigger the test 
-        sh 'cd ~/app && saucectl run -c ./.sauce/playwright.yml'
+        // This step trigger the tests
+        sh 'saucectl run -c ./.sauce/config.yml --verbose'
       }
     }
   }
@@ -115,29 +209,23 @@ pipeline {
 
 <!--testcafe-->
 
-Source file: [Jenkins.testcafe](https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.testcafe)
-
 ```sh
 pipeline {
   agent {
-     docker {
-       image 'saucelabs/stt-testcafe-node:latest'
-     }
-  }
-
-  stages {
-    environment {
-      // it can load the record key variable from credentials store
-      // see https://jenkins.io/doc/book/using/using-credentials/
-      // https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials
-      SAUCE_USERNAME = credentials('sauce-username')
-      SAUCE_ACCESS_KEY = credentials('sauce-access-key')
+    docker {
+        image 'saucelabs/stt-testcafe-node:v0.1.7'
     }
-
+  }
+  environment {
+    SAUCE_USERNAME = credentials('sauce-username')
+    SAUCE_ACCESS_KEY = credentials('sauce-access-key')
+    CI = true
+  }
+  stages {
     stage('run') {
       steps {
-        // This step trigger the test 
-        sh 'cd ~/app && saucectl run -c ./.sauce/testcafe.yml'
+        // This step trigger the tests
+        sh 'saucectl run -c ./.sauce/config.yml --verbose'
       }
     }
   }
@@ -146,30 +234,23 @@ pipeline {
 
 <!--cypress-->
 
-Source file: [Jenkins.cypress](https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/Jenkinsfile.cypress)
-
 ```sh
 pipeline {
   agent {
-     docker {
-       image 'saucelabs/stt-cypress-mocha-node:latest'
-     }
-  }
-
-  stages {
-    environment {
-      // it can load the record key variable from credentials store
-      // see https://jenkins.io/doc/book/using/using-credentials/
-      // https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials
-      SAUCE_USERNAME = credentials('sauce-username')
-      SAUCE_ACCESS_KEY = credentials('sauce-access-key')
+    docker {
+        image 'saucelabs/stt-cypress-mocha-node:v0.1.11'
     }
-
+  }
+  environment {
+    SAUCE_USERNAME = credentials('sauce-username')
+    SAUCE_ACCESS_KEY = credentials('sauce-access-key')
+    CI = true
+  }
+  stages {
     stage('run') {
       steps {
-        // This step trigger the test 
-        echo 'Run Sauce Pipeline Test'
-        sh 'cd ~/app && saucectl run -c ./.sauce/cypress.yml'
+        // This step trigger the tests
+        sh 'saucectl run -c ./.sauce/config.yml --verbose'
       }
     }
   }
@@ -178,14 +259,14 @@ pipeline {
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Running Parallel Tests
+> You can view some of our public examples [here](https://github.com/saucelabs/testrunner-toolkit/blob/master/.jenkins/).
 
->
-> **WARNING:** Using the parrallelization feature is highly experimental. For more information please [visit this page](cli-reference.md#parallel).
->
+## Run the Pipeline Tests
 
-In order to run parallel tests within your Jenkins CI Pipleine you will need to perform a few tasks in preparation:
-* enable the `parallel` flag in the `saucectl` yaml file.
-* intialize your tests to run in parallel.
+Now you can commit these files and Jenkins will detect the new pipeline and launch `saucetl` to run your tests. 
 
+For example if you're using the [Blue Ocean plugin](https://plugins.jenkins.io/blueocean/), your output may look something like this:
 
+![Blue Ocean Example](assets/blue-ocean.png)
+
+---
