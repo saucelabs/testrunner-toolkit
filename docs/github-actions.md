@@ -32,9 +32,9 @@ The first order of business is to export your [Sauce Labs account credentials]()
 5. Click __Add secret__ to finish.
 6. Repeat the same steps above for your `SAUCE_ACCESS_KEY` (Not sure where to find `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` in Sauce Labs? They're [here](https://app.saucelabs.com/user-settings)).
 
-## Create the `saucectl` Configuration
+## Create the Saucectl Configuration
 
-Create the `.sauce` directory at the root of your project and add a `config.yaml` file that points to your existing `tests` directory. 
+Create the `.sauce` directory at the root of your project and add a `config.yaml` file that points [`saucectl`](cli-reference.md) to your existing `tests` directory. 
 
 With the `suites` field you can specify a group of tests as well as the browser `settings` you wish to use.
 
@@ -290,7 +290,7 @@ jobs:
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> You can reference our example workflows [here](https://github.com/saucelabs/testrunner-toolkit/tree/master/.github/workflows))
+> You can reference our example workflows [here](https://github.com/saucelabs/testrunner-toolkit/tree/master/.github/workflows).
 
 ## Run the Pipeline Tests
 

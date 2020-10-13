@@ -42,7 +42,7 @@ The easiest way to add credentials to Jenkins is with the UI:
 
 ## Create the Saucectl Configuration
 
-Create the `.sauce` directory at the root of your project and add a `config.yaml` file that points to your existing `tests` directory. 
+Create the `.sauce` directory at the root of your project and add a `config.yaml` file that points [`saucectl`](cli-reference.md) to your existing `tests` directory. 
 
 With the `suites` field you can specify a group of tests as well as the browser `settings` you wish to use.
 
