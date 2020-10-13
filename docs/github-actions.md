@@ -20,17 +20,17 @@ Your permissions must include:
 
 The first order of business is to export your [Sauce Labs account credentials]() and store them as GitHub Secrets.
 
-* Navigate to your project repository and select the __settings__ icon
+1. Navigate to your project repository and select the __settings__ icon
     
     ![GitHub Settings](assets/github-settings.png)
 
-* Select __Secrets__
-* Click the __New secret__ button
-* Add the following:
+2. Select __Secrets__
+3. Click the __New secret__ button
+4. Add the following:
     * Name: `SAUCE_USERNAME`
     * Value: 'your-sauce-username'
-* Click __Add secret__ to finish.
-* Repeat the same steps above for your `SAUCE_ACCESS_KEY`
+5. Click __Add secret__ to finish.
+6. Repeat the same steps above for your `SAUCE_ACCESS_KEY` (Not sure where to find `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` in Sauce Labs? They're [here](https://app.saucelabs.com/user-settings)).
 
 ## Create the `saucectl` Configuration
 
@@ -151,9 +151,7 @@ sauce:
 
 In your root project directory, create the following directory tree: `.github/workflows`. In the `workflows` directory create a file called `actions.yml`. 
 
-In the examples below we've set our environment variables (`env`) to the secrets that we configured in GitHub.
-
-We also indicate which event will trigger test runs, for instance `on` every `pull_request` and/or `push` to the `master` branch.
+In the examples below, the environment variables (`env`) equate to the values configured in GitHub secrets. The event only triggers test runs `on` every `pull_request` and/or `push` to the `master` branch.
 
 > For more detailed information on setting event-driven actions and jobs, please visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
 
@@ -300,9 +298,9 @@ Now when can commit these files, GitHub will detect the new workflow actions and
 
 To see the output: 
 
-* Log in to GitHub
-* Navigate to your repository page
-* Click on Actions
+1. Log in to GitHub
+2. Navigate to your repository page
+3. Click on Actions
 
     ![GitHub Settings](assets/github-actions.png)
     
