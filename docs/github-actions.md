@@ -275,6 +275,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: saucelabs/stt-cypress-mocha-node:latest
+      options: --user 1001
      
     steps:
       - name: Checkout Code
