@@ -294,7 +294,7 @@ jobs:
 
 ## Run the Pipeline Tests
 
-Now when can commit these files, GitHub will detect the new workflow actions and launch `saucetl` to run your tests. 
+Now when you commit these files, GitHub will detect the new workflow actions and launch `saucectl` to run your tests. 
 
 To see the output: 
 
