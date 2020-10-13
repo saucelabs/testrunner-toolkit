@@ -178,9 +178,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v1
-        
-      - name: Workaround for container permissions
-        run: sudo chown -R $USER:$(id -gn $USER) /github/home
 
       - name: Run Sauce Pipeline Test
         run: |
@@ -212,9 +209,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v1
-        
-      - name: Workaround for container permissions
-        run: sudo chown -R $USER:$(id -gn $USER) /github/home
 
       - name: Run Sauce Pipeline Test
         run: |
@@ -246,9 +240,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v1
-        
-      - name: Workaround for container permissions
-        run: sudo chown -R $USER:$(id -gn $USER) /github/home
 
       - name: Run Sauce Pipeline Test
         run: |
@@ -280,9 +271,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v1
-        
-      - name: Workaround for container permissions
-        run: sudo chown -R $USER:$(id -gn $USER) /github/home
 
       - name: Run Sauce Pipeline Test
         run: |
