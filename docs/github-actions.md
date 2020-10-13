@@ -173,6 +173,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: saucelabs/stt-puppeteer-jest-node:latest
+      options: --user 1001
      
     steps:
       - name: Checkout Code
