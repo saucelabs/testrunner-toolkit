@@ -24,13 +24,25 @@
         "title": "Testrunner Toolkit FAQs",
         "sidebar_label": "Testrunner Toolkit FAQs"
       },
+      "github-actions": {
+        "title": "Testrunner Toolkit with GitHub Actions",
+        "sidebar_label": "GitHub Actions"
+      },
       "installation": {
         "title": "Installation",
         "sidebar_label": "Installation"
       },
+      "jenkins": {
+        "title": "Testrunner Toolkit with Jenkins",
+        "sidebar_label": "Jenkins"
+      },
       "overview": {
         "title": "Sauce Labs Testrunner Toolkit",
         "sidebar_label": "Overview"
+      },
+      "resources": {
+        "title": "Resources",
+        "sidebar_label": "Resources"
       },
       "test-preparation": {
         "title": "Testrunner Toolkit Test Preparation",
@@ -44,6 +56,7 @@
     "categories": {
       "Overview": "Overview",
       "Getting Started": "Getting Started",
+      "Integrations": "Integrations",
       "Support": "Support"
     }
   },
