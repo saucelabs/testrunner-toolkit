@@ -8,8 +8,8 @@ The examples on this page can be applied to virtually any Jenkins deployment pro
 
 Your permissions must include:
 
- * ability to create and manage Jenkins credentials.
- * ability to create and manage new pipelines.
+ * ability to create and manage Jenkins credentials
+ * ability to create and manage new pipelines
 
 ## What You'll Need
 
@@ -26,8 +26,8 @@ The easiest way to add credentials to Jenkins is with the UI:
 * Go to __Manage Jenkins > Manage Credentials__
 * Next to (Global), select __Add credentials__
 
-    ![Add Credentials](assets/add_credentials.png)
-    
+    <img src="assets/add_credentials.png" alt="Add Jenkins Secrets" width="500"/> 
+
 * For __Kind__, select __Secret Text__
 * Enter the following information:
     * Scope: Global
@@ -36,11 +36,11 @@ The easiest way to add credentials to Jenkins is with the UI:
     * Description: Sauce Labs Username
 * Repeat the above steps for your Sauce Labs Access Key
 
-    ![Secrets](assets/secrets.png)
+    <img src="assets/secrets.png" alt="Jenkins Secrets" width="500"/>
 
     > For further information on how to store your Sauce Labs credentials in Jenkins, visit [the Jenkinsfile documentation](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials).
 
-## Create the `saucectl` Configuration
+## Create the Saucectl Configuration
 
 Create the `.sauce` directory at the root of your project and add a `config.yaml` file that points to your existing `tests` directory. 
 
@@ -154,7 +154,7 @@ sauce:
 ## Configure the Jenkins Pipeline
 
 Add the `Jenkinsfile` at the root of your project directory so that Jenkins can detect changes and run `saucectl` accordingly.
-In the examples below we've set our `environment` variables to the secrets that we configured in Jenkins:
+In the examples below, the `environment` variables are the GitHub secrets configured in Jenkins:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--puppeteer-->
