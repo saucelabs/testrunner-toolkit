@@ -2,5 +2,7 @@ blank_issues_enabled: false
 contact_links:
   - name: 🤔 Questions and Help
     url: https://opensource.saucelabs.com/testrunner-toolkit/docs/overview.html
+    about: Visit our documentation to review frequently asked questions and use cases
   - name: 📃 Documentation Issue
     url: https://github.com/saucelabs/testrunner-toolkit/issues/new
+    about: Report any inaccurate or missing content
