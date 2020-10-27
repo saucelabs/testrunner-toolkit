@@ -1,0 +1,6 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🤔 Questions and Help
+    url: https://opensource.saucelabs.com/testrunner-toolkit/docs/overview.html
+  - name: 📃 Documentation Issue
+    url: https://github.com/saucelabs/testrunner-toolkit/issues/new
