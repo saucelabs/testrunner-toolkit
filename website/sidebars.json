@@ -10,6 +10,7 @@
       "cli-reference"
     ],
     "Integrations": [
+      "typescript",
       "jenkins",
       "github-actions",
       "circleci"
