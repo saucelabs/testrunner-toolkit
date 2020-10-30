@@ -47,6 +47,10 @@
       "test-preparation": {
         "title": "Testrunner Toolkit Test Preparation",
         "sidebar_label": "Test Preparation"
+      },
+      "typescript": {
+        "title": "Using TypeScript Tests",
+        "sidebar_label": "TypeScript"
       }
     },
     "links": {

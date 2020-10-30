@@ -1,5 +1,5 @@
 ---
-id: typscript
+id: typescript
 title: Using TypeScript Tests
 sidebar_label: TypeScript
 ---
@@ -31,23 +31,21 @@ Except for the TestCafe image, these `.ts` files cannot run directly on any Test
 
 1. Ensure you already have `typescript` installed:
     
-   ```js
+   ```bash
    npm install -g typescript
    ```
 
 2. Review your `tsconfig.json` to ensure you've set the `compilerOptions` appropriately.
-
-    > For more information on how to properly configure `tsconfig.json` please visit the [documentation](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html#writing-a-configuration-file).
  
 3. Run the TypeScript compiler like so:
    
-   ```ts
+   ```bash
    npx tsc --project ./tests/tsconfig.json
    ```
    
-   Again, the way the TypeScript compiles your `.ts` files are non-deterministic and depend on how you've configurated `tsconfig.json`, but an example output could look like this:
+   Below is a default output example:
    
-   ```js
+   ```bash
    └── tests/
        ├── test.one.spec.ts
        ├── test.one.spec.js
@@ -57,6 +55,11 @@ Except for the TestCafe image, these `.ts` files cannot run directly on any Test
        ├── test.three.spec.js
        └── tsconfig.json
    ```
+   
+   > WARNING: the TypeScript compiler will behave in a non-deterministic manner if the `tsconfig.json` is poorly configured. 
+   >
+   > For more information on how to properly configure `tsconfig.json` please visit the [documentation](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html#writing-a-configuration-file).
+
 4. Next, edit the `files` and `suites` fields in `.sauce/config.yml` in order to ignore the `.ts` files and instead place the `.js` files inside the Testrunner Toolkit container:
     
    ```yaml
@@ -67,7 +70,7 @@ Except for the TestCafe image, these `.ts` files cannot run directly on any Test
        match: ".*.(spec|test).js"
    ```
    
-   > By default `saucectl` will pickup any `.js` files located in the designated directory, however with the `suites` field you can set more granular control with regular expressions.
+   By default `saucectl` will pickup any `.js` files located in the designated directory, however with the `suites` field you can set more granular control with regular expressions.
 
 5. Finally, run `saucectl` to execute your TypeScript tests:
    
@@ -75,6 +78,6 @@ Except for the TestCafe image, these `.ts` files cannot run directly on any Test
    saucectl run -c .sauce/config.yml
    ```
    
-    > For further information, please refer to the working example of this TypeScript demonstration in the [Sauce Labs Puppeteer Runner](https://github.com/saucelabs/sauce-puppeteer-runner/tree/master/tests/fixtures/typescript) repository.
+    For further information, please refer to the working example of this TypeScript demonstration in the [Sauce Labs Puppeteer Runner](https://github.com/saucelabs/sauce-puppeteer-runner/tree/master/tests/fixtures/typescript) repository.
 
 ---
