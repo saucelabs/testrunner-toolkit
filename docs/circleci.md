@@ -12,7 +12,118 @@ These examples can apply to virtually any CirceCI deployment, provided that you 
 * [SauceLabs Account](https://saucelabs.com/sign-up)
 * A git repository hosting service (GitHub or BitBucket)
 
-## Project Setup
+## Create the Saucectl Configuration
+
+Create the `.sauce` directory at the root of your project and add a `config.yaml` file that points [`saucectl`](cli-reference.md) to your existing `tests` directory. 
+
+With the `suites` field you can specify a group of tests as well as the browser `settings` you wish to use.
+
+Below are some examples:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--puppeteer-->
+
+```sh
+apiVersion: v1alpha
+metadata:
+  name: Testing Puppeteer Support
+  tags:
+    - e2e
+    - release team
+    - other tag
+  build: Release $CI_COMMIT_SHORT_SHA
+files:
+  - ./tests
+suites:
+  - name: "chrome"
+    match: ".*.(spec|test).js$"
+    settings:
+      browserName: "chrome"
+image:
+  base: saucelabs/stt-puppeteer-jest-node
+  version: v0.1.8
+sauce:
+  region: us-west-1
+```
+
+<!--playwright-->
+
+```sh
+apiVersion: v1alpha
+metadata:
+  name: Testing Playwright Support
+  tags:
+    - e2e
+    - release team
+    - other tag
+  build: Release $CI_COMMIT_SHORT_SHA
+files:
+  - ./tests
+suites:
+  - name: "chrome"
+    match: ".*.(spec|test).js$"
+    settings:
+      browserName: "chrome"
+image:
+  base: saucelabs/stt-playwright-jest-node
+  version: v0.1.9
+sauce:
+  region: us-west-1
+```
+
+<!--testcafe-->
+
+```sh
+apiVersion: v1alpha
+metadata:
+  name: Testing TestCafe Support
+  tags:
+    - e2e
+    - release team
+    - other tag
+  build: Release $CI_COMMIT_SHORT_SHA
+files:
+  - ./tests
+suites:
+  - name: "chrome"
+    match: ".*.(spec|test).js$"
+    settings:
+      browserName: "chrome"
+image:
+  base: saucelabs/stt-testcafe-node
+  version: v0.1.7
+sauce:
+  region: us-west-1
+```
+
+<!--cypress-->
+
+```sh
+apiVersion: v1alpha
+metadata:
+  name: Testing Cypress Support
+  tags:
+    - e2e
+    - release team
+    - other tag
+  build: Release $CI_COMMIT_SHORT_SHA
+files:
+  - ./tests
+suites:
+  - name: "chrome"
+    match: ".*.(spec|test).js$"
+    settings:
+      browserName: "chrome"
+image:
+  base: saucelabs/stt-cypress-mocha-node
+  version: v0.1.11
+sauce:
+  region: us-west-1
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+## CircleCI Project Setup
 
 The first step is to ensure you have a CircleCI account, and to login with your git hosting provider username; the examples below use GitHub authentication. 
 
@@ -22,7 +133,7 @@ The first step is to ensure you have a CircleCI account, and to login with your 
 
 > Do not worry if your project fails to build. You need to modify the `config.yml` manually anyway.
 
-## Add Project Environment Variables
+### Add Project Environment Variables
 
 In order for CirceCi to communicate with Sauce Labs you need to authenticate with project environment variables.
 
@@ -38,7 +149,8 @@ In order for CirceCi to communicate with Sauce Labs you need to authenticate wit
     
     ![CircleCI Variables](assets/circleci-variables.png)
 
-## Modify the CirceCI Configuration
+
+### Modify the CirceCI Configuration
 
 In the root of your project directory, create the `.circleci` directory if it doesn't already exist, and open/create `config.yml`. Below are some examples of how to configure Testrunner Toolkit with CircleCI:
 
