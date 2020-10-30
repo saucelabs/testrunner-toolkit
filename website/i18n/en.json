@@ -4,6 +4,10 @@
     "next": "Next",
     "previous": "Previous",
     "docs": {
+      "circleci": {
+        "title": "Testrunner Toolkit with CircleCI",
+        "sidebar_label": "CircleCI"
+      },
       "cli-reference": {
         "title": "Testrunner Toolkit CLI Reference",
         "sidebar_label": "CLI Reference"
