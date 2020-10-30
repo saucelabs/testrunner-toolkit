@@ -11,7 +11,8 @@
     ],
     "Integrations": [
       "jenkins",
-      "github-actions"
+      "github-actions",
+      "circleci"
     ],
     "Support": [
       "contributing",
