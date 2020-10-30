@@ -4,7 +4,7 @@ title: Using TypeScript Tests
 sidebar_label: TypeScript
 ---
 
-If you built your automated tests using TypeScript in either Playwright, Puppeteer, TestCafe, or Cypress, you need the following workaround in order to use Testrunner Toolkit.
+If you wrote your automated tests using TypeScript in either Playwright, Puppeteer, or Cypress, you need to transpile your Typescript files to Javascript before running them with Testrunner Toolkit.
 
 ## What You'll Need
 1. [A Sauce Labs Account](https://saucelabs.com/sign-up)
@@ -25,7 +25,7 @@ __Example Project Setup__
     └── tsconfig.json
 ```
 
-Except for the TestCafe image, these `.ts` files cannot run directly on any Testrunner Toolkit images. Therefore in order to make theses test run correclty you must transpile them JavaScript.
+Except for the TestCafe image, these `.ts` files cannot run directly on any Testrunner Toolkit images. Therefore in order to make theses test run correctly you must transpile them JavaScript.
 
 ## The Solution
 
@@ -40,7 +40,7 @@ Except for the TestCafe image, these `.ts` files cannot run directly on any Test
 3. Run the TypeScript compiler like so:
    
    ```bash
-   npx tsc --project ./tests/tsconfig.json
+   tsc --project ./tests/tsconfig.json
    ```
    
    Below is a default output example:
