@@ -135,7 +135,7 @@ The first step is to ensure you have a CircleCI account, and to login with your 
 
 ### Add Project Environment Variables
 
-In order for CirceCi to communicate with Sauce Labs you need to authenticate with project environment variables.
+In order for CircleCI to communicate with Sauce Labs you need to authenticate with project environment variables.
 
 1. In CirceCI, go to your __Project Settings__
     
