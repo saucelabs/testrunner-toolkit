@@ -32,6 +32,10 @@
         "title": "Testrunner Toolkit with GitHub Actions",
         "sidebar_label": "GitHub Actions"
       },
+      "gitlab-pipelines": {
+        "title": "Testrunner Toolkit with GitLab Pipelines",
+        "sidebar_label": "GitLab Pipelines"
+      },
       "installation": {
         "title": "Installation",
         "sidebar_label": "Installation"
