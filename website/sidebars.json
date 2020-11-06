@@ -11,8 +11,9 @@
     ],
     "Integrations": [
       "jenkins",
+      "circleci",
       "github-actions",
-      "circleci"
+      "gitlab-pipelines"
     ],
     "Support": [
       "contributing",
