@@ -134,7 +134,8 @@ metadata:
     - other tag
   build: Release $CI_COMMIT_SHORT_SHA
 files:
-  - ./tests
+  - cypress/
+  - cypress.json
 suites:
   - name: "chrome"
     match: ".*.(spec|test).js$"
