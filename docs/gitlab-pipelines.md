@@ -36,7 +36,7 @@ variables:
 
 ## Create the Saucectl Configuration
 
-Create the `.sauce` directory at the root of your project and add a `config.yaml` file that points [`saucectl`](cli-reference.md) to your existing `tests` directory. 
+Create the `.sauce` directory at the root of your project and add a `config.yml` file that points [`saucectl`](cli-reference.md) to your existing `tests` directory. 
 
 With the `suites` field you can specify a group of tests as well as the browser `settings` you wish to use.
 
@@ -134,7 +134,8 @@ metadata:
     - other tag
   build: Release $CI_COMMIT_SHORT_SHA
 files:
-  - ./tests
+  - cypress/
+  - cypress.json
 suites:
   - name: "chrome"
     match: ".*.(spec|test).js$"
@@ -167,10 +168,9 @@ stages:
   - test
 
 test puppeteer:
-  tags: [k8s, multi-runner, build, sjc3]
+  tags: [build, e2e]
   stage: test
   script:
-    - env
     - saucectl run --verbose -c .sauce/config.yml
 ```
 
@@ -187,10 +187,9 @@ stages:
   - test
 
 test playwright:
-  tags: [k8s, multi-runner, build, sjc3]
+  tags: [build, e2e]
   stage: test
   script:
-    - env
     - saucectl run --verbose -c .sauce/config.yml
 ```
 
@@ -207,10 +206,9 @@ stages:
   - test
 
 test testcafe:
-  tags: [k8s, multi-runner, build, sjc3]
+  tags: [build, e2e]
   stage: test
   script:
-    - env
     - saucectl run --verbose -c .sauce/config.yml
 ```
 
@@ -227,10 +225,9 @@ stages:
   - test
 
 test puppeteer:
-  tags: [k8s, multi-runner, build, sjc3]
+  tags: [build, e2e]
   stage: test
   script:
-    - env
     - saucectl run --verbose -c .sauce/config.yml
 ```
 
