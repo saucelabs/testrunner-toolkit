@@ -17,7 +17,7 @@ Below are list of frequently asked questions regarding some of the business and 
 -->
 
 ## Why Do I See This Error?
-If you see a message that looks like `Misconfigured -- Unsupported OS/browser/version/device combo: OS: '*', Browser: 'googlechrome', Version: '*.', Device: 'unspecified'` in your Job's metadata, rest assured that your Job has appropriately succeeded or failed, depending on the test results themselves and independent of this error message. It is an artifact of our early beta and will be addressed soon.
+If you see the following message in your Job's metadata: `Misconfigured -- Unsupported OS/browser/version/device combo: OS: '*', Browser: 'googlechrome', Version: '*.', Device: 'unspecified'`, it is an artifact of our early beta and will be addressed soon. Rest assured that your Job should appropriately succeed or fail depending on the test results themselves and in spite of this error message.
 
 ## Do My Tests Run In The Sauce Labs Cloud?
 No. The testrunner toolkit and, more specifically saucectl, launches tests in a docker container that is local to your environment. Only the test *results and assets* are uploaded to Sauce Labs for reporting purposes.
