@@ -157,7 +157,7 @@ In the root of your project, create a `gitlab-ci.yaml` file. Below are examples 
 <!--puppeteer-->
 
 ```yaml
-image: saucelabs/stt-puppeteer-jest-node:latest
+image: saucelabs/stt-puppeteer-jest-node:v0.1.8
 
 variables:
   SAUCE_USERNAME: ${SAUCE_USERNAME}
@@ -177,7 +177,7 @@ test puppeteer:
 <!--playwright-->
 
 ```yaml
-image: saucelabs/stt-playwright-jest-node:latest
+image: saucelabs/stt-playwright-jest-node:v0.1.9
 
 variables:
   SAUCE_USERNAME: ${SAUCE_USERNAME}
@@ -197,7 +197,7 @@ test playwright:
 <!--testcafe-->
 
 ```yaml
-image: saucelabs/stt-testcafe-node:latest
+image: saucelabs/stt-testcafe-node:v0.1.7
 
 variables:
   SAUCE_USERNAME: ${SAUCE_USERNAME}
@@ -217,7 +217,7 @@ test testcafe:
 <!--cypress-->
 
 ```yaml
-image: saucelabs/stt-cypress-mocha-node:latest
+image: saucelabs/stt-cypress-mocha-node:v0.1.11
 
 variables:
   SAUCE_USERNAME: ${SAUCE_USERNAME}
