@@ -12,8 +12,9 @@
     "Integrations": [
       "typescript",
       "jenkins",
+      "circleci",
       "github-actions",
-      "circleci"
+      "gitlab-pipelines"
     ],
     "Support": [
       "contributing",
