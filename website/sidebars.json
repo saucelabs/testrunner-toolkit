@@ -13,6 +13,7 @@
       "typescript",
       "jenkins",
       "circleci",
+      "azure",
       "github-actions",
       "gitlab-pipelines"
     ],
