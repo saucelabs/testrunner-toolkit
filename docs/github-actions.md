@@ -124,25 +124,29 @@ sauce:
 ```sh
 # ./.sauce/cypress.yml
 apiVersion: v1alpha
-metadata:
-  name: Testing Cypress Support
-  tags:
-    - e2e
-    - release team
-    - other tag
-  build: Release $CI_COMMIT_SHORT_SHA
-files:
-  - ./tests
-suites:
-  - name: "chrome"
-    match: ".*.(spec|test).js$"
-    settings:
-      browserName: "chrome"
-image:
-  base: saucelabs/stt-cypress-mocha-node
-  version: v0.1.11
+kind: cypress
 sauce:
   region: us-west-1
+  metadata:
+    name: Testing Cypress Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
+docker:
+  image:
+    name: saucelabs/stt-cypress-mocha-node
+    tag: v0.2.0
+cypress:
+  configFile: "cypress.json"  # We determine related files based on the location of the config file.
+suites:
+  - name: "saucy test"
+    browser: "chrome"
+    config:
+      env:
+        hello: world
+      testFiles: [ "**/*.*" ] # Cypress native glob support.
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
