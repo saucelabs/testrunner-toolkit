@@ -1,5 +1,11 @@
 blank_issues_enabled: false
 contact_links:
+  - name: 🐛 Bug report
+    url: https://github.com/saucelabs/saucectl/issues/new?template=1-bug-report.md
+    about: Create a report to help us improve
+  - name: 🚀 Feature Proposal
+    url: https://github.com/saucelabs/saucectl/issues/new?template=feature.md
+    about: Submit a proposal for a new feature
   - name: 🤔 Questions and Help
     url: https://opensource.saucelabs.com/testrunner-toolkit/docs/overview.html
     about: Visit our documentation to review frequently asked questions and use cases
