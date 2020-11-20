@@ -128,18 +128,30 @@ image:
 
 [__`cypress.yml`__](https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml)
 ```yaml
-apiVersion: v1
-metadata:
-  name: Feature XYZ
-  tags:
-    - e2e
-    - release team
-    - other tag
-files:
-  - ./tests/cypress/example.test.js
-image:
-  base: saucelabs/stt-cypress-mocha-node
-  version: v0.1.3
+apiVersion: v1alpha
+kind: cypress
+sauce:
+  region: us-west-1
+  metadata:
+    name: Testing Cypress Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
+docker:
+  image:
+    name: saucelabs/stt-cypress-mocha-node
+    tag: v0.2.0
+cypress:
+  configFile: "cypress.json"  # We determine related files based on the location of the config file.
+suites:
+  - name: "saucy test"
+    browser: "chrome"
+    config:
+      env:
+        hello: world
+      testFiles: [ "**/*.*" ] # Cypress native glob support.
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->

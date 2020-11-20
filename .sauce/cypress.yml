@@ -1,13 +1,24 @@
-
-apiVersion: v1
-metadata:
-  name: Feature XYZ
-  tags:
-    - e2e
-    - release team
-    - other tag
-files:
-  - ./tests/cypress/example.test.js
-image:
-  base: saucelabs/stt-cypress-mocha-node
-  version: latest
+apiVersion: v1alpha
+kind: cypress
+sauce:
+  region: us-west-1
+  metadata:
+    name: Testing Cypress Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
+docker:
+  image:
+    name: saucelabs/stt-cypress-mocha-node
+    tag: v0.2.0 # FIXME this version doesn't exist yet
+cypress:
+  configFile: "cypress.json"  # We determine related files based on the location of the config file.
+suites:
+  - name: "saucy test"
+    browser: "chrome"
+    config:
+      env:
+        hello: world
+      testFiles: [ "**/*.*" ] # Cypress native glob support.

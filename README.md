@@ -127,10 +127,14 @@ If you wish to use more than one framework, or to configure different sets of
 tests separately, you could use any name for the configuration file, and
 specify it through `saucectl run -c ./path/to/config.yml`.
 
-As an example, this repository uses two configurations for its pipeline. One
-for [Puppeteer](./.sauce/puppeteer.yml), and one for [Playwright](./.sauce/playwright.yml).
+As an example, this repository uses multiple configurations for its pipeline:
+- [Cypress](./.sauce/cypress.yml)
+- [Playwright](./.sauce/playwright.yml)
+- [Puppeteer](./.sauce/puppeteer.yml)
+- [TestCafe](./.sauce/testcafe.yml)
 
-> **NOTE:** Test files need to match `(spec|test)` in their file name so they will be automatically detected as testfiles.
+> **NOTE:** We are in the middle of a transition to make our configs framework specific, i.e. the look and feel and behavior of the config.yml is different for each framework.
+> This enables us to provide the user with a configuration that is much closer to the framework native experience than we've had before.
 
 <!-- [END gettingstarted] -->
 
