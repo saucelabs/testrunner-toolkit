@@ -99,6 +99,8 @@ jobs:
               -H "Accept: application/octet-stream" \
               https://github.com/saucelabs/saucectl/releases/download/v${SAUCECTL_VERSION}/${SAUCECTL_BINARY} \
               && tar -xvzf ${SAUCECTL_BINARY}
+      - name: Workaround for container permissions
+        run: sudo chown -R $USER:$(id -gn $USER) tests/
       - name: Run Sauce Pipeline Test
         run: |
           ./saucectl run -c ./.sauce/cypress.yml
