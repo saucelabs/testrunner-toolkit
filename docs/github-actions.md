@@ -124,25 +124,29 @@ sauce:
 ```sh
 # ./.sauce/cypress.yml
 apiVersion: v1alpha
-metadata:
-  name: Testing Cypress Support
-  tags:
-    - e2e
-    - release team
-    - other tag
-  build: Release $CI_COMMIT_SHORT_SHA
-files:
-  - ./tests
-suites:
-  - name: "chrome"
-    match: ".*.(spec|test).js$"
-    settings:
-      browserName: "chrome"
-image:
-  base: saucelabs/stt-cypress-mocha-node
-  version: v0.1.11
+kind: cypress
 sauce:
   region: us-west-1
+  metadata:
+    name: Testing Cypress Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
+docker:
+  image:
+    name: saucelabs/stt-cypress-mocha-node
+    tag: v0.2.0
+cypress:
+  configFile: "cypress.json"  # We determine related files based on the location of the config file.
+suites:
+  - name: "saucy test"
+    browser: "chrome"
+    config:
+      env:
+        hello: world
+      testFiles: [ "**/*.*" ] # Cypress native glob support.
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -264,20 +268,23 @@ env:
 jobs:
   cypress:
     runs-on: ubuntu-latest
-    container:
-      image: saucelabs/stt-cypress-mocha-node:latest
-      options: --user 1001
      
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v1
-
+        uses: actions/checkout@v2
+      - name: Download saucectl
+        run: |
+          SAUCECTL_VERSION=0.19.0
+          SAUCECTL_BINARY=saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz
+          curl -L -o ${SAUCECTL_BINARY} \
+              -H "Accept: application/octet-stream" \
+              https://github.com/saucelabs/saucectl/releases/download/v${SAUCECTL_VERSION}/${SAUCECTL_BINARY} \
+              && tar -xvzf ${SAUCECTL_BINARY}
+      - name: Workaround for container permissions
+        run: sudo chmod -R 777 tests/
       - name: Run Sauce Pipeline Test
         run: |
-          saucectl run -c ./.sauce/cypress.yml
-        env:
-          BUILD_ID: ${{ github.run_id }}
-          BUILD_ENV: GitHub Actions
+          ./saucectl run -c ./.sauce/cypress.yml
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->

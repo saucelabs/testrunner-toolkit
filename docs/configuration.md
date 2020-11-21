@@ -128,46 +128,32 @@ image:
 
 [__`cypress.yml`__](https://github.com/saucelabs/testrunner-toolkit/blob/master/.sauce/cypress.yml)
 ```yaml
-apiVersion: v1
-metadata:
-  name: Feature XYZ
-  tags:
-    - e2e
-    - release team
-    - other tag
-files:
-  - ./tests/cypress/example.test.js
-image:
-  base: saucelabs/stt-cypress-mocha-node
-  version: v0.1.3
+apiVersion: v1alpha
+kind: cypress
+sauce:
+  region: us-west-1
+  metadata:
+    name: Testing Cypress Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
+docker:
+  image:
+    name: saucelabs/stt-cypress-mocha-node
+    tag: v0.2.0
+cypress:
+  configFile: "cypress.json"  # We determine related files based on the location of the config file.
+suites:
+  - name: "saucy test"
+    browser: "chrome"
+    config:
+      env:
+        hello: world
+      testFiles: [ "**/*.*" ] # Cypress native glob support.
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prepare your environment
-
-Saucectl offers the possibility to setup your tests environment before executing any of your suites using `beforeExec`: 
-
-```yaml
-beforeExec:
-  - npm install --save chai
-```
-
-## Parallelization
-
-Saucectl is capable of running tests in parallel by utilizing multiple CI machines. _This feature requires a Sauce Labs account_, so don't forget to set the environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`!
-
-Parallelization can be turned on either via the config
-```yaml
-parallel: true
-```
-
-or the CLI
-```bash
-saucectl run --parallel
-```
-
-The concrete setup of the pipeline will depend on your CI provider however. [Here's an example](https://github.com/saucelabs/saucectl/blob/master/.github/workflows/test.yml#L94-L145) how to set it up for GitHub Actions.
-
-Please visit [here](cli-reference.md#parallel) for more information about the parallelization feature and its limitations.
 ___
