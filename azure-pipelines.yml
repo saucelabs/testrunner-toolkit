@@ -12,6 +12,10 @@ jobs:
     steps:
       - checkout: self
         displayName: 'Checkout Code'
+      - script: sudo chown -R $USER:$(id -gn $USER) /github/home
+        name: Workaround for container permissions
+      - script: sudo ln -s /home/seluser/.cache /github/home/.cache
+        name: Workaround for container folder
       - task: NodeTool@0
         inputs:
           versionSpec: 12.x
