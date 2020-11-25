@@ -23,7 +23,7 @@ Below are some examples:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--puppeteer-->
 
-```sh
+```yaml
 apiVersion: v1alpha
 metadata:
   name: Testing Puppeteer Support
@@ -48,7 +48,7 @@ sauce:
 
 <!--playwright-->
 
-```sh
+```yaml
 apiVersion: v1alpha
 metadata:
   name: Testing Playwright Support
@@ -73,7 +73,7 @@ sauce:
 
 <!--testcafe-->
 
-```sh
+```yaml
 apiVersion: v1alpha
 metadata:
   name: Testing TestCafe Support
@@ -98,7 +98,7 @@ sauce:
 
 <!--cypress-->
 
-```sh
+```yaml
 apiVersion: v1alpha
 metadata:
   name: Testing Cypress Support
@@ -180,7 +180,7 @@ jobs:
   test-puppeteer:
     working_directory: ~/app
     docker:
-      - image: saucelabs/stt-puppeteer-jest-node:latest
+      - image: saucelabs/stt-puppeteer-jest-node:v0.1.8
     steps:
       - attach_workspace:
           at: ~/app
@@ -226,7 +226,7 @@ jobs:
   test-playwright:
     working_directory: ~/app
     docker:
-      - image: saucelabs/stt-playwright-jest-node:latest
+      - image: saucelabs/stt-playwright-jest-node:v0.1.9
     steps:
       - attach_workspace:
           at: ~/app
@@ -272,7 +272,7 @@ jobs:
   test-testcafe:
     working_directory: ~/app
     docker:
-      - image: saucelabs/stt-testcafe-node:latest
+      - image: saucelabs/stt-testcafe-node:v0.1.7
     steps:
       - attach_workspace:
           at: ~/app
@@ -318,7 +318,7 @@ jobs:
   test-cypress:
     working_directory: ~/app
     docker:
-      - image: saucelabs/stt-cypress-mocha-node:latest
+      - image: saucelabs/stt-cypress-mocha-node:v0.1.11
     steps:
       - attach_workspace:
           at: ~/app

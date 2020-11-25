@@ -51,7 +51,7 @@ Below are some examples:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--puppeteer-->
 
-```sh
+```yaml
 apiVersion: v1alpha
 metadata:
   name: Testing Puppeteer Support
@@ -76,7 +76,7 @@ sauce:
 
 <!--playwright-->
 
-```sh
+```yaml
 apiVersion: v1alpha
 metadata:
   name: Testing Playwright Support
@@ -101,7 +101,7 @@ sauce:
 
 <!--testcafe-->
 
-```sh
+```yaml
 apiVersion: v1alpha
 metadata:
   name: Testing TestCafe Support
@@ -126,7 +126,7 @@ sauce:
 
 <!--cypress-->
 
-```sh
+```yaml
 apiVersion: v1alpha
 metadata:
   name: Testing Cypress Support

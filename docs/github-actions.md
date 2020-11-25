@@ -43,7 +43,7 @@ Below are some examples:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--puppeteer-->
 
-```sh
+```yaml
 # ./.sauce/puppeteer.yml
 apiVersion: v1alpha
 metadata:
@@ -69,7 +69,7 @@ sauce:
 
 <!--playwright-->
 
-```sh
+```yaml
 # ./.sauce/playwright.yml
 apiVersion: v1alpha
 metadata:
@@ -95,7 +95,7 @@ sauce:
 
 <!--testcafe-->
 
-```sh
+```yaml
 # ./.sauce/testcafe.yml
 apiVersion: v1alpha
 metadata:
@@ -121,7 +121,7 @@ sauce:
 
 <!--cypress-->
 
-```sh
+```yaml
 # ./.sauce/cypress.yml
 apiVersion: v1alpha
 kind: cypress
@@ -162,7 +162,7 @@ In the examples below, the environment variables (`env`) equate to the values co
 <!--DOCUSAURUS_CODE_TABS-->
 <!--puppeteer-->
 
-```sh
+```yaml
 name: Puppeteer Pipeline Browser Tests
 on:
   pull_request:
@@ -176,7 +176,7 @@ jobs:
   puppeteer:
     runs-on: ubuntu-latest
     container:
-      image: saucelabs/stt-puppeteer-jest-node:latest
+      image: saucelabs/stt-puppeteer-jest-node:v0.1.8
       options: --user 1001
      
     steps:
@@ -193,7 +193,7 @@ jobs:
 
 <!--playwright-->
 
-```sh
+```yaml
 name: Playwright Pipeline Browser Tests
 on:
   pull_request:
@@ -207,7 +207,7 @@ jobs:
   playwright:
     runs-on: ubuntu-latest
     container:
-      image: saucelabs/stt-playwright-jest-node:latest
+      image: saucelabs/stt-playwright-jest-node:v0.1.9
       options: --user 1001
      
     steps:
@@ -224,7 +224,7 @@ jobs:
 
 <!--testcafe-->
 
-```sh
+```yaml
 name: TestCafe Pipeline Browser Tests
 on:
   pull_request:
@@ -238,7 +238,7 @@ jobs:
   testcafe:
     runs-on: ubuntu-latest
     container:
-      image: saucelabs/stt-testcafe-node:latest
+      image: saucelabs/stt-testcafe-node:v0.1.7
       options: --user 1001
      
     steps:
@@ -255,7 +255,7 @@ jobs:
 
 <!--cypress-->
 
-```sh
+```yaml
 name: Cypress Pipeline Browser Tests
 on:
   pull_request:
