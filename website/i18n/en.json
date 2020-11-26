@@ -4,6 +4,10 @@
     "next": "Next",
     "previous": "Previous",
     "docs": {
+      "azure": {
+        "title": "Testrunner Toolkit with Azure Pipelines",
+        "sidebar_label": "Azure"
+      },
       "circleci": {
         "title": "Testrunner Toolkit with CircleCI",
         "sidebar_label": "CircleCI"

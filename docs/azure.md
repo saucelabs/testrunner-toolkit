@@ -183,8 +183,6 @@ Save the file and select __Run__ in the upper right corner of the UI:
 
    ![Azure Variables Button](assets/azure-run.png)
    
-After a successful Azure pipeline run, you will see similar console output like below:
-
-   ![Azure Output](assets/azure-output.png)
+After a successful Azure pipeline run, you can check your test results in either Azure pipelines console, or in the [Sauce Labs dashboard](app.saucelabs.com).
    
 ---
