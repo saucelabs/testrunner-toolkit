@@ -7,7 +7,7 @@ jobs:
       CI: true
     pool:
       vmImage: 'ubuntu-latest'
-    container: saucelabs/stt-puppeteer-jest-node:latest
+    container: saucelabs/stt-puppeteer-jest-node:v0.20
 
     steps:
       - checkout: self

@@ -149,7 +149,7 @@ Below is an example Azure pipeline configuration:
 
 ```yaml
 trigger:
-- master
+  - master
 
 jobs:
   - job: testrunnerToolkit
@@ -157,21 +157,26 @@ jobs:
       CI: true
     pool:
       vmImage: 'ubuntu-latest'
-    container: saucelabs/stt-puppeteer-jest-node:latest
-    
+    container: saucelabs/stt-puppeteer-jest-node:v0.20
+
     steps:
-    - checkout: self
-      displayName: 'Checkout Code'
-    - task: NodeTool@0
-      inputs:
-        versionSpec: 12.x
-    - script: npm install
-      displayName: 'Install node dependencies'
-    - script: saucectl run -c ./.sauce/puppeteer.yml
-      env:
-        SAUCE_ACCESS_KEY: $(SAUCE_ACCESS_KEY)
-        SAUCE_USERNAME: $(SAUCE_USERNAME)
-      displayName: 'Run Testrunner Toolkit'
+      - checkout: self
+        displayName: 'Checkout Code'
+      - script: sudo chown -R $USER:$(id -gn $USER) /github/home
+        name: Workaround for container permissions
+      - script: sudo ln -s /home/seluser/.cache /github/home/.cache
+        name: Workaround for container folder
+      - task: NodeTool@0
+        inputs:
+          versionSpec: 12.x
+      - script: npm install
+        displayName: 'Install node dependencies'
+      - script: saucectl run -c ./.sauce/puppeteer.yml
+        env:
+          SAUCE_ACCESS_KEY: $(SAUCE_ACCESS_KEY)
+          SAUCE_USERNAME: $(SAUCE_USERNAME)
+        displayName: 'Run Testrunner Toolkit'
+
 ```
 
 Save the file and select __Run__ in the upper right corner of the UI:
