@@ -258,7 +258,7 @@ suites:
       browserName: "firefox"
 image:
   base: saucelabs/stt-testcafe-node
-  version: v0.1.7
+  version: v0.1.12
 sauce:
   region: us-west-1
 ```
