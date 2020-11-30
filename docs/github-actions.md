@@ -238,7 +238,7 @@ jobs:
   testcafe:
     runs-on: ubuntu-latest
     container:
-      image: saucelabs/stt-testcafe-node:v0.1.7
+      image: saucelabs/stt-testcafe-node:v0.1.12
       options: --user 1001
      
     steps:
