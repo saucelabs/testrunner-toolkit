@@ -272,7 +272,7 @@ jobs:
   test-testcafe:
     working_directory: ~/app
     docker:
-      - image: saucelabs/stt-testcafe-node:v0.1.7
+      - image: saucelabs/stt-testcafe-node:v0.1.12
     steps:
       - attach_workspace:
           at: ~/app
