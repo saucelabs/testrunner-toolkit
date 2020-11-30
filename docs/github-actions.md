@@ -176,7 +176,7 @@ jobs:
   puppeteer:
     runs-on: ubuntu-latest
     container:
-      image: saucelabs/stt-puppeteer-jest-node:v0.1.8
+      image: saucelabs/stt-puppeteer-jest-node:v0.2.0
       options: --user 1001
      
     steps:
