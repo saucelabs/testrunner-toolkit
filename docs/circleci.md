@@ -180,7 +180,7 @@ jobs:
   test-puppeteer:
     working_directory: ~/app
     docker:
-      - image: saucelabs/stt-puppeteer-jest-node:v0.1.8
+      - image: saucelabs/stt-puppeteer-jest-node:v0.2.0
     steps:
       - attach_workspace:
           at: ~/app
