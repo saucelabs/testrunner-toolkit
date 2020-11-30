@@ -199,7 +199,7 @@ suites:
       browserName: "firefox"
 image:
   base: saucelabs/stt-puppeteer-jest-node
-  version: v0.1.8
+  version: v0.2.0
 sauce:
   region: us-west-1
 ```
