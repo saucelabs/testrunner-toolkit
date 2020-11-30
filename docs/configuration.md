@@ -280,7 +280,7 @@ sauce:
 docker:
   image:
     name: saucelabs/stt-cypress-mocha-node
-    tag: v0.2.0
+    tag: v0.2.2
 cypress:
   configFile: "cypress.json"  # We determine related files based on the location of the config file.
 suites:
