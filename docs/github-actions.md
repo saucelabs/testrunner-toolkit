@@ -207,7 +207,7 @@ jobs:
   playwright:
     runs-on: ubuntu-latest
     container:
-      image: saucelabs/stt-playwright-jest-node:v0.1.9
+      image: saucelabs/stt-playwright-jest-node:v0.2.0
       options: --user 1001
      
     steps:
