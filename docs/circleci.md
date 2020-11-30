@@ -318,7 +318,7 @@ jobs:
   test-cypress:
     working_directory: ~/app
     docker:
-      - image: saucelabs/stt-cypress-mocha-node:v0.1.11
+      - image: saucelabs/stt-cypress-mocha-node:v0.2.2
     steps:
       - attach_workspace:
           at: ~/app
