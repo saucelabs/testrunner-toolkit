@@ -226,7 +226,7 @@ jobs:
   test-playwright:
     working_directory: ~/app
     docker:
-      - image: saucelabs/stt-playwright-jest-node:v0.1.9
+      - image: saucelabs/stt-playwright-jest-node:v0.2.0
     steps:
       - attach_workspace:
           at: ~/app
