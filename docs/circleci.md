@@ -98,27 +98,44 @@ sauce:
 
 <!--cypress-->
 
+> With cypress tests, you must specify ether `mount` or `copy` in the `docker` field of the config.
+>  For Example:
+>
+> ```yaml
+> docker:
+>    fileTransfer: mount
+> ```
+> This due to CircleCI's trouble with mounting files while using remote docker
+
 ```yaml
 apiVersion: v1alpha
-metadata:
-  name: Testing Cypress Support
-  tags:
+kind: cypress
+sauce:
+  region: us-west-1
+  metadata:
+    name: Testing Cypress Support
+    tags:
     - e2e
     - release team
     - other tag
-  build: Release $CI_COMMIT_SHORT_SHA
-files:
-  - ./tests
+    build: Release $CI_COMMIT_SHORT_SHA
+cypress:
+  configFile: cypress.json
+  projectpath: cypress
+  envfile: ""
 suites:
-  - name: "chrome"
-    match: ".*.(spec|test).js$"
-    settings:
-      browserName: "chrome"
-image:
-  base: saucelabs/stt-cypress-mocha-node
-  version: v0.1.11
-sauce:
-  region: us-west-1
+- name: saucy test
+  browser: chrome
+  config:
+    testFiles:
+    - '**/*.*'
+    env:
+      hello: world
+docker:
+  fileTransfer: mount
+  image:
+    name: saucelabs/stt-cypress-mocha-node
+    tag: v0.2.3
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -318,7 +335,7 @@ jobs:
   test-cypress:
     working_directory: ~/app
     docker:
-      - image: saucelabs/stt-cypress-mocha-node:v0.2.2
+      - image: saucelabs/stt-cypress-mocha-node:v0.2.3
     steps:
       - attach_workspace:
           at: ~/app
