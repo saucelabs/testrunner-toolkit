@@ -42,7 +42,7 @@ The specific framework and browser version support depends on the components of 
 
 | Puppeteer Version | Supported Browsers                | Docker Image Tag                         |
 |---------|-----------------------------------|------------------------------------------|
-| 3.0.4   | <ul><li>Chrome 81.0.4044.138</li> <li>Firefox 74.0</li></ul> | [saucelabs/stt-puppeteer-jest-node:v0.2.2](https://hub.docker.com/layers/saucelabs/stt-puppeteer-jest-node/v0.2.2/images/sha256-ed9eed4ec107666858e4644d9b44ebab144cf5b68f0cae155edd22be3b146cb2?context=explore) |
+| 3.0.4   | <ul><li>Chrome 81.0.4044.138</li></ul> | [saucelabs/stt-puppeteer-jest-node:v0.2.2](https://hub.docker.com/layers/saucelabs/stt-puppeteer-jest-node/v0.2.2/images/sha256-ed9eed4ec107666858e4644d9b44ebab144cf5b68f0cae155edd22be3b146cb2?context=explore) |
 
 <!--Playwright-->
 
@@ -55,7 +55,7 @@ The specific framework and browser version support depends on the components of 
 <!--TestCafe-->
 | TestCafe Version | Supported Browsers                | Docker Image Tag                    |
 |---------|-----------------------------------|-------------------------------------|
-| 1.8.5   | <ul><li>Chrome 81.0.4044.138</li></ul> | [saucelabs/stt-testcafe-node:v0.1.13](https://hub.docker.com/layers/saucelabs/stt-testcafe-node/v0.1.13/images/sha256-698c954f254b3a68ba57b8ed0f6f87becf0dc7686998e02e197f306e0002fa10?context=explore) |
+| 1.8.5   | <ul><li>Chrome 81.0.4044.138</li><li>Firefox 74.0</li></ul> | [saucelabs/stt-testcafe-node:v0.1.13](https://hub.docker.com/layers/saucelabs/stt-testcafe-node/v0.1.13/images/sha256-698c954f254b3a68ba57b8ed0f6f87becf0dc7686998e02e197f306e0002fa10?context=explore) |
 
 <!--Cypress-->
 
