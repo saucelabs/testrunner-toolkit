@@ -31,6 +31,7 @@ JavaScript framework of your choice. In the current beta, the toolkit supports:
 * [Playwright](https://github.com/microsoft/playwright)
 * [TestCafe](https://github.com/DevExpress/testcafe)
 * [Cypress](https://github.com/cypress-io/cypress)
+* [WebdriverIO](https://github.com/webdriverio/webdriverio)
 
 This approach gives you the power and expressiveness of different test frameworks with the dashboards, infrastructure, and analytics of [Sauce Labs](https://saucelabs.com/). 
 
@@ -47,6 +48,7 @@ To learn more about:
 * The Microsoft Playwright project, visit [https://github.com/microsoft/playwright](https://github.com/microsoft/playwright)
 * TestCafe, visit [https://devexpress.github.io/testcafe/](https://devexpress.github.io/testcafe/)
 * Cypress, visit [https://github.com/cypress-io/cypress](https://github.com/cypress-io/cypress)
+* WebdriverIO, visit [https://webdriver.io](https://webdriver.io)
 
 ## Where are the Docker Images and Can I Inspect Them?
 
@@ -65,6 +67,8 @@ contains saucectl with different versions of Puppeteer.
 contains saucectl with different versions of TestCafe.
 
 * [Base image + Cypress](https://hub.docker.com/r/saucelabs/stt-cypress-mocha-node/tags) contains saucectl with different versions of Cypress.
+
+* [Base image + WebdriverIO](https://hub.docker.com/r/saucelabs/stt-webdriverio-node/tags) contains saucectl with different versions of WebdriverIO.
 
 ## Are There any Test Code Samples? 
 Yes! You can find them here: [Automation Framework Examples](test-preparation.md#automation-framework-examples).

@@ -16,6 +16,7 @@ Before you begin testing, you must choose an automation framework.
     * [Playwright](https://github.com/microsoft/playwright)
     * [TestCafe](https://devexpress.github.io/testcafe)
     * [Cypress](https://github.com/cypress-io/cypress)
+    * [WebdriverIO](https://github.com/webdriverio/webdriverio)
     
     Next, the Toolkit will automatically generate: 
     * a config file (`./sauce/config.yml`)

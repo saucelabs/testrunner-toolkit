@@ -11,11 +11,13 @@ Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifie
 ## How Testrunner Toolkit Works?
 Native JavaScript testing is achieved through the combination of Sauce Labs, Jest, and the
 JavaScript framework of your choice. In the current beta, the toolkit supports:
+ 
+* [Puppeteer](https://github.com/puppeteer/puppeteer)
+* [Playwright](https://github.com/microsoft/playwright)
+* [TestCafe](https://github.com/DevExpress/testcafe)
+* [Cypress](https://github.com/cypress-io/cypress)
+* [WebdriverIO](https://github.com/webdriverio/webdriverio)
 
-* Puppeteer
-* Playwright
-* TestCafe
-* Cypress
 
 This approach gives you the power and expressiveness of different test frameworks with the dashboards, infrastructure, and analytics of [Sauce Labs](https://saucelabs.com/). 
 
