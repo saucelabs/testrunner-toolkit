@@ -10,34 +10,6 @@ This page provides information for `saucectl`, the command line interface of the
 
 [This repository](https://github.com/saucelabs/saucectl) contains the Go binary that you use to kick off tests.
 
-### Development Requirements
- * [Go](https://golang.org/) (v1.14 or higher)
- * [Homebrew](https://brew.sh/) (v2.2.13 or higher)
- 
-### Install
- 
-Run the following `make` command to install all dependencies:
- 
-```bash
-$ make install
-```
-
-### Build
-
-To build the project run the following command:
-
-```bash
-$ make build
-```
-
-### Test
-
-To execute unit tests run the following command:
-
-```bash
-$ make test
-```
-
 ## Commands
 
 ### `new`
@@ -81,6 +53,44 @@ saucectl run --env <key>=value1> --env <key2>=<value2> ...
 
 Using the `--env` flag will define environment variables that are then available for use by the test framework.
 
+### `parallel`
+
+```sh
+saucectl run --parallel=<true|false>
+```
+
+Using the `--parallel` flag allows the parallelization of tests across machines to be
+turned on/off. 
+
+`saucectl` will use CI provider specific clues from the environment and `saucectl` config
+file to generate a `build ID`. This `build ID` is used a grouping mechanism to
+synchronize the different machines that are running in the same pipeline to distribute
+the tests. 
+
+`saucectl` currently uses the following CI environment variables to generate a build ID.
+
+| CI            | Environment Variables          | Current Limitations                                 |
+|:-------------:|:------------------------------:|:---------------------------------------------------:|
+| GitHub        | GITHUB_WORKFLOW, GITHUB_RUN_ID | Unable to re-run jobs. Must trigger a new pipeline. |
+| GitLab        | CI_PIPELINE_ID, CI_JOB_STAGE   | Unable to re-run jobs. Must trigger a new pipeline. |
+| Jenkins       | BUILD_NUMBER                   | None                                                |
+
+The current parallelization feature is _highly experimental_ and may have limitations
+with certain CI providers.
+
+If your CI provider is not listed here, you will have to specify your own `build ID`.
+Please consult the [`ci-build-id`](#ci-build-id) flag for this option.
+
+### `ci-build-id`
+
+```sh
+saucectl run --ci-build-id <value>
+```
+
+Using the `--ci-build-id` flag will override the build ID that is otherwise determined
+based on the CI provider. The config file hash will still be used in addition to this
+provided CI build ID.
+
 ### `region`
 
 ```bash
@@ -95,6 +105,22 @@ saucectl run --timeout <seconds>
 ```
 
 Using the `--timeout` flag will set the test timeout for the [Testrunner framework](test-preparation.md#automation-framework-examples).
+
+## Private registry
+In case you need to use an image from a private registry you can use environment variables for authentification;
+
+```bash 
+export REGISTRY_USERNAME=registry-user
+export REGISTRY_PASSWORD=registry-pass
+```
+
+and in your `config.yml`, add the image name to your registry like so:
+
+```yml   
+image:
+  base: quay.io/saucelabs/stt-cypress-mocha-node
+  version: latest
+```
 
 ## Licensing
 

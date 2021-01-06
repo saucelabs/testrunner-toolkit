@@ -128,10 +128,14 @@ If you wish to use more than one framework, or to configure different sets of
 tests separately, you could use any name for the configuration file, and
 specify it through `saucectl run -c ./path/to/config.yml`.
 
-As an example, this repository uses two configurations for its pipeline. One
-for [Puppeteer](./.sauce/puppeteer.yml), and one for [Playwright](./.sauce/playwright.yml).
+As an example, this repository uses multiple configurations for its pipeline:
+- [Cypress](./.sauce/cypress.yml)
+- [Playwright](./.sauce/playwright.yml)
+- [Puppeteer](./.sauce/puppeteer.yml)
+- [TestCafe](./.sauce/testcafe.yml)
 
-> **NOTE:** Test files need to match `(spec|test)` in their file name so they will be automatically detected as testfiles.
+> **NOTE:** We are in the middle of a transition to make our configs framework specific, i.e. the look and feel and behavior of the config.yml is different for each framework.
+> This enables us to provide the user with a configuration that is much closer to the framework native experience than we've had before.
 
 <!-- [END gettingstarted] -->
 
@@ -176,6 +180,14 @@ contains saucectl with different versions of TestCafe.
 
 [Base image + Cypress](https://hub.docker.com/r/saucelabs/stt-cypress-mocha-node/tags)
 contains saucectl with different versions of Cypress.
+
+### Browser version supported
+
+- [Playwright](https://github.com/saucelabs/sauce-playwright-runner/releases/latest)
+- [Puppeteer](https://github.com/saucelabs/sauce-puppeteer-runner/releases/latest)
+- [TestCafe](https://github.com/saucelabs/sauce-testcafe-runner/releases/latest)
+- [Cypress](https://github.com/saucelabs/sauce-cypress-runner/releases/latest)
+
 
 ## Examples
 
@@ -272,6 +284,13 @@ This repository includes examples of CI/CD in
 [CircleCI Pipelines](https://circleci.com/docs/2.0/configuration-reference/). Although the 
 [GitHub Actions](./.github/workflows/tests.yml) and [CircleCI](./.circleci/config.yml) 
 examples are included, the mechanism works with any CI/CD provider that supports containers.
+
+### Running tests in parallel across CI machines
+
+To speed up the test execution in CI, you can parallelize the test execution across CI machines.
+The concrete setup will depend on your CI provider. [Here's an example](https://github.com/saucelabs/saucectl/blob/master/.github/workflows/test.yml#L94-L145) how to set it up for GitHub Actions.
+
+Please visit [here](https://github.com/saucelabs/saucectl#parallel) for more infos about the parallelization feature and its limitations.
 
 <!-- [END about] -->
 

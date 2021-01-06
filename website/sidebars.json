@@ -9,9 +9,18 @@
       "configuration",
       "cli-reference"
     ],
+    "Integrations": [
+      "typescript",
+      "jenkins",
+      "circleci",
+      "github-actions",
+      "gitlab-pipelines"
+    ],
     "Support": [
       "contributing",
       "code-of-conduct",
-      "faqs"]
+      "faqs",
+      "resources"
+    ]
   }
 }

@@ -8,11 +8,20 @@ sidebar_label: Testrunner Toolkit FAQs
 Below are list of frequently asked questions regarding some of the business and technical use cases surrounding the Testrunner Toolkit.
 
 <!--__Table of Contents__
+* [Why Do I See This Error?](#why-do-i-see-this-error?)
+* [Do My Tests Run In The Sauce Labs Cloud?](#do-my-tests-run-in-the-sauce-labs-cloud?)
 * [Why Testrunner Toolkit?](#why-testrunner-toolkit?)
 * [Where are the Docker Images and Can I Inspect Them?](#where-are-the-docker-images-and-can-i-inspect-them?)
 * [Are There any Framework Test Code Samples?](#are-there-any-framework-test-code-samples?)
 * [How Do I Use This in my Pipeline?](#how-do-i-use-this-in-my-pipeline?)
 -->
+
+## Why Do I See This Error?
+If you see the following message in your Job's metadata: `Misconfigured -- Unsupported OS/browser/version/device combo: OS: '*', Browser: 'googlechrome', Version: '*.', Device: 'unspecified'`, it is an artifact of our early beta and will be addressed soon. Rest assured that your Job should appropriately succeed or fail depending on the test results themselves and in spite of this error message.
+
+## Do My Tests Run In The Sauce Labs Cloud?
+No. The testrunner toolkit and, more specifically saucectl, launches tests in a docker container that is local to your environment. Only the test *results and assets* are uploaded to Sauce Labs for reporting purposes.
+However, it is a feature we are currently working on!
 
 ## How Does Testrunner Toolkit Work?
 Native JavaScript testing is achieved through the combination of Sauce Labs and the
@@ -71,5 +80,4 @@ The GitHub repository includes CI/CD examples of `saucectl` using:
 
 Although the [GitHub Actions](./.github/workflows/tests.yml) and [CircleCI](./.circleci/config.yml) 
 examples are included, the mechanism works with any CI/CD provider that supports containers.
-
 ___
