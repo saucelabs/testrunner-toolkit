@@ -7,7 +7,7 @@ metadata:
     - other tag
   build: Release $CI_COMMIT_SHORT_SHA
 files:
-  - ./tests/e2e/testcafe/example.test.js
+  - ./tests/testcafe/*.test.js
 suites:
   - name: "saucy test"
     match: ".*.(spec|test).[jt]s$"
