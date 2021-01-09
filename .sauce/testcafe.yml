@@ -13,6 +13,6 @@ suites:
     match: ".*.(spec|test).[jt]s$"
 image:
   base: saucelabs/stt-testcafe-node
-  version: latest
+  version: v0.1.14
 sauce:
   region: us-west-1
