@@ -19,18 +19,20 @@ env:
 jobs:
   puppeteer:
     runs-on: ubuntu-latest
-    container:
-      image: saucelabs/stt-puppeteer-jest-node:latest
      
     steps:
-      # appears that checkout@v2 uses javascript which is not compatible 
-      # with the included node version in the container image.
       - name: Checkout Code
-        uses: actions/checkout@v1
-        
+        uses: actions/checkout@v2
+      - name: Download saucectl
+        run: |
+          SAUCECTL_VERSION=0.19.0
+          SAUCECTL_BINARY=saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz
+          curl -L -o ${SAUCECTL_BINARY} \
+              -H "Accept: application/octet-stream" \
+              https://github.com/saucelabs/saucectl/releases/download/v${SAUCECTL_VERSION}/${SAUCECTL_BINARY} \
+              && tar -xvzf ${SAUCECTL_BINARY}
       - name: Workaround for container permissions
-        run: sudo chown -R $USER:$(id -gn $USER) /github/home
-
+        run: sudo chmod -R 777 tests/
       - name: Run Sauce Pipeline Test
         run: |
           saucectl run -c ./.sauce/puppeteer.yml
@@ -39,21 +41,21 @@ jobs:
           BUILD_ENV: GitHub Actions
   playwright:
     runs-on: ubuntu-latest
-    container:
-      image: saucelabs/stt-playwright-jest-node:latest
 
     steps:
-      # appears that checkout@v2 uses javascript which is not compatible 
-      # with the included node version in the container image.
       - name: Checkout Code
-        uses: actions/checkout@v1
-        
+        uses: actions/checkout@v2
+      - name: Download saucectl
+        run: |
+          SAUCECTL_VERSION=0.19.0
+          SAUCECTL_BINARY=saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz
+          curl -L -o ${SAUCECTL_BINARY} \
+              -H "Accept: application/octet-stream" \
+              https://github.com/saucelabs/saucectl/releases/download/v${SAUCECTL_VERSION}/${SAUCECTL_BINARY} \
+              && tar -xvzf ${SAUCECTL_BINARY}
       - name: Workaround for container permissions
-        run: sudo chown -R $USER:$(id -gn $USER) /github/home
-      
-      - name: Workaround for container folder
-        run: sudo ln -s /home/seluser/.cache /github/home/.cache
-
+        run: sudo chmod -R 777 tests/
+ 
       - name: Run Sauce Pipeline Test
         run: |
           saucectl run -c ./.sauce/playwright.yml
@@ -63,14 +65,10 @@ jobs:
 
   testcafe:
     runs-on: ubuntu-latest
-    container:
-      image: saucelabs/stt-testcafe-node:latest
 
     steps:
-      # appears that checkout@v2 uses javascript which is not compatible 
-      # with the included node version in the container image.
       - name: Checkout Code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
      - name: Download saucectl
         run: |
           SAUCECTL_VERSION=0.19.0
