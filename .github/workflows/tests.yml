@@ -37,6 +37,7 @@ jobs:
         run: |
           ./saucectl run -c ./.sauce/puppeteer.yml
         env:
+          SKIP_CI: true
           BUILD_ID: ${{ github.run_id }}
           BUILD_ENV: GitHub Actions
 
