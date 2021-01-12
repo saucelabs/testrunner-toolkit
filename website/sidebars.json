@@ -1,22 +1,7 @@
 {
   "docs": {
-    "Overview": [
-      "overview"
-    ],
-    "Getting Started": [
-      "installation",
-      "test-preparation",
-      "configuration",
-      "cli-reference"
-    ],
-    "Integrations": [
-      "typescript",
-      "jenkins",
-      "circleci",
-      "github-actions",
-      "gitlab-pipelines"
-    ],
-    "Support": [
+    "Cypress Beta": [
+      "getting-started",
       "contributing",
       "code-of-conduct",
       "faqs",

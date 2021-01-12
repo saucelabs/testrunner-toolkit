@@ -4,14 +4,6 @@
     "next": "Next",
     "previous": "Previous",
     "docs": {
-      "circleci": {
-        "title": "Testrunner Toolkit with CircleCI",
-        "sidebar_label": "CircleCI"
-      },
-      "cli-reference": {
-        "title": "Testrunner Toolkit CLI Reference",
-        "sidebar_label": "CLI Reference"
-      },
       "code-of-conduct": {
         "title": "Contributor Covenant Code of Conduct",
         "sidebar_label": "Code of Conduct"
@@ -25,40 +17,16 @@
         "sidebar_label": "Contributing"
       },
       "faqs": {
-        "title": "Testrunner Toolkit FAQs",
-        "sidebar_label": "Testrunner Toolkit FAQs"
+        "title": "Cypress Beta FAQs",
+        "sidebar_label": "FAQs"
       },
-      "github-actions": {
-        "title": "Testrunner Toolkit with GitHub Actions",
-        "sidebar_label": "GitHub Actions"
-      },
-      "gitlab-pipelines": {
-        "title": "Testrunner Toolkit with GitLab Pipelines",
-        "sidebar_label": "GitLab Pipelines"
-      },
-      "installation": {
-        "title": "Installation",
-        "sidebar_label": "Installation"
-      },
-      "jenkins": {
-        "title": "Testrunner Toolkit with Jenkins",
-        "sidebar_label": "Jenkins"
-      },
-      "overview": {
-        "title": "Sauce Labs Testrunner Toolkit",
-        "sidebar_label": "Overview"
+      "getting-started": {
+        "title": "Getting Started with the Cypress Beta",
+        "sidebar_label": "Getting Started"
       },
       "resources": {
         "title": "Resources",
         "sidebar_label": "Resources"
-      },
-      "test-preparation": {
-        "title": "Testrunner Toolkit Test Preparation",
-        "sidebar_label": "Test Preparation"
-      },
-      "typescript": {
-        "title": "Using TypeScript Tests",
-        "sidebar_label": "TypeScript"
       }
     },
     "links": {
@@ -66,10 +34,7 @@
       "Sign in": "Sign in"
     },
     "categories": {
-      "Overview": "Overview",
-      "Getting Started": "Getting Started",
-      "Integrations": "Integrations",
-      "Support": "Support"
+      "Cypress Beta": "Cypress Beta"
     }
   },
   "pages-strings": {
