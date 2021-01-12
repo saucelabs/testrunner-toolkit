@@ -1,7 +1,7 @@
 ---
 id: faqs
-title: Testrunner Toolkit FAQs
-sidebar_label: Testrunner Toolkit FAQs
+title: Cypress Beta FAQs
+sidebar_label: FAQs
 ---
 <!--# Testrunner Toolkit FAQs-->
 
@@ -67,7 +67,7 @@ contains saucectl with different versions of TestCafe.
 * [Base image + Cypress](https://hub.docker.com/r/saucelabs/stt-cypress-mocha-node/tags) contains saucectl with different versions of Cypress.
 
 ## Are There any Test Code Samples? 
-Yes! You can find them here: [Automation Framework Examples](test-preparation.md#automation-framework-examples).
+Yes! You can find them here: [Automation Framework Examples](https://docs.staging.saucelabs.net/testrunner-toolkit/running-tests#automation-framework-examples).
 
 ## How Do I Use This in my Pipeline?
 The GitHub repository includes CI/CD examples of `saucectl` using:
