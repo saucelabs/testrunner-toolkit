@@ -1,7 +1,4 @@
-apiVersion: v1
-# type of object, there could be theoretically other types
-# of "orchestration" in the future, e.g. network config maps etc.
-kind: Test
+apiVersion: v1alpha
 # meta data to the test
 metadata:
   name: Feature XYZ
@@ -18,7 +15,12 @@ files:
 # Like in Docker, these images can be developed as Open Source projects
 # and maintained by our teams, while at the same time, customers can
 # build their own images as well
+suites:
+  - name: "saucy test"
+    match: ".*.(spec|test).js$"
+    settings:
+      browserName: "firefox"
 image:
   # while a set of properties are defined by our Yaml format
   base: saucelabs/stt-playwright-jest-node
-  version: latest
+  version: v0.2.3

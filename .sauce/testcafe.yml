@@ -1,14 +1,18 @@
-
-apiVersion: v1
+apiVersion: v1alpha
 metadata:
-  name: Feature XYZ
+  name: Testing TestCafe Support
   tags:
     - e2e
     - release team
     - other tag
   build: Release $CI_COMMIT_SHORT_SHA
 files:
-  - ./tests/testcafe/*.js
+  - ./tests/testcafe/
+suites:
+  - name: "saucy test"
+    match: ".*.(spec|test).[jt]s$"
 image:
   base: saucelabs/stt-testcafe-node
-  version: latest
+  version: v0.1.14
+sauce:
+  region: us-west-1
