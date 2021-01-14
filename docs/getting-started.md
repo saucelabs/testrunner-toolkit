@@ -1,17 +1,13 @@
 ---
 id: getting-started
-title: Getting Started with the Cypress Beta
-sidebar_label: Getting Started
+title: Getting Started with the Cypress on Sauce Labs
+sidebar_label: Getting Started on Sauce Labs
 ---
 
 ## What You'll Need
 
 * A [Sauce Labs](https://saucelabs.com/) account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
-* [Docker](https://docs.docker.com/get-docker/) installed
-* Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g. `docker info` works in your terminal)
-
-
-
-
-
+* Sign up for [Cypress beta](https://saucelabs.com/platform/automation-tools/cypress) on Sauce Labs
+* To start running your Cypress tests on Sauce Labs, read more [here] (https://docs.staging.saucelabs.net/web-apps/automated-testing/cypress)
+* If you have any issues, please feel free to reach out at beta+stt@saucelabs.com.
 ___
