@@ -25,26 +25,32 @@
 // If it meets docker permission issue with jenkins user,
 // it can be modified by adding jenkins to docker group.
 
+
 pipeline {
   agent {
      docker {
-       image 'saucelabs/stt-testcafe-node:latest'
+       image 'node:10.12'
      }
   }
 
-  stages {
-    environment {
-      // it can load the record key variable from credentials store
-      // see https://jenkins.io/doc/book/using/using-credentials/
-      // https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials
-      SAUCE_USERNAME = credentials('sauce-username')
-      SAUCE_ACCESS_KEY = credentials('sauce-access-key')
-    }
+  environment {
+    // it can load the record key variable from credentials store
+    // see https://jenkins.io/doc/book/using/using-credentials/
+    // https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials
+    SAUCE_USERNAME = credentials('sauce-username')
+    SAUCE_ACCESS_KEY = credentials('sauce-access-key')
+  }
 
+  stages {
     stage('run') {
       steps {
         // This step trigger the test 
-        sh 'cd ~/app && saucectl run -c ./.sauce/testcafe.yml'
+        echo 'Run Sauce Cypress Pipeline Test'
+        sh 'npm install -g saucectl'
+        sh 'rm -rf testrunner-toolkit || true'
+        sh '/usr/bin/git clone https://github.com/saucelabs/testrunner-toolkit.git'
+        sh 'cd testrunner-toolkit && saucectl run -c .sauce/testcafe.yml'
+        sh 'rm -rf ../testrunner-toolkit'
       }
     }
   }
