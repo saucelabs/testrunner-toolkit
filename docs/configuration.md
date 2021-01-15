@@ -177,6 +177,16 @@ For example, to run your tests in the Sauce Cloud:
 saucectl run --test-env sauce --ccy 5
 ```
 
+When using the Sauce Cloud, you can also control how many suites should run in concurrently via the `--ccy` flag.
+Alternatively, you can also set it in the config (CLI flags take precedence):
+```yaml
+sauce:
+  region: us-west-1
+  concurrency: 5
+```
+
+Keep in mind that your configured concurrency cannot exceed the available concurrency of your Sauce Labs account.
+
 > **NOTE:** For now, cypress is the only framework that supports the Sauce Cloud environment. All other frameworks run only inside docker.
 
 ## Cross Browser Tests
