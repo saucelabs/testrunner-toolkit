@@ -19,7 +19,7 @@ docker:
     name: saucelabs/stt-cypress-mocha-node
     tag: v0.3.4
 cypress:
-  configFile: "tests/cypress.json"  # We determine related files based on the location of the config file.
+  configFile: "tests/cypress.json"    configFile: "tests/cypress.json"  # We determine related files based on the location of the config file. 
 suites:
   - name: "saucy test"
     browser: "chrome"
