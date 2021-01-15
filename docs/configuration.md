@@ -166,6 +166,29 @@ suites:
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+## Selecting the Test Environment
+Saucectl supports two test environments. Docker and the Sauce Cloud.
+Docker is the default test environment.
+
+Use the CLI flag `--test-env` to specify where to run your tests.
+
+For example, to run your tests in the Sauce Cloud:
+```shell
+saucectl run --test-env sauce --ccy 5
+```
+
+When using the Sauce Cloud, you can also control how many suites should run in concurrently via the `--ccy` flag.
+Alternatively, you can also set it in the config (CLI flags take precedence):
+```yaml
+sauce:
+  region: us-west-1
+  concurrency: 5
+```
+
+Keep in mind that your configured concurrency cannot exceed the available concurrency of your Sauce Labs account.
+
+> **NOTE:** For now, cypress is the only framework that supports the Sauce Cloud environment. All other frameworks run only inside docker.
+
 ## Cross Browser Tests
 If you wish to execute tests on different browsers while using Testrunner Toolkit, add the `suites` parameter to your `.sauce/config.yml`:
 
@@ -280,6 +303,11 @@ apiVersion: v1alpha
 kind: cypress
 sauce:
   region: us-west-1
+## Tunnel allows you to specify an existing sauce connect tunnel when running cypress inside the Sauce cloud.
+## This has no effect when running tests inside docker.
+#  tunnel:
+#    id: your_tunnel_id
+#    parent: parent_owner_of_tunnel # if applicable, specify the owner of the tunnel
   metadata:
     name: Testing Cypress Support
     tags:
