@@ -7,73 +7,17 @@ sidebar_label: FAQs
 
 Below are list of frequently asked questions regarding some of the business and technical use cases surrounding the Testrunner Toolkit.
 
-<!--__Table of Contents__
-* [Why Do I See This Error?](#why-do-i-see-this-error?)
-* [Do My Tests Run In The Sauce Labs Cloud?](#do-my-tests-run-in-the-sauce-labs-cloud?)
-* [Why Testrunner Toolkit?](#why-testrunner-toolkit?)
-* [Where are the Docker Images and Can I Inspect Them?](#where-are-the-docker-images-and-can-i-inspect-them?)
-* [Are There any Framework Test Code Samples?](#are-there-any-framework-test-code-samples?)
-* [How Do I Use This in my Pipeline?](#how-do-i-use-this-in-my-pipeline?)
--->
+## Who is the Cypress beta for? 
+The Cypress beta is for both Sauce Labs customers and prospects who have expressed interest in the Sauce Testrunner Toolkit and our Cypress testing support. 
 
-## Why Do I See This Error?
-If you see the following message in your Job's metadata: `Misconfigured -- Unsupported OS/browser/version/device combo: OS: '*', Browser: 'googlechrome', Version: '*.', Device: 'unspecified'`, it is an artifact of our early beta and will be addressed soon. Rest assured that your Job should appropriately succeed or fail depending on the test results themselves and in spite of this error message.
+## As a customer, is it free to try out? 
+Any Sauce Labs customer in the beta will be able to run tests in parallel using their existing account. If you have a plan for 10 concurrent tests, then this will be the maximum concurrency you can use in this beta. If you need your account adjusted to try out this solution or want it extended to include new teams, please reach out to your account team.
 
-## Do My Tests Run In The Sauce Labs Cloud?
-No. The testrunner toolkit and, more specifically saucectl, launches tests in a docker container that is local to your environment. Only the test *results and assets* are uploaded to Sauce Labs for reporting purposes.
-However, it is a feature we are currently working on!
+## My free trial has expired, can it be extended? 
+Definitely, if you’re on a trial account, send us an email at `beta+stt@saucelabs.com` and we’ll extend your trial so you can test out this new solution. 
 
-## How Does Testrunner Toolkit Work?
-Native JavaScript testing is achieved through the combination of Sauce Labs and the
-JavaScript framework of your choice. In the current beta, the toolkit supports:
- 
-* [Puppeteer](https://github.com/puppeteer/puppeteer)
-* [Playwright](https://github.com/microsoft/playwright)
-* [TestCafe](https://github.com/DevExpress/testcafe)
-* [Cypress](https://github.com/cypress-io/cypress)
+## What’s next?
+Let us know what’s missing! The team will listen to Cypress beta feedback and also be adding support for Playwright and TestCafe. Also on the roadmap is container support on Sauce Labs cloud. 
 
-This approach gives you the power and expressiveness of different test frameworks with the dashboards, infrastructure, and analytics of [Sauce Labs](https://saucelabs.com/). 
-
-The specific framework you want to use to for testing should be based on the types of tests you
-need to run and the environment in which you are running them. In this beta you will be able to
-run tests in your existing CI pipeline and benefit from the low latency. 
-
-When tests are completed, logs, results, and videos will be uploaded to Sauce Labs to your account. After that, you can review, share, and analyze those results just as you would from any other test executed on Sauce Labs.
-
-To learn more about:
-
-* Jest, visit [https://jestjs.io/](https://jestjs.io/)
-* The Google Puppeteer project, visit [https://developers.google.com/web/tools/puppeteer](https://developers.google.com/web/tools/puppeteer)
-* The Microsoft Playwright project, visit [https://github.com/microsoft/playwright](https://github.com/microsoft/playwright)
-* TestCafe, visit [https://devexpress.github.io/testcafe/](https://devexpress.github.io/testcafe/)
-* Cypress, visit [https://github.com/cypress-io/cypress](https://github.com/cypress-io/cypress)
-
-## Where are the Docker Images and Can I Inspect Them?
-
-All images are hosted on Docker Hub. 
-
-* [Base image](https://hub.docker.com/r/saucelabs/testrunner-image/tags)
-is called `testrunner`. It contains the tooling necessary to record videos, VNC etc. Plus Chrome, and a Firefox version. 
-
-* [Base image + Playwright](https://hub.docker.com/r/saucelabs/stt-playwright-jest-node/tags)
-contains saucectl with different versions of Playwright.
-
-* [Base image + Puppeteer](https://hub.docker.com/r/saucelabs/stt-puppeteer-jest-node/tags)
-contains saucectl with different versions of Puppeteer.
-
-* [Base image + TestCafe](https://hub.docker.com/r/saucelabs/stt-testcafe-node/tags)
-contains saucectl with different versions of TestCafe.
-
-* [Base image + Cypress](https://hub.docker.com/r/saucelabs/stt-cypress-mocha-node/tags) contains saucectl with different versions of Cypress.
-
-## Are There any Test Code Samples? 
-Yes! You can find them here: [Automation Framework Examples](https://docs.staging.saucelabs.net/testrunner-toolkit/running-tests#automation-framework-examples).
-
-## How Do I Use This in my Pipeline?
-The GitHub repository includes CI/CD examples of `saucectl` using:
-* [GitHub Actions Workflows](https://help.github.com/en/actions) 
-* [CircleCI Pipelines](https://circleci.com/docs/2.0/configuration-reference/) 
-
-Although the [GitHub Actions](./.github/workflows/tests.yml) and [CircleCI](./.circleci/config.yml) 
-examples are included, the mechanism works with any CI/CD provider that supports containers.
-___
+## How do I give feedback?
+If you have questions or support requests, please email us at `beta+stt@saucelabs.com`. If you have feature requests, please log them to our GitHub project at https://github.com/saucelabs/testrunner-toolkit. 
