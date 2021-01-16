@@ -7,29 +7,35 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Dependencies
-          command: npm install
-      - run:
-          name: Build Project
+          name: Download saucectl
           command: |
-            npm run build
+              SAUCECTL_VERSION=0.23.2
+              SAUCECTL_BINARY=saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz
+              curl -L -o ${SAUCECTL_BINARY} \
+                -H "Accept: application/octet-stream" \
+                https://github.com/saucelabs/saucectl/releases/download/v${SAUCECTL_VERSION}/${SAUCECTL_BINARY} \
+                && tar -xvzf ${SAUCECTL_BINARY}
       - persist_to_workspace:
           root: ~/app
           paths:
             - .
-  
-  # Puppeteer Example
-  test-puppeteer:
+
+  # Cypress Example
+  test-cypress:
     working_directory: ~/app
     docker:
-      - image: saucelabs/stt-puppeteer-jest-node:latest
+      - image: ubuntu:20.04
     steps:
       - attach_workspace:
           at: ~/app
+      - setup_remote_docker:
+          version: 19.03.13
       - run:
-          name: Puppeteer Tests
+          name: Cypress Tests
           command: |
-            saucectl run -c ./.sauce/puppeteer.yml
+            chmod -R 777 ./tests
+            sed -i 's/fileTransfer: mount/fileTransfer: copy/g' ./.sauce/cypress.yml
+            ./saucectl run -c ./.sauce/cypress.yml
           environment:
             BUILD_ID: $CIRCLE_BUILD_NUM
             BUILD_ENV: CircleCI
@@ -38,15 +44,39 @@ jobs:
   test-playwright:
     working_directory: ~/app
     docker:
-      - image: saucelabs/stt-playwright-jest-node:latest
+      - image: ubuntu:20.04
     steps:
       - attach_workspace:
           at: ~/app
+      - setup_remote_docker:
+          version: 19.03.13
       - run:
           name: Playwright Tests
           command: |
-            saucectl run -c ./.sauce/playwright.yml
+            chmod -R 777 ./tests
+            ./saucectl run -c ./.sauce/playwright.yml
           environment:
+            SKIP_CI: true
+            BUILD_ID: $CIRCLE_BUILD_NUM
+            BUILD_ENV: CircleCI
+
+  # Puppeteer Example
+  test-puppeteer:
+    working_directory: ~/app
+    docker:
+      - image: ubuntu:20.04
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - setup_remote_docker:
+          version: 19.03.13
+      - run:
+          name: Playwright Tests
+          command: |
+            chmod -R 777 ./tests
+            ./saucectl run -c ./.sauce/puppeteer.yml
+          environment:
+            SKIP_CI: true
             BUILD_ID: $CIRCLE_BUILD_NUM
             BUILD_ENV: CircleCI
 
@@ -54,31 +84,19 @@ jobs:
   test-testcafe:
     working_directory: ~/app
     docker:
-      - image: saucelabs/stt-testcafe-node:latest
+      - image: ubuntu:20.04
     steps:
       - attach_workspace:
           at: ~/app
+      - setup_remote_docker:
+          version: 19.03.13
       - run:
-          name: Testcafe Tests
+          name: Playwright Tests
           command: |
-            saucectl run -c ./.sauce/testcafe.yml
+            chmod -R 777 ./tests
+            ./saucectl run -c ./.sauce/testcafe.yml
           environment:
-            BUILD_ID: $CIRCLE_BUILD_NUM
-            BUILD_ENV: CircleCI
-
-  # Cypress Example
-  test-cypress:
-    working_directory: ~/app
-    docker:
-      - image: saucelabs/stt-cypress-mocha-node:latest
-    steps:
-      - attach_workspace:
-          at: ~/app
-      - run:
-          name: Testcafe Tests
-          command: |
-            saucectl run -c ./.sauce/cypress.yml
-          environment:
+            SKIP_CI: true
             BUILD_ID: $CIRCLE_BUILD_NUM
             BUILD_ENV: CircleCI
 
@@ -87,10 +105,13 @@ workflows:
   default_workflow:
     jobs:
       - setup
-      - test-puppeteer:
+      - test-cypress:
           requires:
             - setup
       - test-playwright:
+          requires:
+            - setup
+      - test-puppeteer:
           requires:
             - setup
       - test-testcafe:
