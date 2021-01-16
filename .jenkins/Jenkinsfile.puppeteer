@@ -25,6 +25,8 @@
 // If it meets docker permission issue with jenkins user,
 // it can be modified by adding jenkins to docker group.
 
+// ** You can setup a node to run the test. Running test on master will encounter into docker in docker issue. **
+
 pipeline {
   agent {
      docker {
