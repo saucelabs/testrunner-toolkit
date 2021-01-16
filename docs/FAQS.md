@@ -20,4 +20,4 @@ Definitely, if you’re on a trial account, send us an email at `beta+stt@saucel
 Let us know what’s missing! The team will listen to Cypress beta feedback and also be adding support for Playwright and TestCafe. Also on the roadmap is container support on Sauce Labs cloud. 
 
 ## How do I give feedback?
-If you have questions or support requests, please join our Slack channel or email us at `beta+stt@saucelabs.com`. If you have feature requests, please log them to our GitHub project at https://github.com/saucelabs/testrunner-toolkit. 
+If you have questions or support requests, please email us at `beta+stt@saucelabs.com`. If you have feature requests, please log them to our GitHub project at https://github.com/saucelabs/testrunner-toolkit. 
