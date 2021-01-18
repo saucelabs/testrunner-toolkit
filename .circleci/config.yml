@@ -54,6 +54,7 @@ jobs:
             chmod -R 777 ./tests
             ./saucectl run -c ./.sauce/playwright.yml
           environment:
+            SKIP_CI: true
             BUILD_ID: $CIRCLE_BUILD_NUM
             BUILD_ENV: CircleCI
 
@@ -65,14 +66,13 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
-      - setup_remote_docker:
-          version: 19.03.13
       - run:
           name: Puppeteer Tests
           command: |
             chmod -R 777 ./tests
             ./saucectl run -c ./.sauce/puppeteer.yml
           environment:
+            SKIP_CI: true
             BUILD_ID: $CIRCLE_BUILD_NUM
             BUILD_ENV: CircleCI
 
@@ -92,6 +92,7 @@ jobs:
             chmod -R 777 ./tests
             ./saucectl run -c ./.sauce/testcafe.yml
           environment:
+            SKIP_CI: true
             BUILD_ID: $CIRCLE_BUILD_NUM
             BUILD_ENV: CircleCI
 
