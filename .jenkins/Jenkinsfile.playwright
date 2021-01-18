@@ -28,11 +28,7 @@
 // ** You can setup a node to run the test. Running test on master will encounter into docker in docker issue. **
 
 pipeline {
-  agent {
-     docker {
-       image 'node:10.12'
-     }
-  }
+  agent any
 
   environment {
     // it can load the record key variable from credentials store
