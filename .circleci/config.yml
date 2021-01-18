@@ -60,40 +60,38 @@ jobs:
   # Puppeteer Example
   test-puppeteer:
     working_directory: ~/app
-    docker:
-      - image: ubuntu:20.04
+    machine:
+      image: ubuntu-2004:202010-01
     steps:
       - attach_workspace:
           at: ~/app
       - setup_remote_docker:
           version: 19.03.13
       - run:
-          name: Playwright Tests
+          name: Puppeteer Tests
           command: |
             chmod -R 777 ./tests
             ./saucectl run -c ./.sauce/puppeteer.yml
           environment:
-            SKIP_CI: true
             BUILD_ID: $CIRCLE_BUILD_NUM
             BUILD_ENV: CircleCI
 
   # Testcafe Example
   test-testcafe:
     working_directory: ~/app
-    docker:
-      - image: ubuntu:20.04
+    machine:
+      image: ubuntu-2004:202010-01
     steps:
       - attach_workspace:
           at: ~/app
       - setup_remote_docker:
           version: 19.03.13
       - run:
-          name: Playwright Tests
+          name: Testcafe Tests
           command: |
             chmod -R 777 ./tests
             ./saucectl run -c ./.sauce/testcafe.yml
           environment:
-            SKIP_CI: true
             BUILD_ID: $CIRCLE_BUILD_NUM
             BUILD_ENV: CircleCI
 
