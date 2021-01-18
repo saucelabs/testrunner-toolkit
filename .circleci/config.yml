@@ -20,7 +20,26 @@ jobs:
           paths:
             - .
 
-  # Cypress Example
+  # Cypress Running in Docker Example
+  test-cypress-docker:
+    working_directory: ~/app
+    docker:
+      - image: ubuntu:20.04
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - setup_remote_docker:
+          version: 19.03.13
+      - run:
+          name: Cypress Tests
+          command: |
+            chmod -R 777 ./tests
+            sed -i 's/fileTransfer: mount/fileTransfer: copy/g' ./.sauce/cypress.yml
+            ./saucectl run -c ./.sauce/cypress.yml
+          environment:
+            BUILD_ID: $CIRCLE_BUILD_NUM
+            BUILD_ENV: CircleCI
+
   test-cypress:
     working_directory: ~/app
     machine:
@@ -97,6 +116,9 @@ workflows:
   default_workflow:
     jobs:
       - setup
+      - test-cypress-docker:
+          requires:
+            - setup
       - test-cypress:
           requires:
             - setup
