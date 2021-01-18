@@ -84,8 +84,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
-      - setup_remote_docker:
-          version: 19.03.13
       - run:
           name: Testcafe Tests
           command: |
