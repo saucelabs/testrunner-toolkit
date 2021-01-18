@@ -23,13 +23,11 @@ jobs:
   # Cypress Example
   test-cypress:
     working_directory: ~/app
-    docker:
-      - image: ubuntu:20.04
+    machine:
+      image: ubuntu-2004:202010-01
     steps:
       - attach_workspace:
           at: ~/app
-      - setup_remote_docker:
-          version: 19.03.13
       - run:
           name: Cypress Tests
           command: |
