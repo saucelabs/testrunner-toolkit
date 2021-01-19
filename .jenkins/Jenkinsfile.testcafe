@@ -36,6 +36,7 @@ pipeline {
     // https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials
     SAUCE_USERNAME = credentials('sauce-username')
     SAUCE_ACCESS_KEY = credentials('sauce-access-key')
+    SKIP_CI = true
   }
 
   stages {
