@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Contributing · Testrunner Toolkit Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Thank you for your interest in making this project even better and more awesome. Your contributions are highly welcomed."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Contributing · Testrunner Toolkit Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://saucelabs.github.io/testrunner-toolkit/"/><meta property="og:description" content="Thank you for your interest in making this project even better and more awesome. Your contributions are highly welcomed."/><meta property="og:image" content="https://saucelabs.github.io/testrunner-toolkit/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://saucelabs.github.io/testrunner-toolkit/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/testrunner-toolkit/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-6735579-1', 'auto');
+              ga('send', 'pageview');
+            </script><link rel="stylesheet" href="https://use.typekit.net/zmt8tam.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/testrunner-toolkit/js/code-block-buttons.js"></script><script src="/testrunner-toolkit/js/scrollSpy.js"></script><link rel="stylesheet" href="/testrunner-toolkit/css/main.css"/><script src="/testrunner-toolkit/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/testrunner-toolkit/"><img class="logo" src="/testrunner-toolkit/img/logo-saucelabs.png" alt="Testrunner Toolkit Documentation"/></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="https://saucelabs.com/sign-up" target="_blank">Try Sauce Labs</a></li><li class=""><a href="https://app.saucelabs.com/" target="_blank">Sign in</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Cypress Beta</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Cypress Beta<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/testrunner-toolkit/docs/getting-started">Getting Started on Sauce Labs</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/testrunner-toolkit/docs/contributing">Contributing</a></li><li class="navListItem"><a class="navItem" href="/testrunner-toolkit/docs/code-of-conduct">Code of Conduct</a></li><li class="navListItem"><a class="navItem" href="/testrunner-toolkit/docs/faqs">FAQs</a></li><li class="navListItem"><a class="navItem" href="/testrunner-toolkit/docs/resources">Resources</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Contributing</h1></header><article><div><span><p>Thank you for your interest in making this project even better and more awesome. Your contributions are highly welcomed.</p>
+<p>The Sauce Labs <code>saucectl</code> repo is an Open Source project. We are excited to engage with you
+and the community.</p>
+<p>Contribution can come in many forms; writing examples, making suggestions, pointing out bugs,
+or updating documentation. Most important is your patience and engagement. We are starting a
+significant journey in the open instead of behind closed doors. Join us to make something great.</p>
+<h2><a class="anchor" aria-hidden="true" id="reporting-bugs"></a><a href="#reporting-bugs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reporting Bugs</h2>
+<p>Reporting bugs is one of the best ways to contribute. Before creating a bug report, please check that an issue reporting the same problem does not already exist. If there is an such an issue, you may add your information as a comment.</p>
+<p>Feel free to start <a href="https://github.com/saucelabs/saucectl/issues">here</a>. Please fill out the
+required information, be clear, specific, and add working examples of the problems you are
+seeing. The problem will be resolved a lot faster if you do</p>
+<h2><a class="anchor" aria-hidden="true" id="features"></a><a href="#features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Features</h2>
+<p>We have a lot of ideas and I'm sure you do too. Please use our
+<a href="https://github.com/saucelabs/saucectl/issues">issues list</a> to suggest new features
+that you would like to see added.</p>
+<p>Once again, detail wins. Be clear and outcome oriented in your requests - it just makes
+it easier for us to evaluate and prioritize.</p>
+<h2><a class="anchor" aria-hidden="true" id="contribute-code"></a><a href="#contribute-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contribute Code</h2>
+<p>If you would like to contribute either by fixing a bug or adding a feature, please make sure it
+the code change is attached to a prior (or new) issue in the
+<a href="https://github.com/saucelabs/saucectl/issues">issues list</a>.</p>
+<p>We will likely reach out to you to ask questions and discuss approaches. Please understand this is about ensuring
+that the repo stays easy for everyone to use.</p>
+<h3><a class="anchor" aria-hidden="true" id="step-1-create-a-fork"></a><a href="#step-1-create-a-fork" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 1: Create a Fork</h3>
+<p>Make a fork and then clone the <a href="https://github.com/saucelabs/saucectl">saucectl</a> repository.
+If you need help, you can refer to the <a href="https://help.github.com/articles/fork-a-repo">GitHub help page</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="step-2-make-changes-and-commit-them"></a><a href="#step-2-make-changes-and-commit-them" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 2: Make changes and commit them</h3>
+<p>First make sure git knows your name and email address:</p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">%</span><span class="bash"> git config --global user.name <span class="hljs-string">'Santa Claus'</span></span>
+<span class="hljs-meta">%</span><span class="bash"> git config --global user.email <span class="hljs-string">'santa@example.com'</span></span>
+</code></pre>
+<p><strong>Writing good commit messages is important.</strong> A commit message
+should describe what changed, why, and reference issues fixed (if
+any). Follow these guidelines when writing one:</p>
+<ol>
+<li>The first line should be around 50 characters or less and contain a
+short description of the change.</li>
+<li>Keep the second line blank.</li>
+<li>Wrap all other lines at 72 columns.</li>
+<li>Include <code>Fixes #N</code>, where <em>N</em> is the issue number the commit
+fixes, if any.</li>
+</ol>
+<p>A good commit message can look like this:</p>
+<pre><code class="hljs css language-text">explain commit normatively in one line
+
+Body of commit message is a few lines of text, explaining things
+in more detail, possibly giving some background about the issue
+being fixed, etc.
+
+The body of the commit message can be several paragraphs, and
+please do proper word-wrap and keep columns shorter than about
+72 characters or so. That way `git log` will show things
+nicely even when it is indented.
+
+Fixes #141
+</code></pre>
+<p>The first line must be meaningful as it's what people see when they
+run <code>git shortlog</code> or <code>git log --oneline</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="step-3-test"></a><a href="#step-3-test" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 3: Test</h3>
+<p>Bug fixes and features <strong>should have tests</strong>. Look at other tests to
+see how they should be structured.</p>
+<h3><a class="anchor" aria-hidden="true" id="step-4-submit-a-pr"></a><a href="#step-4-submit-a-pr" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 4: Submit a PR</h3>
+<p>Commit your changes to your fork and then create and submit a PR to <code>saucectl</code>.
+Make sure your PR has a clear description of the problem/outcome you are addressing
+and how you are approaching it. There is a template that simplifies this procss.</p>
+<p>For help, you can refer to
+<a href="https://help.github.com/articles/using-pull-requests">submitting a pull request</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="step-5-connect"></a><a href="#step-5-connect" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 5: Connect</h3>
+<p>We will reach out to ask any questions or make suggestions. Once done, we will
+merge the change and... congratulations! You've contributed to improving digital confidence!</p>
+<p>Have fun and enjoy hacking!</p>
+<hr>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 7/24/2020 by James Tacker</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/testrunner-toolkit/docs/getting-started"><span class="arrow-prev">← </span><span>Getting Started on Sauce Labs</span></a><a class="docs-next button" href="/testrunner-toolkit/docs/code-of-conduct"><span>Code of Conduct</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#reporting-bugs">Reporting Bugs</a></li><li><a href="#features">Features</a></li><li><a href="#contribute-code">Contribute Code</a><ul class="toc-headings"><li><a href="#step-1-create-a-fork">Step 1: Create a Fork</a></li><li><a href="#step-2-make-changes-and-commit-them">Step 2: Make changes and commit them</a></li><li><a href="#step-3-test">Step 3: Test</a></li><li><a href="#step-4-submit-a-pr">Step 4: Submit a PR</a></li><li><a href="#step-5-connect">Step 5: Connect</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><div class="wrapper"><div class="logo"><img src="/testrunner-toolkit/img/logo-saucelabs-inverted.png" height="32"/></div></div><div class="wrapper"><div><h5>Docs</h5><a href="/testrunner-toolkit/docs/installation">Installation</a><a href="/testrunner-toolkit/docs/test-preparation">Test Preparation</a><a href="/testrunner-toolkit/docs/configuration">Configuration</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/testrunner-toolkit" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/saucelabs" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://Saucelabs.com">Sauce Labs</a><a href="https://github.com/saucelabs/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></div></section><section class="footer-links"><div class="wrapper"><div class="social-container"><p>Follow us</p><a href="https://www.facebook.com/saucelabs" target="_blank" data-ta="click" data-tc="Icon" data-tl="facebook"><i class="svg svg-facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-3 7h-1.924c-.615 0-1.076.252-1.076.889v1.111h3l-.238 3h-2.762v8h-3v-8h-2v-3h2v-1.923c0-2.022 1.064-3.077 3.461-3.077h2.539v3z"></path></svg></i></a><a href="https://www.linkedin.com/company/891955" target="_blank" data-ta="click" data-tc="Icon" data-tl="linkedin"><i class="svg svg-linkedin"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></i></a><a href="https://twitter.com/saucelabs" target="_blank" data-ta="click" data-tc="Icon" data-tl="twitter"><i class="svg svg-twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-.139 9.237c.209 4.617-3.234 9.765-9.33 9.765-1.854 0-3.579-.543-5.032-1.475 1.742.205 3.48-.278 4.86-1.359-1.437-.027-2.649-.976-3.066-2.28.515.098 1.021.069 1.482-.056-1.579-.317-2.668-1.739-2.633-3.26.442.246.949.394 1.486.411-1.461-.977-1.875-2.907-1.016-4.383 1.619 1.986 4.038 3.293 6.766 3.43-.479-2.053 1.08-4.03 3.199-4.03.943 0 1.797.398 2.395 1.037.748-.147 1.451-.42 2.086-.796-.246.767-.766 1.41-1.443 1.816.664-.08 1.297-.256 1.885-.517-.439.656-.996 1.234-1.639 1.697z"></path></svg></i></a></div><div class="link-container"><a class="link" href="https://saucelabs.com/privacy-policy" target="" data-ta="click" data-tc="Text" data-tl="">Privacy Policy</a><a class="link" href="https://saucelabs.com/terms-of-service" target="" data-ta="click" data-tc="Text" data-tl="">Terms of Service </a><a class="link" href="https://saucelabs.com/eea" target="" data-ta="click" data-tc="Text" data-tl="">EEA</a><a class="link" href="https://saucelabs.com/ccpa" target="" data-ta="click" data-tc="Text" data-tl="">CCPA</a></div></div></section><section class="footer-copyright"><div class="wrapper"><p class="copyright">Copyright © 2020-2021 Sauce Labs Labs Inc., all rights reserved. SAUCE and SAUCE LABS are registered trademarks owned by Sauce Labs Inc. in the United States, EU, and may be registered in other jurisdictions.</p></div></section></footer></div></body></html>
