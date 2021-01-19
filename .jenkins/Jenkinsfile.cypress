@@ -25,27 +25,29 @@
 // If it meets docker permission issue with jenkins user,
 // it can be modified by adding jenkins to docker group.
 
+// ** You can setup a node to run the test. Running test on master will encounter into docker in docker issue. **
+
 pipeline {
-  agent {
-     docker {
-       image 'saucelabs/stt-cypress-mocha-node:latest'
-     }
+  agent any
+     
+  environment {
+    // it can load the record key variable from credentials store
+    // see https://jenkins.io/doc/book/using/using-credentials/
+    // https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials
+    SAUCE_USERNAME = credentials('sauce-username')
+    SAUCE_ACCESS_KEY = credentials('sauce-access-key')
   }
 
   stages {
-    environment {
-      // it can load the record key variable from credentials store
-      // see https://jenkins.io/doc/book/using/using-credentials/
-      // https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials
-      SAUCE_USERNAME = credentials('sauce-username')
-      SAUCE_ACCESS_KEY = credentials('sauce-access-key')
-    }
-
     stage('run') {
       steps {
         // This step trigger the test 
-        echo 'Run Sauce Pipeline Test'
-        sh 'cd ~/app && saucectl run -c ./.sauce/cypress.yml'
+        echo 'Run Sauce Cypress Pipeline Test'
+        sh 'npm install -g saucectl'
+        sh 'rm -rf testrunner-toolkit || true'
+        sh '/usr/bin/git clone https://github.com/saucelabs/testrunner-toolkit.git'
+        sh 'cd testrunner-toolkit && chmod -R 777 tests && saucectl run -c .sauce/cypress.yml'
+        sh 'rm -rf ../testrunner-toolkit'
       }
     }
   }
