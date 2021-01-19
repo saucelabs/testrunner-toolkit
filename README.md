@@ -7,7 +7,7 @@
 [![Chromium version](https://img.shields.io/badge/chromium-84.0.4131.0-blue.svg?logo=google-chrome)](https://www.chromium.org/Home)
 <!-- [END badges] -->
 
-Sauce Labs [Testrunner Toolkit](https://docs.staging.saucelabs.net/testrunner-toolkit/index.html) is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like Puppeteer and Playwright for running end-to-end web tests with Sauce Labs.
+Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifies user setup, speeds up test execution time and supports native Javascript frameworks like Puppeteer and Playwright for running end-to-end web tests with Sauce Labs.
 
 <!-- [START gettingstarted] -->
 
@@ -16,6 +16,7 @@ Sauce Labs [Testrunner Toolkit](https://docs.staging.saucelabs.net/testrunner-to
 - [Docker](https://docs.docker.com/get-docker/) installed
 - Make sure the Docker daemon is running (e.g. `docker info` works in your terminal)
 - A [Sauce Labs](https://saucelabs.com/) account; if you don't have one, start a [free trial](https://saucelabs.com/sign-up)
+
 
 ## Install
 
