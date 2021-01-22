@@ -282,13 +282,6 @@ This repository includes examples of CI/CD in
 [GitHub Actions](./.github/workflows/tests.yml) and [CircleCI](./.circleci/config.yml) 
 examples are included, the mechanism works with any CI/CD provider that supports containers.
 
-### Running tests in parallel across CI machines
-
-To speed up the test execution in CI, you can parallelize the test execution across CI machines.
-The concrete setup will depend on your CI provider. [Here's an example](https://github.com/saucelabs/saucectl/blob/master/.github/workflows/test.yml#L94-L145) how to set it up for GitHub Actions.
-
-Please visit [here](https://github.com/saucelabs/saucectl#parallel) for more infos about the parallelization feature and its limitations.
-
 <!-- [END about] -->
 
 <!-- [START collaboration] -->
