@@ -9,7 +9,7 @@ jobs:
       - run:
           name: Download saucectl
           command: |
-              SAUCECTL_VERSION=0.23.2
+              SAUCECTL_VERSION=0.24.2
               SAUCECTL_BINARY=saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz
               curl -L -o ${SAUCECTL_BINARY} \
                 -H "Accept: application/octet-stream" \
