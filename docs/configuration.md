@@ -341,7 +341,7 @@ suites:
       testFiles: [ "**/*.*" ] # Cypress native glob support.
 ```
 
-## Set different screen resolution
+## Set different screen resolutions
 If you wish to execute tests on different screen resolutions while using Testrunner Toolkit, add the `screenResolution` parameter to your `.sauce/config.yml`:
 
 ### Example
