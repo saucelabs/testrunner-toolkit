@@ -1,26 +1,29 @@
 apiVersion: v1alpha
-# meta data to the test
-metadata:
-  name: Feature XYZ
-  tags:
-    - e2e
-    - release team
-    - other tag
-  build: "Build #$BUILD_ID in $BUILD_ENV"
-# Every file defined in this list will be bundled into a zip and
-# uploaded to Sauce Labs.
-files:
-  - ./tests/playwright/demo.test.js
-# Define a test runner image (e.g. an image to run WebdriverIO tests)
-# Like in Docker, these images can be developed as Open Source projects
-# and maintained by our teams, while at the same time, customers can
-# build their own images as well
+kind: playwright
+sauce:
+  region: us-west-1
+  concurrency: 1
+  metadata:
+    name: Testing Playwright Support
+    tags:
+      - e2e
+    build: "$BUILD_ID"
+docker:
+  fileTransfer: mount
+playwright:
+  projectPath: tests/e2e/playwright/
+  version: 1.7.1
+  params:
+    browserName: firefox
 suites:
   - name: "saucy test"
-    match: ".*.(spec|test).js$"
-    settings:
+    platformName: "Windows 10"
+    testMatch: '**/*.js'
+    env:
+      hello: world
+
+    # Playwright-test settings
+    params:
       browserName: "firefox"
-image:
-  # while a set of properties are defined by our Yaml format
-  base: saucelabs/stt-playwright-jest-node
-  version: v0.2.3
+      headful: false
+      slowMo: 1000
