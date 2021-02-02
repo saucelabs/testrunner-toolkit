@@ -150,9 +150,7 @@ docker:
   # host as well (and vice versa). However, you may run into permission issues depending on your docker or host settings.
   # In this case the usage of `copy` is advised. `copy` will simply copy files and folders into the container.
   fileTransfer: mount # Defaults to `mount`. Choose between mount|copy.
-  image:
-    name: saucelabs/stt-cypress-mocha-node
-    tag: v0.2.0
+  image: saucelabs/stt-cypress-mocha-node:v5.6.0
 cypress:
   configFile: "cypress.json"  # We determine related files based on the location of the config file.
 suites:
@@ -321,9 +319,7 @@ docker:
   # host as well (and vice versa). However, you may run into permission issues depending on your docker or host settings.
   # In this case the usage of `copy` is advised. `copy` will simply copy files and folders into the container.
   fileTransfer: mount # Defaults to `mount`. Choose between mount|copy.
-  image:
-    name: saucelabs/stt-cypress-mocha-node
-    tag: v0.2.2
+  image: saucelabs/stt-cypress-mocha-node:v5.6.0
 cypress:
   configFile: "cypress.json"  # We determine related files based on the location of the config file.
 suites:
@@ -358,9 +354,7 @@ sauce:
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
 docker:
-#  image:
-#    name: saucelabs/stt-cypress-mocha-node
-#    tag: v0.3.3
+#  image: saucelabs/stt-cypress-mocha-node:v5.6.0
 
 cypress:
   version: 5.6.0
