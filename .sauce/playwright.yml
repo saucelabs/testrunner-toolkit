@@ -20,9 +20,7 @@ docker:
   # In this case the usage of `copy` is advised. `copy` will simply copy files and folders into the container.
   fileTransfer: mount
   # image controls which images to be used for local testing. Change this value is you want to use a custom image.
-  # image:
-  #   name: saucelabs/stt-playwright-jest-node
-  #   tag: v1.7.1
+  # image: saucelabs/stt-playwright-jest-node:v1.7.1
 playwright:
   projectPath: tests/e2e/playwright/
   version: 1.7.1
