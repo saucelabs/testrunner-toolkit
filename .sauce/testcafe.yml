@@ -34,5 +34,5 @@ docker:
   #image: saucelabs/stt-testcafe-node:v0.2.2
 
 testcafe:
-  projectPath: tests/e2e/testcafe
+  projectPath: tests/testcafe
   version: 1.8.5
