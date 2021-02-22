@@ -269,29 +269,37 @@ sauce:
 
 ```yaml
 apiVersion: v1alpha
-metadata:
-  name: Testing TestCafe Support
-  tags:
-    - e2e
-    - release team
-    - other tag
-  build: Release $CI_COMMIT_SHORT_SHA
-files:
-  - ./tests
-suites:
-  - name: "chrome"
-    match: ".*.(spec|test).js$"
-    settings:
-      browserName: "chrome"
-  - name: "firefox"
-    match: ".*.(spec|test).js$"
-    settings:
-      browserName: "firefox"
-image:
-  base: saucelabs/stt-testcafe-node
-  version: v0.1.12
+kind: testcafe
 sauce:
   region: us-west-1
+  concurrency: 1 # Controls how many suites are executed at the same time (sauce test env only).
+  metadata:
+    name: Testing Testcafe Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
+suites:
+  - name: "saucy test"
+    browserName: "chrome" # Although Testcafe supports triggering one test in multiple browsers, it'd better here to split them into every suite to indicate each suite has its own test point.
+    src:
+      - "*/*.test.js" # test files glob
+    screenshots:
+      takeOnFails: true
+      fullPage: true
+    platformName: "windows 10"
+    env:
+      hello: world
+    speed: 1
+
+docker:
+  fileTransfer: copy # Defaults to `mount`. Choose between mount|copy.
+  #image: saucelabs/stt-testcafe-node:v0.2.2
+
+testcafe:
+  projectPath: tests/e2e/testcafe
+  version: 1.8.5
 ```
 
 <!--Cypress-->
