@@ -3,7 +3,7 @@ kind: testcafe
 sauce:
   region: us-west-1
   concurrency: 1 # Controls how many suites are executed at the same time (sauce test env only).
-## Tunnel allows you to specify an existing sauce connect tunnel when running playwright inside the Sauce cloud.
+## Tunnel allows you to specify an existing sauce connect tunnel when running testcafe inside the Sauce cloud.
 ## This has no effect when running tests inside docker.
 #  tunnel:
 #    id: your_tunnel_id
