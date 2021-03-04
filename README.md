@@ -12,7 +12,7 @@ Sauce Labs Testrunner Toolkit is a containerized testing solution that simplifie
 
 ## Getting started
 
-How to install and use Sauce Testrunner Toolkit, [read more](https://docs.saucelabs.com/testrunner-toolkit) here.
+To install and use Sauce Testrunner Toolkit, [read more](https://docs.saucelabs.com/testrunner-toolkit) here.
 
 <!-- [END about] -->
 
