@@ -23,7 +23,7 @@ suites:
     screenshots:
       takeOnFails: true
       fullPage: true
-    platformName: "windows 10"
+    platformName: "Windows 10"
     env:
       hello: world
     speed: 1
